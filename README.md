@@ -1,6 +1,5 @@
 # mag
 Dian-Jin
-线上：http://mag.dian-jin.com/mag/user/index.html
 本地：http://127.0.0.1/mag/user/index.html
 本地2：http://mag1.dian-jin.com/mag/user/index.html
 
