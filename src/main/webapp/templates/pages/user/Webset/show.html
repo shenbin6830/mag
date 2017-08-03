@@ -1,0 +1,45 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Webset.id">
+		<tr><th>序号ID</th><td>
+		${webset.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Webset.cname">
+		<tr><th>名称简介</th><td>
+		${webset.cname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Webset.ckey">
+		<tr><th>关键字</th><td>
+		${webset.ckey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Webset.enumFieldType">
+		<tr><th>字段类型</th><td>
+		${webset.enumFieldTypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Webset.cmemo">
+		<tr><th>备注说明</th><td>
+		${webset.cmemo}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Webset.cvalue">
+		<tr><th>值</th><td>
+		${webset.cvalue}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

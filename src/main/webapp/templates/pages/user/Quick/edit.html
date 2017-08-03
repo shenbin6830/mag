@@ -1,0 +1,68 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Quick/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${quick.id}" />
+	<@z.pmt key="42.Quick.gmtPay">
+				<@p.date label="db.Quick.gmtPay" nameid="gmtPay"  value="${quick.gmtPayString}" help="" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.gmtStart">
+				<@p.date label="db.Quick.gmtStart" nameid="gmtStart"  value="${quick.gmtStartString}" help="" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.gmtOver">
+				<@p.date label="db.Quick.gmtOver" nameid="gmtOver"  value="${quick.gmtOverString}" help="" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.status">
+				<@p.radiolocal label="db.Quick.status" nameid="status" value="${quick.status}" help="" mapname="selectmap_Quick_status" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.ptype">
+				<@p.radiolocal label="db.Quick.ptype" nameid="ptype" value="${quick.ptype}" help="" mapname="selectmap_Quick_ptype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.priority">
+				<@p.textnumber label="db.Quick.priority" nameid="priority"  value="${quick.priority}" help="数字越小排名越前" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.articlechannelId">
+				<@p.selecttree  label="db.Quick.articlechannelId" nameid="articlechannelId" url="${baserest}/user/Articlechannel/tree.html" multiple="" headerKey="${quick.articlechannelId}" headerValue="${quick.articlechannelIdString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Quick.memberQu">
+				<@p.searchforid label="db.Quick.memberQu" nameid="memberQu" value="${quick.memberQu}" stringvalue="${quick.memberQuString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.priceeach">
+				<@p.textnumber label="db.Quick.priceeach" nameid="priceeach"  value="${quick.priceeach}" help="" dataoptions="min:-999999999,max:999999999,precision:3," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.pricenum">
+				<@p.textnumber label="db.Quick.pricenum" nameid="pricenum"  value="${quick.pricenum}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.viewprice">
+				<@p.textnumber label="db.Quick.viewprice" nameid="viewprice"  value="${quick.viewprice}" help="" dataoptions="min:-999999999,max:999999999,precision:3," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.answernum">
+				<@p.textnumber label="db.Quick.answernum" nameid="answernum"  value="${quick.answernum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.viewnum">
+				<@p.textnumber label="db.Quick.viewnum" nameid="viewnum"  value="${quick.viewnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Quick.title">
+				<@p.text label="db.Quick.title" nameid="title"  value="${quick.title}" help="" dataoptions="validType:['length[0,40]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Quick.question">
+				<@p.textarea label="db.Quick.question" nameid="question" value="${quick.question}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

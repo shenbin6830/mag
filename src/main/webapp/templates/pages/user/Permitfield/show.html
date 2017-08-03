@@ -1,0 +1,60 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Permitfield.id">
+		<tr><th>序号</th><td>
+		${permitfield.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.roleId">
+		<tr><th>角色</th><td>
+		${permitfield.roleIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.tbname">
+		<tr><th>表名</th><td>
+		${permitfield.tbname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.fieldname">
+		<tr><th>字段名</th><td>
+		${permitfield.fieldname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.fieldalias">
+		<tr><th>字段说明</th><td>
+		${permitfield.fieldalias}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.pf41">
+		<tr><th>增可写字段41</th><td>
+		${permitfield.pf41String}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.pf42">
+		<tr><th>改可写字段42</th><td>
+		${permitfield.pf42String}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.pf51">
+		<tr><th>查可看字段51</th><td>
+		${permitfield.pf51String}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Permitfield.pf52">
+		<tr><th>列表显示字段52</th><td>
+		${permitfield.pf52String}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

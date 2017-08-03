@@ -1,0 +1,70 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.OrderrQuick.id">
+		<tr><th>序号ID</th><td>
+		${orderrQuick.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${orderrQuick.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.gmtPay">
+		<tr><th>支付时间</th><td>
+		${orderrQuick.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.status">
+		<tr><th>支付状态</th><td>
+		${orderrQuick.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.itypePay">
+		<tr><th>支付方式</th><td>
+		${orderrQuick.itypePayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.memberId">
+		<tr><th>会员</th><td>
+		${orderrQuick.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.name">
+		<tr><th>姓名</th><td>
+		${orderrQuick.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.mobile">
+		<tr><th>手机</th><td>
+		${orderrQuick.mobile}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.quickId">
+		<tr><th>抢答问题ID</th><td>
+		${orderrQuick.quickIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.title">
+		<tr><th>问题</th><td>
+		${orderrQuick.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuick.price">
+		<tr><th>总价</th><td>
+		${orderrQuick.price}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

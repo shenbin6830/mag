@@ -1,0 +1,85 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Wxouser/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Wxouser.sellerId">
+				<@p.searchforid label="db.Wxouser.sellerId" nameid="sellerId" value="${wxouser.sellerId}" stringvalue="${wxouser.sellerIdString}" help="实际上是bizId" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.userId">
+				<@p.searchforid label="db.Wxouser.userId" nameid="userId" value="${wxouser.userId}" stringvalue="${wxouser.userIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.statusuf">
+				<@p.radiolocal label="db.Wxouser.statusuf" nameid="statusuf" value="${wxouser.statusuf}" help="" mapname="selectmap_Wxouser_statusuf" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.nickname">
+				<@p.text label="db.Wxouser.nickname" nameid="nickname"  value="${wxouser.nickname}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.sex">
+				<@p.radiolocal label="db.Wxouser.sex" nameid="sex" value="${wxouser.sex}" help="" mapname="selectmap_Wxouser_sex" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.province">
+				<@p.text label="db.Wxouser.province" nameid="province"  value="${wxouser.province}" help="160x160" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.city">
+				<@p.text label="db.Wxouser.city" nameid="city"  value="${wxouser.city}" help="" dataoptions="validType:['length[0,40]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.country">
+				<@p.text label="db.Wxouser.country" nameid="country"  value="${wxouser.country}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.headimgurl">
+				<@p.text label="db.Wxouser.headimgurl" nameid="headimgurl"  value="${wxouser.headimgurl}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.privilege">
+				<@p.text label="db.Wxouser.privilege" nameid="privilege"  value="${wxouser.privilege}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.unionid">
+				<@p.text label="db.Wxouser.unionid" nameid="unionid"  value="${wxouser.unionid}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.realname">
+				<@p.text label="db.Wxouser.realname" nameid="realname"  value="${wxouser.realname}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.mobile">
+				<@p.text label="db.Wxouser.mobile" nameid="mobile"  value="${wxouser.mobile}" help="" dataoptions="validType:['length[0,11]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.email">
+				<@p.text label="db.Wxouser.email" nameid="email"  value="${wxouser.email}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.orderZip">
+				<@p.text label="db.Wxouser.orderZip" nameid="orderZip"  value="${wxouser.orderZip}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.orderAddress">
+				<@p.text label="db.Wxouser.orderAddress" nameid="orderAddress"  value="${wxouser.orderAddress}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.subscribe">
+				<@p.radiolocal label="db.Wxouser.subscribe" nameid="subscribe" value="${wxouser.subscribe}" help="用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。" mapname="selectmap_Wxouser_subscribe" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.subscribeTime">
+				<@p.text label="db.Wxouser.subscribeTime" nameid="subscribeTime"  value="${wxouser.subscribeTime}" help="用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.remark">
+				<@p.text label="db.Wxouser.remark" nameid="remark"  value="${wxouser.remark}" help="公众号运营者对粉丝的备注，公众号运营者可在微信公众平台用户管理界面对粉丝添加备注" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxouser.groupid">
+				<@p.textnumber label="db.Wxouser.groupid" nameid="groupid"  value="${wxouser.groupid}" help="用户所在的分组ID" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

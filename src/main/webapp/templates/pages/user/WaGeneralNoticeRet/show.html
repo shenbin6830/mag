@@ -1,0 +1,140 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaGeneralNoticeRet.id">
+		<tr><th>序号ID</th><td>
+		${waGeneralNoticeRet.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.returnCode">
+		<tr><th>返回状态码</th><td>
+		${waGeneralNoticeRet.returnCode}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.returnMsg">
+		<tr><th>返回信息</th><td>
+		${waGeneralNoticeRet.returnMsg}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.appid">
+		<tr><th>公众账号ID</th><td>
+		${waGeneralNoticeRet.appid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.mchId">
+		<tr><th>商户号</th><td>
+		${waGeneralNoticeRet.mchId}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.deviceInfo">
+		<tr><th>设备号</th><td>
+		${waGeneralNoticeRet.deviceInfo}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.nonceStr">
+		<tr><th>随机字符串</th><td>
+		${waGeneralNoticeRet.nonceStr}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.sign">
+		<tr><th>签名</th><td>
+		${waGeneralNoticeRet.sign}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.resultCode">
+		<tr><th>业务结果</th><td>
+		${waGeneralNoticeRet.resultCode}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.errCode">
+		<tr><th>错误代码</th><td>
+		${waGeneralNoticeRet.errCode}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.errCodeDes">
+		<tr><th>错误代码描述</th><td>
+		${waGeneralNoticeRet.errCodeDes}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.openid">
+		<tr><th>用户标识</th><td>
+		${waGeneralNoticeRet.openid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.isSubscribe">
+		<tr><th>是否关注公众账号</th><td>
+		${waGeneralNoticeRet.isSubscribe}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.tradeType">
+		<tr><th>交易类型</th><td>
+		${waGeneralNoticeRet.tradeType}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.bankType">
+		<tr><th>付款银行</th><td>
+		${waGeneralNoticeRet.bankType}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.totalFee">
+		<tr><th>总金额</th><td>
+		${waGeneralNoticeRet.totalFee}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.feeType">
+		<tr><th>货币种类</th><td>
+		${waGeneralNoticeRet.feeType}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.cashFee">
+		<tr><th>现金支付金额</th><td>
+		${waGeneralNoticeRet.cashFee}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.cashFeeType">
+		<tr><th>现金支付货币类型</th><td>
+		${waGeneralNoticeRet.cashFeeType}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.couponFee">
+		<tr><th>代金券或立减优惠金额</th><td>
+		${waGeneralNoticeRet.couponFee}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.couponCount">
+		<tr><th>代金券或立减优惠使用数量</th><td>
+		${waGeneralNoticeRet.couponCount}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.transactionId">
+		<tr><th>微信支付订单号</th><td>
+		${waGeneralNoticeRet.transactionId}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.outTradeNo">
+		<tr><th>商户订单号</th><td>
+		${waGeneralNoticeRet.outTradeNo}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.attach">
+		<tr><th>商家数据包</th><td>
+		${waGeneralNoticeRet.attach}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaGeneralNoticeRet.timeEnd">
+		<tr><th>支付完成时间</th><td>
+		${waGeneralNoticeRet.timeEnd}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

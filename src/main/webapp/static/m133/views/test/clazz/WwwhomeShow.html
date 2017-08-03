@@ -1,0 +1,28 @@
+<!--WwwhomeShow，手机页首页配置详细信息-->
+<ion-view view-title='手机页首页配置' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/WwwhomeEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">所属用户:{{obj.id}}</li>
+		<li class="item">图标</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.logo}}' style="height:120px" /></li>
+		<li class="item">分享转发说明:{{obj.sharetxt}}</li>
+		<li class="item">图1</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.headimg1}}' style="height:120px" /></li>
+		<li class="item">图说明1:{{obj.headimgtxt1}}</li>
+		<li class="item">图链接1:{{obj.headimglink1}}</li>
+		<li class="item">图2</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.headimg2}}' style="height:120px" /></li>
+		<li class="item">图说明2:{{obj.headimgtxt2}}</li>
+		<li class="item">图链接2:{{obj.headimglink2}}</li>
+		<li class="item">图3</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.headimg3}}' style="height:120px" /></li>
+		<li class="item">图说明3:{{obj.headimgtxt3}}</li>
+		<li class="item">图链接3:{{obj.headimglink3}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

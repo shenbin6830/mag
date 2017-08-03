@@ -1,0 +1,50 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Tbfield.id">
+		<tr><th>序号</th><td>
+		${tbfield.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.parentid">
+		<tr><th>父ID</th><td>
+		${tbfield.parentidStringid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.priority">
+		<tr><th>排列顺序</th><td>
+		${tbfield.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.childrennum">
+		<tr><th>孩子数量</th><td>
+		${tbfield.childrennum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.cname">
+		<tr><th>名称简介</th><td>
+		${tbfield.cname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.ckey">
+		<tr><th>表名字段名</th><td>
+		${tbfield.ckey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Tbfield.cvalue">
+		<tr><th>值</th><td>
+		${tbfield.cvalue}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/Article/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.Article.id">
+		{field : 'id',title : '序号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.gmtCreate">
+		{field : 'gmtCreateString',title : '创建时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.gmtModified">
+		{field : 'gmtModifiedString',title : '修改时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.articlechannelId">
+		{field : 'articlechannelIdString',title : '文章频道内序号',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.memberId">
+		{field : 'memberIdString',title : '作者内序号',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.title">
+		{field : 'title',title : '名称',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.linkto">
+		{field : 'linkto',title : '直接链接到',width : 100 ,formatter : MyFormatter.Url  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.img1">
+		{field : 'img1',title : '图1',width : 100 ,formatter : MyFormatter.Img  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Article.genurl">
+		{field : 'genurl',title : '生成相对地址',width : 100 ,formatter : MyFormatter.Url  }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or id like '%"+value+"%' ";
+		searchlike+="or title like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[文章]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselecttree label="db.Article.articlechannelId" nameid="articlechannelId" url="${baserest}/user/Articlechannel/tree.html" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.Article.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Article/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Article/new.html?&copyfrom=Article&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.Article.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Article/edit.html?id=','修改');" >修改</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/ArticleExtTxt/edit.html?id=','修改');" >修改0</a>
+</@z.pmt>
+
+<@z.pmt key="0.Article.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('Article');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.Article.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/Article/show.html?id=','查看');" >查看</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/ArticleExtTxt/show.html?id=','查看');" >查看0</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+<@z.pmt key="0.ArticleExtTxt.show"><div iconCls="shape_move_backwards" onclick="modalById('ArticleExtTxt','id');">文章内容_商品ID</div></@z.pmt>
+<@z.pmt key="0.ArticleComment.show"><div iconCls="shape_move_backwards" onclick="modalById('ArticleComment','articleId');">文章的评论_文章内序号</div></@z.pmt>
+</div>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">文章-<br/>帮助<hr/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Permitfield/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${permitfield.id}" />
+	<@z.pmt key="42.Permitfield.roleId">
+				<@p.radiolocal label="db.Permitfield.roleId" nameid="roleId" value="${permitfield.roleId}" help="参看user" mapname="selectmap_Permitfield_roleId" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.tbname">
+				<@p.text label="db.Permitfield.tbname" nameid="tbname"  value="${permitfield.tbname}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.fieldname">
+				<@p.text label="db.Permitfield.fieldname" nameid="fieldname"  value="${permitfield.fieldname}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.fieldalias">
+				<@p.text label="db.Permitfield.fieldalias" nameid="fieldalias"  value="${permitfield.fieldalias}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.pf41">
+				<@p.select label="db.Permitfield.pf41" nameid="pf41" value="${permitfield.pf41}" help="" list=permitfield.pf41Map moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.pf42">
+				<@p.radiolocal label="db.Permitfield.pf42" nameid="pf42" value="${permitfield.pf42}" help="" mapname="selectmap_Permitfield_pf42" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.pf51">
+				<@p.radiolocal label="db.Permitfield.pf51" nameid="pf51" value="${permitfield.pf51}" help="" mapname="selectmap_Permitfield_pf51" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Permitfield.pf52">
+				<@p.radiolocal label="db.Permitfield.pf52" nameid="pf52" value="${permitfield.pf52}" help="" mapname="selectmap_Permitfield_pf52" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

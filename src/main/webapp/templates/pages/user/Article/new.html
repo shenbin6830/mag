@@ -1,0 +1,58 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Article/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Article.priority">
+				<@p.textnumber label="db.Article.priority" nameid="priority"  value="${article.priority}" help="数字越小排名越前" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Article.articlechannelId">
+				<@p.selecttree  label="db.Article.articlechannelId" nameid="articlechannelId" url="${baserest}/user/Articlechannel/tree.html" multiple="" headerKey="${article.articlechannelId}" headerValue="${article.articlechannelIdString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Article.memberId">
+				<@p.searchforid label="db.Article.memberId" nameid="memberId" value="${article.memberId}" stringvalue="${article.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Article.title">
+				<@p.text label="db.Article.title" nameid="title"  value="${article.title}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Article.intro">
+				<@p.textarea label="db.Article.intro" nameid="intro" value="${article.intro}" help="" dataoptions="validType:['length[0,300]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Article.author">
+				<@p.text label="db.Article.author" nameid="author"  value="${article.author}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Article.linkto">
+				<@p.text label="db.Article.linkto" nameid="linkto"  value="${article.linkto}" help="记得前面加http://或https://,如果这个填写了，txt就不需要了" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Article.img1">
+					<@p.ckfimg label="db.Article.img1" nameid="img1"  value="${article.img1}" help=""  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Article.hittimes">
+				<@p.textnumber label="db.Article.hittimes" nameid="hittimes"  value="${article.hittimes}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

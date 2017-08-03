@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/WaQradv/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${waQradv.id}" />
+	<@z.pmt key="42.WaQradv.title">
+				<@p.text label="db.WaQradv.title" nameid="title"  value="${waQradv.title}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaQradv.imgqr">
+					<@p.ckfimg label="db.WaQradv.imgqr" nameid="imgqr"  value="${waQradv.imgqr}" help="600x600"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaQradv.rettype">
+				<@p.radiolocal label="db.WaQradv.rettype" nameid="rettype" value="${waQradv.rettype}" help="" mapname="selectmap_WaQradv_rettype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaQradv.num">
+				<@p.textnumber label="db.WaQradv.num" nameid="num"  value="${waQradv.num}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaQradv.rettxt">
+				<@p.text label="db.WaQradv.rettxt" nameid="rettxt"  value="${waQradv.rettxt}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaQradv.waEntityArticleId">
+				<@p.searchforid label="db.WaQradv.waEntityArticleId" nameid="waEntityArticleId" value="${waQradv.waEntityArticleId}" stringvalue="${waQradv.waEntityArticleIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/WaEntityArticle/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

@@ -1,0 +1,19 @@
+<!--ArticlechannelShow，频道详细信息-->
+<ion-view view-title='频道' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/ArticlechannelEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item">关键字:{{obj.ckey}}</li>
+		<li class="item">父ID:{{obj.parentid}}</li>
+		<li class="item">排列顺序:{{obj.priority}}</li>
+		<li class="item">孩子数量:{{obj.childrennum}}</li>
+		<li class="item">祖先:{{obj.family}}</li>
+		<li class="item">名称:{{obj.title}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/Quick/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.Quick.id">
+		{field : 'id',title : '序号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.gmtCreate">
+		{field : 'gmtCreateString',title : '创建时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.gmtModified">
+		{field : 'gmtModifiedString',title : '修改时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.gmtPay">
+		{field : 'gmtPayString',title : '支付时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.gmtStart">
+		{field : 'gmtStartString',title : '开始时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.gmtOver">
+		{field : 'gmtOverString',title : '结束时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.status">
+		{field : 'statusString',title : '状态',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.ptype">
+		{field : 'ptypeString',title : '公开状态',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.articlechannelId">
+		{field : 'articlechannelIdString',title : '频道内序号',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.memberQu">
+		{field : 'memberQuString',title : '提问者',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.priceeach">
+		{field : 'priceeach',title : '每个奖金',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.pricenum">
+		{field : 'pricenum',title : '奖金数量',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.price">
+		{field : 'price',title : '总奖金',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.viewprice">
+		{field : 'viewprice',title : '观看费',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.answernum">
+		{field : 'answernum',title : '回答人数',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.viewnum">
+		{field : 'viewnum',title : '观看人数',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.title">
+		{field : 'title',title : '标题',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Quick.question">
+		{field : 'question',title : '问题',width : 300   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[抢答]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.Quick.status" nameid="status"  mapname="selectmap_Quick_status" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Quick.ptype" nameid="ptype"  mapname="selectmap_Quick_ptype" headerKey="" headerValue="全部" />
+<@p.searchselecttree label="db.Quick.articlechannelId" nameid="articlechannelId" url="${baserest}/user/Articlechannel/tree.html" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.Quick.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Quick/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Quick/new.html?&copyfrom=Quick&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.Quick.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Quick/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.Quick.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('Quick');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.Quick.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/Quick/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+<@z.pmt key="0.OrderrQuick.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuick','quickId');">订单之抢答问题提问_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickFinished','quickId');">订单之抢答问题提问归档_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickDiscard','quickId');">订单之抢答问题提问放弃_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickview.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickview','quickId');">订单之抢答问题观看_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickviewFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickviewFinished','quickId');">订单之抢答问题观看归档_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickviewDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickviewDiscard','quickId');">订单之抢答问题观看放弃_抢答问题ID</div></@z.pmt>
+<@z.pmt key="0.QuickTxt.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickTxt','quickId');">抢答回答_问题内序号</div></@z.pmt>
+<@z.pmt key="0.QuickAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickAdd','quickId');">抢答之追加_抢答</div></@z.pmt>
+<@z.pmt key="0.QuickLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickLinkMemberView','quickId');">观看抢答的会员_抢答ID</div></@z.pmt>
+</div>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">抢答-<br/>帮助<hr/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Message.id">
+		<tr><th>序号</th><td>
+		${message.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Message.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${message.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Message.memberFr">
+		<tr><th>发送者</th><td>
+		${message.memberFrString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Message.memberTo">
+		<tr><th>接收者</th><td>
+		${message.memberToString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Message.msg">
+		<tr><th>内容</th><td>
+		${message.msg}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

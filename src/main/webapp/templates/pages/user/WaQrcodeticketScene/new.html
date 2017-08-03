@@ -1,0 +1,46 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/WaQrcodeticketScene/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.WaQrcodeticketScene.sceneStr">
+				<@p.text label="db.WaQrcodeticketScene.sceneStr" nameid="sceneStr"  value="${waQrcodeticketScene.sceneStr}" help="字符串类型，长度限制为1到64，仅永久二维码支持此字段" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.actType">
+				<@p.text label="db.WaQrcodeticketScene.actType" nameid="actType"  value="${waQrcodeticketScene.actType}" help="" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.actDetailSplit">
+				<@p.text label="db.WaQrcodeticketScene.actDetailSplit" nameid="actDetailSplit"  value="${waQrcodeticketScene.actDetailSplit}" help="默认逗号" dataoptions="validType:['length[0,2]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.actDetail">
+				<@p.text label="db.WaQrcodeticketScene.actDetail" nameid="actDetail"  value="${waQrcodeticketScene.actDetail}" help="主要用于唯一性查询" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.statusTemporary">
+				<@p.radiolocal label="db.WaQrcodeticketScene.statusTemporary" nameid="statusTemporary" value="${waQrcodeticketScene.statusTemporary}" help="" mapname="selectmap_WaQrcodeticketScene_statusTemporary" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.statusValid">
+				<@p.radiolocal label="db.WaQrcodeticketScene.statusValid" nameid="statusValid" value="${waQrcodeticketScene.statusValid}" help="是否有效主要针对于永久二维码，临时二维码直接设置为有效即可" mapname="selectmap_WaQrcodeticketScene_statusValid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaQrcodeticketScene.img1">
+				<@p.text label="db.WaQrcodeticketScene.img1" nameid="img1"  value="${waQrcodeticketScene.img1}" help="160x160" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

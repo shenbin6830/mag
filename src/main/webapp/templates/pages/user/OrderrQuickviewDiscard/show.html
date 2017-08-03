@@ -1,0 +1,70 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.OrderrQuickviewDiscard.id">
+		<tr><th>序号ID</th><td>
+		${orderrQuickviewDiscard.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${orderrQuickviewDiscard.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.gmtPay">
+		<tr><th>支付时间</th><td>
+		${orderrQuickviewDiscard.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.status">
+		<tr><th>支付状态</th><td>
+		${orderrQuickviewDiscard.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.itypePay">
+		<tr><th>支付方式</th><td>
+		${orderrQuickviewDiscard.itypePayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.memberId">
+		<tr><th>会员</th><td>
+		${orderrQuickviewDiscard.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.name">
+		<tr><th>姓名</th><td>
+		${orderrQuickviewDiscard.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.mobile">
+		<tr><th>手机</th><td>
+		${orderrQuickviewDiscard.mobile}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.quickId">
+		<tr><th>抢答问题ID</th><td>
+		${orderrQuickviewDiscard.quickIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.title">
+		<tr><th>问题</th><td>
+		${orderrQuickviewDiscard.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuickviewDiscard.price">
+		<tr><th>总价</th><td>
+		${orderrQuickviewDiscard.price}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

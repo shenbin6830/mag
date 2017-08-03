@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/Permitfield/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.Permitfield.id">
+		{field : 'id',title : '序号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.roleId">
+		{field : 'roleIdString',title : '角色',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.tbname">
+		{field : 'tbname',title : '表名',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.fieldname">
+		{field : 'fieldname',title : '字段名',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.fieldalias">
+		{field : 'fieldalias',title : '字段说明',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.pf41">
+		{field : 'pf41String',title : '增可写字段41',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.pf42">
+		{field : 'pf42String',title : '改可写字段42',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.pf51">
+		{field : 'pf51String',title : '查可看字段51',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Permitfield.pf52">
+		{field : 'pf52String',title : '列表显示字段52',width : 100  }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or fieldname like '%"+value+"%' ";
+		searchlike+="or fieldalias like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[权限之字段设定]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.Permitfield.roleId" nameid="roleId"  mapname="selectmap_Permitfield_roleId" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Permitfield.pf41" nameid="pf41"  mapname="selectmap_Permitfield_pf41" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Permitfield.pf42" nameid="pf42"  mapname="selectmap_Permitfield_pf42" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Permitfield.pf51" nameid="pf51"  mapname="selectmap_Permitfield_pf51" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Permitfield.pf52" nameid="pf52"  mapname="selectmap_Permitfield_pf52" headerKey="" headerValue="全部" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+
+<@z.pmt key="0.Permitfield.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Permitfield/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.Permitfield.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('Permitfield');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.Permitfield.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/Permitfield/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+</div>
+</@z.pmt>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf41=0');" >41无</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf41=9');" >41有</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf42=0');" >42无</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf42=9');" >42有</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf51=0');" >51无</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf51=9');" >51有</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf52=0');" >52无</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="updatebatchByUrl('${base}/user/Permitfield/updatebatch.html','pf52=9');" >52有</a>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">权限之字段设定-<br/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

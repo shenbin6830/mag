@@ -1,0 +1,79 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Wxcfg/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Wxcfg.id">
+				<@p.textnumber label="db.Wxcfg.id" nameid="id"  value="${wxcfg.id}" help="" dataoptions="required:true,min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.statusApplyPassRefuse">
+				<@p.radiolocal label="db.Wxcfg.statusApplyPassRefuse" nameid="statusApplyPassRefuse" value="${wxcfg.statusApplyPassRefuse}" help="" mapname="selectmap_all_statusApplyPassRefuse" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.cname">
+				<@p.text label="db.Wxcfg.cname" nameid="cname"  value="${wxcfg.cname}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.wxnum">
+				<@p.text label="db.Wxcfg.wxnum" nameid="wxnum"  value="${wxcfg.wxnum}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.itype">
+				<@p.radiolocal label="db.Wxcfg.itype" nameid="itype" value="${wxcfg.itype}" help="" mapname="selectmap_Wxcfg_itype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.appid">
+				<@p.text label="db.Wxcfg.appid" nameid="appid"  value="${wxcfg.appid}" help="从微信后台复制，关键字段" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.appsecret">
+				<@p.text label="db.Wxcfg.appsecret" nameid="appsecret"  value="${wxcfg.appsecret}" help="从微信后台复制" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.token">
+				<@p.text label="db.Wxcfg.token" nameid="token"  value="${wxcfg.token}" help="从微信后台复制(php产生)" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.encodingaeskey">
+				<@p.text label="db.Wxcfg.encodingaeskey" nameid="encodingaeskey"  value="${wxcfg.encodingaeskey}" help="从微信后台复制(php产生)" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.mchid">
+				<@p.text label="db.Wxcfg.mchid" nameid="mchid"  value="${wxcfg.mchid}" help="支付相关从微信后台复制(支付关键字段)" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.partnerid">
+				<@p.text label="db.Wxcfg.partnerid" nameid="partnerid"  value="${wxcfg.partnerid}" help="支付相关从微信后台复制" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.partnerkey">
+				<@p.text label="db.Wxcfg.partnerkey" nameid="partnerkey"  value="${wxcfg.partnerkey}" help="支付相关从微信后台复制" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.paykey">
+				<@p.text label="db.Wxcfg.paykey" nameid="paykey"  value="${wxcfg.paykey}" help="支付相关从微信后台复制(支付关键字段)" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.appAppid">
+				<@p.text label="db.Wxcfg.appAppid" nameid="appAppid"  value="${wxcfg.appAppid}" help="从微信后台复制，关键字段" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.appMchid">
+				<@p.text label="db.Wxcfg.appMchid" nameid="appMchid"  value="${wxcfg.appMchid}" help="支付相关从微信后台复制(支付关键字段)" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.appPaykey">
+				<@p.text label="db.Wxcfg.appPaykey" nameid="appPaykey"  value="${wxcfg.appPaykey}" help="支付相关从微信后台复制(支付关键字段)" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.accesstoken">
+				<@p.textarea label="db.Wxcfg.accesstoken" nameid="accesstoken" value="${wxcfg.accesstoken}" help="" dataoptions="validType:['length[0,256]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxcfg.ticket">
+				<@p.text label="db.Wxcfg.ticket" nameid="ticket"  value="${wxcfg.ticket}" help="" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

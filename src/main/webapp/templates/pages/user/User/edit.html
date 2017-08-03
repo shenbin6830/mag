@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/User/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${user.id}" />
+	<@z.pmt key="42.User.status">
+				<@p.radiolocal label="db.User.status" nameid="status" value="${user.status}" help="" mapname="selectmap_User_status" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.User.roleId">
+				<@p.radiolocal label="db.User.roleId" nameid="roleId" value="${user.roleId}" help="这里如果改变，要变的包括：权限表，wxr" mapname="selectmap_User_roleId" moreopt="" />
+	</@z.pmt>
+				<input id="username" name="username" type="hidden" value="${user.username}" />
+	<@z.pmt key="42.User.password">
+				<@p.password label="db.User.password" nameid="password" value="${user.password}" help="" dataoptions="required:true,validType:['length[6,32]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.User.nickname">
+				<@p.text label="db.User.nickname" nameid="nickname"  value="${user.nickname}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.User.userId">
+				<@p.textnumber label="db.User.userId" nameid="userId"  value="${user.userId}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.User.openid">
+				<@p.text label="db.User.openid" nameid="openid"  value="${user.openid}" help="以微信用户表为主，此字段是冗余字段" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

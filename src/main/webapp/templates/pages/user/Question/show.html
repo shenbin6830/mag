@@ -1,0 +1,115 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Question.id">
+		<tr><th>序号</th><td>
+		${question.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${question.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.gmtModified">
+		<tr><th>修改时间</th><td>
+		${question.gmtModifiedString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.gmtPay">
+		<tr><th>支付时间</th><td>
+		${question.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.gmtAnswer">
+		<tr><th>回答时间</th><td>
+		${question.gmtAnswerString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.priority">
+		<tr><th>排列顺序</th><td>
+		${question.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.status">
+		<tr><th>状态</th><td>
+		${question.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.ptype">
+		<tr><th>公开状态</th><td>
+		${question.ptypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.articlechannelId">
+		<tr><th>频道内序号</th><td>
+		${question.articlechannelIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.memberQu">
+		<tr><th>提问者</th><td>
+		${question.memberQuString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.memberAn">
+		<tr><th>回答者</th><td>
+		${question.memberAnString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.price">
+		<tr><th>咨询费</th><td>
+		${question.price}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.viewprice">
+		<tr><th>观看费</th><td>
+		${question.viewprice}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.answerwords">
+		<tr><th>回答字数</th><td>
+		${question.answerwords}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.viewnum">
+		<tr><th>观看人数</th><td>
+		${question.viewnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.goodnum">
+		<tr><th>好评人数</th><td>
+		${question.goodnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.badnum">
+		<tr><th>差评人数</th><td>
+		${question.badnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.title">
+		<tr><th>标题</th><td>
+		${question.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.quest">
+		<tr><th>问题</th><td>
+		${question.quest}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Question.ctype">
+		<tr><th>评论情况</th><td>
+		${question.ctypeString}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

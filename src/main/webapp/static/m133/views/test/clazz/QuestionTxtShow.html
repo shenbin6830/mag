@@ -1,0 +1,14 @@
+<!--QuestionTxtShow，一对一问题回答详细信息-->
+<ion-view view-title='一对一问题回答' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/QuestionTxtEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item"><h2>问题</h2><p>{{obj.idString}}</p></li>
+		<li class="item">回答:{{obj.answer}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

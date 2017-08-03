@@ -1,0 +1,92 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Drugstore.id">
+		<tr><th>序号ID</th><td>
+		${drugstore.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.areaid">
+		<tr><th>地区</th><td>
+		${drugstore.areaidString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.cname">
+		<tr><th>药房名称</th><td>
+		${drugstore.cname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.addr">
+		<tr><th>药房地址</th><td>
+		${drugstore.addr}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.tele">
+		<tr><th>药房电话</th><td>
+		${drugstore.tele}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.attr">
+		<tr><th>药房性质</th><td>
+		${drugstore.attrString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.docname">
+		<tr><th>咨询药师姓名</th><td>
+		${drugstore.docname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.doctele">
+		<tr><th>咨询药师电话</th><td>
+		${drugstore.doctele}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.doccheck">
+		<tr><th>复核药师</th><td>
+		${drugstore.doccheck}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.docmake">
+		<tr><th>配药药师</th><td>
+		${drugstore.docmake}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.docqq">
+		<tr><th>药房咨询QQ</th><td>
+		${drugstore.docqq}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.centerlng">
+		<tr><th>经度lng</th><td>
+		${drugstore.centerlng}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.centerlat">
+		<tr><th>维度lat</th><td>
+		${drugstore.centerlat}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.img1">
+		<tr><th>图1</th><td>
+		${drugstore.img1}
+		<br/><img src="${drugstore.img1}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Drugstore.img2">
+		<tr><th>图2</th><td>
+		${drugstore.img2}
+		<br/><img src="${drugstore.img2}" />
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

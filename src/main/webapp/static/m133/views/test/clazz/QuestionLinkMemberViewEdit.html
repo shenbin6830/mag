@@ -1,0 +1,25 @@
+<!--QuestionLinkMemberViewList，观看问题的会员新建/编辑-->
+<ion-view view-title='观看问题的会员' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>问题内序号</h2><p><input type="text" ng-model="obj.questionId" /></p></li>
+		<li class="item"><h2>提问者</h2><p><input type="text" ng-model="obj.memberQu" /></p></li>
+		<li class="item"><h2>回答者</h2><p><input type="text" ng-model="obj.memberAn" /></p></li>
+		<li class="item"><h2>观看费</h2><p><input type="text" ng-model="obj.viewprice" /></p></li>
+		<li class="item"><h2>观看者</h2><p><input type="text" ng-model="obj.memberVi" /></p></li>
+			<li class="item"><h2>评论情况</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ctype"> 
+					<option ng-repeat="(key,value) in ao_QuestionLinkMemberView_ctype" value="{{key}}" ng-selected="key==obj.ctype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

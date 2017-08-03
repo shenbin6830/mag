@@ -1,0 +1,79 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Member/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Member.mtype">
+				<@p.radiolocal label="db.Member.mtype" nameid="mtype" value="${member.mtype}" help="专家/大师可以回答，会员不行" mapname="selectmap_Member_mtype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.price">
+				<@p.textnumber label="db.Member.price" nameid="price"  value="${member.price}" help="别人问我问题需要付的钱" dataoptions="min:-999999999,max:999999999,precision:3," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.name">
+				<@p.text label="db.Member.name" nameid="name"  value="${member.name}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.intro">
+				<@p.textarea label="db.Member.intro" nameid="intro" value="${member.intro}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.img1">
+					<@p.ckfimg label="db.Member.img1" nameid="img1"  value="${member.img1}" help="200x200"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.imgqr">
+					<@p.ckfimg label="db.Member.imgqr" nameid="imgqr"  value="${member.imgqr}" help="200x200,大师才有"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.idtype">
+				<@p.radiolocal label="db.Member.idtype" nameid="idtype" value="${member.idtype}" help="用这个区分是企业还是个人" mapname="selectmap_Member_idtype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.idnum">
+				<@p.text label="db.Member.idnum" nameid="idnum"  value="${member.idnum}" help="企业是营业执照，个人是身份证" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.addr">
+				<@p.text label="db.Member.addr" nameid="addr"  value="${member.addr}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.zip">
+				<@p.text label="db.Member.zip" nameid="zip"  value="${member.zip}" help="" dataoptions="validType:['length[0,6]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.mobile">
+				<@p.text label="db.Member.mobile" nameid="mobile"  value="${member.mobile}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.email">
+				<@p.text label="db.Member.email" nameid="email"  value="${member.email}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Member.score">
+				<@p.textnumber label="db.Member.score" nameid="score"  value="${member.score}" help="积分余额，是通过流水和统计算出来的" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.cash">
+				<@p.textnumber label="db.Member.cash" nameid="cash"  value="${member.cash}" help="单位分，现金余额，是通过流水和统计算出来的" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.exp">
+				<@p.textnumber label="db.Member.exp" nameid="exp"  value="${member.exp}" help="单位分，是通过流水和统计算出来的" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Member.mlevel">
+				<@p.textnumber label="db.Member.mlevel" nameid="mlevel"  value="${member.mlevel}" help="通过经验计算出" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

@@ -1,0 +1,145 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaRecvmsg.id">
+		<tr><th>序号ID</th><td>
+		${waRecvmsg.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${waRecvmsg.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.tousername">
+		<tr><th>服务者微信号</th><td>
+		${waRecvmsg.tousername}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.fromusername">
+		<tr><th>发送方帐号</th><td>
+		${waRecvmsg.fromusername}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.createtime">
+		<tr><th>消息创建时间</th><td>
+		${waRecvmsg.createtime}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.msgtype">
+		<tr><th>消息类型</th><td>
+		${waRecvmsg.msgtypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.content">
+		<tr><th>文本消息内容</th><td>
+		${waRecvmsg.content}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.msgid">
+		<tr><th>消息id</th><td>
+		${waRecvmsg.msgid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.picurl">
+		<tr><th>图片链接</th><td>
+		${waRecvmsg.picurl}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.mediaid">
+		<tr><th>消息媒体id</th><td>
+		${waRecvmsg.mediaid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.format">
+		<tr><th>语音格式</th><td>
+		${waRecvmsg.format}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.thumbmediaid">
+		<tr><th>缩略图的媒体id</th><td>
+		${waRecvmsg.thumbmediaid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.locationX">
+		<tr><th>地理位置维度</th><td>
+		${waRecvmsg.locationX}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.locationY">
+		<tr><th>地理位置经度</th><td>
+		${waRecvmsg.locationY}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.scale">
+		<tr><th>地图缩放大小</th><td>
+		${waRecvmsg.scale}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.label1">
+		<tr><th>地理位置信息</th><td>
+		${waRecvmsg.label1}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.title">
+		<tr><th>消息标题</th><td>
+		${waRecvmsg.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.description">
+		<tr><th>消息描述</th><td>
+		${waRecvmsg.description}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.url">
+		<tr><th>消息链接</th><td>
+		${waRecvmsg.url}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.event">
+		<tr><th>事件类型</th><td>
+		${waRecvmsg.eventString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.eventkey">
+		<tr><th>事件KEY值</th><td>
+		${waRecvmsg.eventkey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.ticket">
+		<tr><th>二维码的ticket</th><td>
+		${waRecvmsg.ticket}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.latitude">
+		<tr><th>地理位置纬度</th><td>
+		${waRecvmsg.latitude}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.longitude">
+		<tr><th>地理位置经度</th><td>
+		${waRecvmsg.longitude}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.precision1">
+		<tr><th>地理位置精度</th><td>
+		${waRecvmsg.precision1}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaRecvmsg.recognition">
+		<tr><th>语音识别结果</th><td>
+		${waRecvmsg.recognition}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,28 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/QuestionTxt/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="42.QuestionTxt.id">
+				<@p.searchforid label="db.QuestionTxt.id" nameid="id" value="${questionTxt.id}" stringvalue="${questionTxt.idString}" help="" dataoptions="searcher:searchOtherId" url="/user/Question/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.QuestionTxt.answer">
+				<@p.textarea label="db.QuestionTxt.answer" nameid="answer" value="${questionTxt.answer}" help="限2000汉字" dataoptions="validType:['length[0,4000]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

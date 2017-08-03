@@ -1,0 +1,102 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Member.id">
+		<tr><th>用户ID</th><td>
+		${member.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.mtype">
+		<tr><th>用户类型</th><td>
+		${member.mtypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.price">
+		<tr><th>咨询费</th><td>
+		${member.price}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.name">
+		<tr><th>姓名或名称</th><td>
+		${member.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.intro">
+		<tr><th>简介</th><td>
+		${member.intro}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.img1">
+		<tr><th>头像图</th><td>
+		${member.img1}
+		<br/><img src="${member.img1}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.imgqr">
+		<tr><th>二维码图</th><td>
+		${member.imgqr}
+		<br/><img src="${member.imgqr}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.idtype">
+		<tr><th>类型之个人企业</th><td>
+		${member.idtypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.idnum">
+		<tr><th>证件号码</th><td>
+		${member.idnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.addr">
+		<tr><th>地址</th><td>
+		${member.addr}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.zip">
+		<tr><th>邮编</th><td>
+		${member.zip}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.mobile">
+		<tr><th>手机</th><td>
+		${member.mobile}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.email">
+		<tr><th>电子邮件</th><td>
+		${member.email}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.score">
+		<tr><th>积分</th><td>
+		${member.score}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.cash">
+		<tr><th>余额</th><td>
+		${member.cash}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.exp">
+		<tr><th>经验</th><td>
+		${member.exp}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Member.mlevel">
+		<tr><th>等级</th><td>
+		${member.mlevel}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,27 @@
+<!--UserShow，账号信息修改详细信息-->
+<ion-view view-title='账号信息修改' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/UserEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>修改时间</h2><p>{{obj.gmtModifiedString}}</p></li>
+		<li class="item"><h2>状态</h2><p>{{obj.statusString}}</p></li>
+		<li class="item"><h2>角色</h2><p>{{obj.roleIdString}}</p></li>
+		<li class="item">账号:{{obj.username}}</li>
+		<li class="item">密码:{{obj.password}}</li>
+		<li class="item">昵称:{{obj.nickname}}</li>
+		<li class="item">隶属于:{{obj.userId}}</li>
+		<li class="item">微信openid:{{obj.openid}}</li>
+		<li class="item">类型对象:{{obj.userobj}}</li>
+		<li class="item">权限列表:{{obj.pmtmap}}</li>
+		<li class="item">拥有的对象:{{obj.objmap}}</li>
+		<li class="item">微信openidMd5:{{obj.openidmd5}}</li>
+		<li class="item">token:{{obj.token}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,59 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${base}/user/Drugstore/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'tick'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${drugstore.id}" />
+	<@z.pmt key="42.Drugstore.docname">
+				<@p.text label="db.Drugstore.docname" nameid="docname"  value="${drugstore.docname}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.doctele">
+				<@p.text label="db.Drugstore.doctele" nameid="doctele"  value="${drugstore.doctele}" help="" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.doccheck">
+				<@p.text label="db.Drugstore.doccheck" nameid="doccheck"  value="${drugstore.doccheck}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.docmake">
+				<@p.text label="db.Drugstore.docmake" nameid="docmake"  value="${drugstore.docmake}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.addr">
+				<@p.text label="db.Drugstore.addr" nameid="addr"  value="${drugstore.addr}" help="" dataoptions="validType:['length[0,80]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.tele">
+				<@p.text label="db.Drugstore.tele" nameid="tele"  value="${drugstore.tele}" help="" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.docqq">
+				<@p.text label="db.Drugstore.docqq" nameid="docqq"  value="${drugstore.docqq}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.img1">
+					<@p.ckfimg label="db.Drugstore.img1" nameid="img1"  value="${drugstore.img1}" help="320x320"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Drugstore.img2">
+					<@p.ckfimg label="db.Drugstore.img2" nameid="img2"  value="${drugstore.img2}" help="320x320"  moreopt="" />
+	</@z.pmt>
+		<@z.pmt key="42.Drugstore.printspan">
+				<@p.textnumber label="db.Drugstore.printspan" nameid="printspan"  value="${drugstore.printspan}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'tick'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

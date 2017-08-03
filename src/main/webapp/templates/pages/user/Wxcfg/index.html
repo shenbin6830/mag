@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/Wxcfg/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.Wxcfg.id">
+		{field : 'id',title : '所属用户',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.gmtModified">
+		{field : 'gmtModifiedString',title : '修改时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.statusApplyPassRefuse">
+		{field : 'statusApplyPassRefuseString',title : '状态',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.cname">
+		{field : 'cname',title : '名称',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.wxnum">
+		{field : 'wxnum',title : '微信号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.itype">
+		{field : 'itypeString',title : '类型',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.appid">
+		{field : 'appid',title : 'appid',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Wxcfg.appAppid">
+		{field : 'appAppid',title : 'app的appid',width : 100   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[微信配置]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.Wxcfg.statusApplyPassRefuse" nameid="statusApplyPassRefuse"  mapname="selectmap_all_statusApplyPassRefuse" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Wxcfg.itype" nameid="itype"  mapname="selectmap_Wxcfg_itype" headerKey="" headerValue="全部" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.Wxcfg.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Wxcfg/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Wxcfg/new.html?&copyfrom=Wxcfg&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.Wxcfg.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Wxcfg/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.Wxcfg.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('Wxcfg');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.Wxcfg.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/Wxcfg/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+</div>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">微信配置-<br/>[wxouser/api.wa_template_add],授权页手机登录后:手机页登录后，后台让用户去访问这个QQ地址，最终用户会回到我们的openid获取页点击微信相关->微信配置，选中所属用户，点击查看，可查看该用户相关信息。</div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

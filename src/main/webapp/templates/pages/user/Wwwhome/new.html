@@ -1,0 +1,67 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Wwwhome/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Wwwhome.id">
+				<@p.textnumber label="db.Wwwhome.id" nameid="id"  value="${wwwhome.id}" help="" dataoptions="required:true,min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.logo">
+					<@p.ckfimg label="db.Wwwhome.logo" nameid="logo"  value="${wwwhome.logo}" help="160x160"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.sharetxt">
+				<@p.text label="db.Wwwhome.sharetxt" nameid="sharetxt"  value="${wwwhome.sharetxt}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimg1">
+					<@p.ckfimg label="db.Wwwhome.headimg1" nameid="headimg1"  value="${wwwhome.headimg1}" help="640x380"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimgtxt1">
+				<@p.text label="db.Wwwhome.headimgtxt1" nameid="headimgtxt1"  value="${wwwhome.headimgtxt1}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimglink1">
+				<@p.text label="db.Wwwhome.headimglink1" nameid="headimglink1"  value="${wwwhome.headimglink1}" help="#开头的表示本地地址" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimg2">
+					<@p.ckfimg label="db.Wwwhome.headimg2" nameid="headimg2"  value="${wwwhome.headimg2}" help="640x380"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimgtxt2">
+				<@p.text label="db.Wwwhome.headimgtxt2" nameid="headimgtxt2"  value="${wwwhome.headimgtxt2}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimglink2">
+				<@p.text label="db.Wwwhome.headimglink2" nameid="headimglink2"  value="${wwwhome.headimglink2}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimg3">
+					<@p.ckfimg label="db.Wwwhome.headimg3" nameid="headimg3"  value="${wwwhome.headimg3}" help="640x380"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimgtxt3">
+				<@p.text label="db.Wwwhome.headimgtxt3" nameid="headimgtxt3"  value="${wwwhome.headimgtxt3}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wwwhome.headimglink3">
+				<@p.text label="db.Wwwhome.headimglink3" nameid="headimglink3"  value="${wwwhome.headimglink3}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

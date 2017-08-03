@@ -1,0 +1,16 @@
+<!--MessageList，短消息新建/编辑-->
+<ion-view view-title='短消息' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>发送者</h2><p><input type="text" ng-model="obj.memberFr" /></p></li>
+		<li class="item"><h2>接收者</h2><p><input type="text" ng-model="obj.memberTo" /></p></li>
+		<li class="item"><h2>内容</h2><p><input type="text" ng-model="obj.msg" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

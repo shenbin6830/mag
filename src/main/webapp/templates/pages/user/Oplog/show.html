@@ -1,0 +1,60 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Oplog.id">
+		<tr><th>序号</th><td>
+		${oplog.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${oplog.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.ip">
+		<tr><th>ip</th><td>
+		${oplog.ip}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.userId">
+		<tr><th>操作者</th><td>
+		${oplog.userIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.itype">
+		<tr><th>操作类型</th><td>
+		${oplog.itypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.tbname">
+		<tr><th>操作表</th><td>
+		${oplog.tbname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.tbid">
+		<tr><th>操作表id</th><td>
+		${oplog.tbid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.uri">
+		<tr><th>原始操作</th><td>
+		${oplog.uri}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Oplog.cmemo">
+		<tr><th>备注</th><td>
+		${oplog.cmemo}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

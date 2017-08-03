@@ -1,0 +1,128 @@
+@Autowired
+WwwhomeService wwwhomeService;
+@Autowired
+TbfieldService tbfieldService;
+@Autowired
+WebsetService websetService;
+@Autowired
+MyisoService myisoService;
+@Autowired
+MyisouService myisouService;
+@Autowired
+OplogService oplogService;
+@Autowired
+WaTemplateAddService waTemplateAddService;
+@Autowired
+WaEntityArticleService waEntityArticleService;
+@Autowired
+WxmenuService wxmenuService;
+@Autowired
+WaRecvmsgService waRecvmsgService;
+@Autowired
+WaCustomAudParamService waCustomAudParamService;
+@Autowired
+WxmsgtemplateService wxmsgtemplateService;
+@Autowired
+WxUsergroupService wxUsergroupService;
+@Autowired
+WaGeneralNoticeRetService waGeneralNoticeRetService;
+@Autowired
+WxcfgService wxcfgService;
+@Autowired
+WxrService wxrService;
+@Autowired
+WxrbService wxrbService;
+@Autowired
+WxouserService wxouserService;
+@Autowired
+WxousersubscribehisService wxousersubscribehisService;
+@Autowired
+WaQrcodeticketSceneService waQrcodeticketSceneService;
+@Autowired
+WaQradvService waQradvService;
+@Autowired
+MemberRelationService memberRelationService;
+@Autowired
+SigninService signinService;
+@Autowired
+ArticleService articleService;
+@Autowired
+ArticleExtTxtService articleExtTxtService;
+@Autowired
+ArticlechannelService articlechannelService;
+@Autowired
+ArticleCommentService articleCommentService;
+@Autowired
+MessageService messageService;
+@Autowired
+CashHisService cashHisService;
+@Autowired
+CashmemberStatiDayService cashmemberStatiDayService;
+@Autowired
+CashmemberStatiMonthService cashmemberStatiMonthService;
+@Autowired
+UserService userService;
+@Autowired
+AdminService adminService;
+@Autowired
+CadminService cadminService;
+@Autowired
+MemberService memberService;
+@Autowired
+PermittableService permittableService;
+@Autowired
+PermitfieldService permitfieldService;
+@Autowired
+ScoreHisService scoreHisService;
+@Autowired
+ScorememberStatiDayService scorememberStatiDayService;
+@Autowired
+ScorememberStatiMonthService scorememberStatiMonthService;
+@Autowired
+ExpHisService expHisService;
+@Autowired
+ExpmemberStatiDayService expmemberStatiDayService;
+@Autowired
+ExpmemberStatiMonthService expmemberStatiMonthService;
+@Autowired
+OrderrQuestionService orderrQuestionService;
+@Autowired
+OrderrQuestionFinishedService orderrQuestionFinishedService;
+@Autowired
+OrderrQuestionDiscardService orderrQuestionDiscardService;
+@Autowired
+OrderrQuickService orderrQuickService;
+@Autowired
+OrderrQuickFinishedService orderrQuickFinishedService;
+@Autowired
+OrderrQuickDiscardService orderrQuickDiscardService;
+@Autowired
+OrderrQuestionviewService orderrQuestionviewService;
+@Autowired
+OrderrQuestionviewFinishedService orderrQuestionviewFinishedService;
+@Autowired
+OrderrQuestionviewDiscardService orderrQuestionviewDiscardService;
+@Autowired
+OrderrQuickviewService orderrQuickviewService;
+@Autowired
+OrderrQuickviewFinishedService orderrQuickviewFinishedService;
+@Autowired
+OrderrQuickviewDiscardService orderrQuickviewDiscardService;
+@Autowired
+QuestionService questionService;
+@Autowired
+QuestionTxtService questionTxtService;
+@Autowired
+QuestionAddService questionAddService;
+@Autowired
+QuestionLinkMemberViewService questionLinkMemberViewService;
+@Autowired
+QuickService quickService;
+@Autowired
+QuickTxtService quickTxtService;
+@Autowired
+QuickAddService quickAddService;
+@Autowired
+QuickLinkMemberViewService quickLinkMemberViewService;
+@Autowired
+QuickTxtCommentService quickTxtCommentService;

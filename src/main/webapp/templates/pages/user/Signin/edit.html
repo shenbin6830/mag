@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Signin/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${signin.id}" />
+	<@z.pmt key="42.Signin.memberId">
+				<@p.searchforid label="db.Signin.memberId" nameid="memberId" value="${signin.memberId}" stringvalue="${signin.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Signin.sindex">
+				<@p.textnumber label="db.Signin.sindex" nameid="sindex"  value="${signin.sindex}" help="1到7，循环" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

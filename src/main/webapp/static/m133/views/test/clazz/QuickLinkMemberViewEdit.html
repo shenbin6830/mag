@@ -1,0 +1,17 @@
+<!--QuickLinkMemberViewList，观看抢答的会员新建/编辑-->
+<ion-view view-title='观看抢答的会员' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>抢答ID</h2><p><input type="text" ng-model="obj.quickId" /></p></li>
+		<li class="item"><h2>提问者</h2><p><input type="text" ng-model="obj.memberQu" /></p></li>
+		<li class="item"><h2>观看费</h2><p><input type="text" ng-model="obj.viewprice" /></p></li>
+		<li class="item"><h2>观看者</h2><p><input type="text" ng-model="obj.memberVi" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

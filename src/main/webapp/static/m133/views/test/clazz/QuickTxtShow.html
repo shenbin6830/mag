@@ -1,0 +1,22 @@
+<!--QuickTxtShow，抢答回答详细信息-->
+<ion-view view-title='抢答回答' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/QuickTxtEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>问题内序号</h2><p>{{obj.quickIdString}}</p></li>
+		<li class="item"><h2>中奖状态</h2><p>{{obj.statusWinString}}</p></li>
+		<li class="item"><h2>提问者</h2><p>{{obj.memberQuString}}</p></li>
+		<li class="item"><h2>回答者</h2><p>{{obj.memberAnString}}</p></li>
+		<li class="item">好评人数:{{obj.goodnum}}</li>
+		<li class="item">差评人数:{{obj.badnum}}</li>
+		<li class="item"><h2>提问者评价</h2><p>{{obj.ctypeString}}</p></li>
+		<li class="item">回答:{{obj.answer}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

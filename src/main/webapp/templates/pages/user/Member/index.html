@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/Member/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.Member.id">
+		{field : 'id',title : '用户ID',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.mtype">
+		{field : 'mtypeString',title : '用户类型',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.price">
+		{field : 'price',title : '咨询费',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.name">
+		{field : 'name',title : '姓名或名称',width : 150   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.idtype">
+		{field : 'idtypeString',title : '类型之个人企业',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.idnum">
+		{field : 'idnum',title : '证件号码',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.addr">
+		{field : 'addr',title : '地址',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.zip">
+		{field : 'zip',title : '邮编',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.mobile">
+		{field : 'mobile',title : '手机',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.email">
+		{field : 'email',title : '电子邮件',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.score">
+		{field : 'score',title : '积分',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.cash">
+		{field : 'cash',title : '余额',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.exp">
+		{field : 'exp',title : '经验',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.Member.mlevel">
+		{field : 'mlevel',title : '等级',width : 100   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or id like '%"+value+"%' ";
+		searchlike+="or name like '%"+value+"%' ";
+		searchlike+="or intro like '%"+value+"%' ";
+		searchlike+="or mobile like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[会员]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.Member.mtype" nameid="mtype"  mapname="selectmap_Member_mtype" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.Member.idtype" nameid="idtype"  mapname="selectmap_Member_idtype" headerKey="" headerValue="全部" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+
+<@z.pmt key="0.Member.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Member/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.Member.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('Member');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.Member.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/Member/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+<@z.pmt key="0.MemberRelation.show"><div iconCls="shape_move_backwards" onclick="modalById('MemberRelation','memberId');">会员父子关系_父亲</div></@z.pmt>
+<@z.pmt key="0.MemberRelation.show"><div iconCls="shape_move_backwards" onclick="modalById('MemberRelation','memberCh');">会员父子关系_孩子</div></@z.pmt>
+<@z.pmt key="0.Signin.show"><div iconCls="shape_move_backwards" onclick="modalById('Signin','memberId');">签到_签到者</div></@z.pmt>
+<@z.pmt key="0.Article.show"><div iconCls="shape_move_backwards" onclick="modalById('Article','memberId');">文章_作者内序号</div></@z.pmt>
+<@z.pmt key="0.ArticleComment.show"><div iconCls="shape_move_backwards" onclick="modalById('ArticleComment','memberAu');">文章的评论_作者内序号</div></@z.pmt>
+<@z.pmt key="0.ArticleComment.show"><div iconCls="shape_move_backwards" onclick="modalById('ArticleComment','memberCo');">文章的评论_评论者内序</div></@z.pmt>
+<@z.pmt key="0.Message.show"><div iconCls="shape_move_backwards" onclick="modalById('Message','memberFr');">短消息_发送者</div></@z.pmt>
+<@z.pmt key="0.Message.show"><div iconCls="shape_move_backwards" onclick="modalById('Message','memberTo');">短消息_接收者</div></@z.pmt>
+<@z.pmt key="0.CashHis.show"><div iconCls="shape_move_backwards" onclick="modalById('CashHis','memberId');">现金流水_会员</div></@z.pmt>
+<@z.pmt key="0.CashmemberStatiDay.show"><div iconCls="shape_move_backwards" onclick="modalById('CashmemberStatiDay','memberId');">会员现金日统计_会员</div></@z.pmt>
+<@z.pmt key="0.CashmemberStatiMonth.show"><div iconCls="shape_move_backwards" onclick="modalById('CashmemberStatiMonth','memberId');">会员现金月统计_会员</div></@z.pmt>
+<@z.pmt key="0.ScoreHis.show"><div iconCls="shape_move_backwards" onclick="modalById('ScoreHis','memberId');">积分流水_会员</div></@z.pmt>
+<@z.pmt key="0.ScorememberStatiDay.show"><div iconCls="shape_move_backwards" onclick="modalById('ScorememberStatiDay','memberId');">会员积分日统计_会员</div></@z.pmt>
+<@z.pmt key="0.ScorememberStatiMonth.show"><div iconCls="shape_move_backwards" onclick="modalById('ScorememberStatiMonth','memberId');">会员积分月统计_会员</div></@z.pmt>
+<@z.pmt key="0.ExpHis.show"><div iconCls="shape_move_backwards" onclick="modalById('ExpHis','memberId');">经验流水_会员</div></@z.pmt>
+<@z.pmt key="0.ExpmemberStatiDay.show"><div iconCls="shape_move_backwards" onclick="modalById('ExpmemberStatiDay','memberId');">会员经验日统计_会员</div></@z.pmt>
+<@z.pmt key="0.ExpmemberStatiMonth.show"><div iconCls="shape_move_backwards" onclick="modalById('ExpmemberStatiMonth','memberId');">会员经验月统计_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestion.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestion','memberId');">订单之一对一问题提问_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestionFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestionFinished','memberId');">订单之一对一问题提问归档_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestionDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestionDiscard','memberId');">订单之一对一问题提问放弃_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuick.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuick','memberId');">订单之抢答问题提问_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickFinished','memberId');">订单之抢答问题提问归档_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickDiscard','memberId');">订单之抢答问题提问放弃_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestionview.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestionview','memberId');">订单之一对一问题观看_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestionviewFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestionviewFinished','memberId');">订单之一对一问题观看归档_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuestionviewDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuestionviewDiscard','memberId');">订单之一对一问题观看放弃_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickview.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickview','memberId');">订单之抢答问题观看_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickviewFinished.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickviewFinished','memberId');">订单之抢答问题观看归档_会员</div></@z.pmt>
+<@z.pmt key="0.OrderrQuickviewDiscard.show"><div iconCls="shape_move_backwards" onclick="modalById('OrderrQuickviewDiscard','memberId');">订单之抢答问题观看放弃_会员</div></@z.pmt>
+<@z.pmt key="0.Question.show"><div iconCls="shape_move_backwards" onclick="modalById('Question','memberQu');">一对一问题_提问者</div></@z.pmt>
+<@z.pmt key="0.Question.show"><div iconCls="shape_move_backwards" onclick="modalById('Question','memberAn');">一对一问题_回答者</div></@z.pmt>
+<@z.pmt key="0.QuestionAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('QuestionAdd','memberQu');">一对一问题之追加_提问者</div></@z.pmt>
+<@z.pmt key="0.QuestionAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('QuestionAdd','memberAn');">一对一问题之追加_回答者</div></@z.pmt>
+<@z.pmt key="0.QuestionLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuestionLinkMemberView','memberQu');">观看问题的会员_提问者</div></@z.pmt>
+<@z.pmt key="0.QuestionLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuestionLinkMemberView','memberAn');">观看问题的会员_回答者</div></@z.pmt>
+<@z.pmt key="0.QuestionLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuestionLinkMemberView','memberVi');">观看问题的会员_观看者</div></@z.pmt>
+<@z.pmt key="0.Quick.show"><div iconCls="shape_move_backwards" onclick="modalById('Quick','memberQu');">抢答_提问者</div></@z.pmt>
+<@z.pmt key="0.QuickTxt.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickTxt','memberQu');">抢答回答_提问者</div></@z.pmt>
+<@z.pmt key="0.QuickTxt.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickTxt','memberAn');">抢答回答_回答者</div></@z.pmt>
+<@z.pmt key="0.QuickAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickAdd','memberQu');">抢答之追加_提问者</div></@z.pmt>
+<@z.pmt key="0.QuickAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickAdd','memberAn');">抢答之追加_回答者</div></@z.pmt>
+<@z.pmt key="0.QuickLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickLinkMemberView','memberQu');">观看抢答的会员_提问者</div></@z.pmt>
+<@z.pmt key="0.QuickLinkMemberView.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickLinkMemberView','memberVi');">观看抢答的会员_观看者</div></@z.pmt>
+<@z.pmt key="0.QuickTxtComment.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickTxtComment','memberAn');">抢答的评价_回答者</div></@z.pmt>
+<@z.pmt key="0.QuickTxtComment.show"><div iconCls="shape_move_backwards" onclick="modalById('QuickTxtComment','memberVi');">抢答的评价_观看者</div></@z.pmt>
+</div>
+</@z.pmt>
+<@z.pmt key="0.p6">
+  <a href='#' class='easyui-menubutton' menu='#mmt_p6' iconCls='wand'>代理商功能</a>
+  <div id="mmt_p6" style="width:150px;">  
+  <@z.pmt key="0.Orderr.show"><div iconCls="shape_move_backwards" onclick="modalById('Orderr','memberId');">该会员订单</div></@z.pmt>
+  <@z.pmt key="0.UserAddr.show"><div iconCls="shape_move_backwards" onclick="modalById('UserAddr','memberId');">该会员收货地址管理</div></@z.pmt>
+ <@z.pmt key="0.UserInfo.show"><div iconCls="shape_move_backwards" onclick="modalById('UserInfo','memberId');">该会员被检身份管理</div></@z.pmt>
+ </div>
+</@z.pmt>
+<@z.pmt key="0.p6">
+   <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="javascript:selectedDo('${base}/user/Member/qr.html',false);" >生成二维码</a>
+</@z.pmt>
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">会员-主要包括设计师，组织等<br/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

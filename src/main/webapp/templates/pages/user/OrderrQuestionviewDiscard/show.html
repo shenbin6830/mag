@@ -1,0 +1,70 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.OrderrQuestionviewDiscard.id">
+		<tr><th>序号ID</th><td>
+		${orderrQuestionviewDiscard.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${orderrQuestionviewDiscard.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.gmtPay">
+		<tr><th>支付时间</th><td>
+		${orderrQuestionviewDiscard.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.status">
+		<tr><th>支付状态</th><td>
+		${orderrQuestionviewDiscard.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.itypePay">
+		<tr><th>支付方式</th><td>
+		${orderrQuestionviewDiscard.itypePayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.memberId">
+		<tr><th>会员</th><td>
+		${orderrQuestionviewDiscard.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.name">
+		<tr><th>姓名</th><td>
+		${orderrQuestionviewDiscard.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.mobile">
+		<tr><th>手机</th><td>
+		${orderrQuestionviewDiscard.mobile}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.questionId">
+		<tr><th>一对一问题ID</th><td>
+		${orderrQuestionviewDiscard.questionIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.title">
+		<tr><th>问题</th><td>
+		${orderrQuestionviewDiscard.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewDiscard.price">
+		<tr><th>总价</th><td>
+		${orderrQuestionviewDiscard.price}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

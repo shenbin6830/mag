@@ -1,0 +1,52 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Wxmenu/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Wxmenu.userId">
+				<@p.searchforid label="db.Wxmenu.userId" nameid="userId" value="${wxmenu.userId}" stringvalue="${wxmenu.userIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.mtype">
+				<@p.radiolocal label="db.Wxmenu.mtype" nameid="mtype" value="${wxmenu.mtype}" help="" mapname="selectmap_Wxmenu_mtype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.type">
+				<@p.radiolocal label="db.Wxmenu.type" nameid="type" value="${wxmenu.type}" help="菜单的响应动作类型" mapname="selectmap_Wxmenu_type" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.name">
+				<@p.text label="db.Wxmenu.name" nameid="name"  value="${wxmenu.name}" help="菜单标题，不超过16个字节，子菜单不超过40个字节" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.key1">
+				<@p.text label="db.Wxmenu.key1" nameid="key1"  value="${wxmenu.key1}" help="click等点击类型必须 菜单KEY值，用于消息接口推送，不超过128字节" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.url">
+				<@p.textarea label="db.Wxmenu.url" nameid="url" value="${wxmenu.url}" help="view类型必须 网页链接，用户点击菜单可打开链接，不超过256字节" dataoptions="validType:['length[0,256]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.mediaId">
+				<@p.text label="db.Wxmenu.mediaId" nameid="mediaId"  value="${wxmenu.mediaId}" help="调用新增永久素材接口返回的合法media_id" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.parentid">
+				<@p.selecttree  label="db.Wxmenu.parentid" nameid="parentid" url="${baserest}/user/Wxmenu/tree.html" multiple="" headerKey="${wxmenu.parentid}" headerValue="${wxmenu.parentidString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Wxmenu.childrennum">
+				<@p.textnumber label="db.Wxmenu.childrennum" nameid="childrennum"  value="${wxmenu.childrennum}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

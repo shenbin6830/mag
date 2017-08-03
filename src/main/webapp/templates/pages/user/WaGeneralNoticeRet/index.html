@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/WaGeneralNoticeRet/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.WaGeneralNoticeRet.id">
+		{field : 'id',title : '序号ID',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.returnCode">
+		{field : 'returnCode',title : '返回状态码',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.returnMsg">
+		{field : 'returnMsg',title : '返回信息',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.appid">
+		{field : 'appid',title : '公众账号ID',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.mchId">
+		{field : 'mchId',title : '商户号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.deviceInfo">
+		{field : 'deviceInfo',title : '设备号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.nonceStr">
+		{field : 'nonceStr',title : '随机字符串',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.sign">
+		{field : 'sign',title : '签名',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.resultCode">
+		{field : 'resultCode',title : '业务结果',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.errCode">
+		{field : 'errCode',title : '错误代码',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.errCodeDes">
+		{field : 'errCodeDes',title : '错误代码描述',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.openid">
+		{field : 'openid',title : '用户标识',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.isSubscribe">
+		{field : 'isSubscribe',title : '是否关注公众账号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.tradeType">
+		{field : 'tradeType',title : '交易类型',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.bankType">
+		{field : 'bankType',title : '付款银行',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.totalFee">
+		{field : 'totalFee',title : '总金额',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.feeType">
+		{field : 'feeType',title : '货币种类',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.cashFee">
+		{field : 'cashFee',title : '现金支付金额',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.cashFeeType">
+		{field : 'cashFeeType',title : '现金支付货币类型',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.couponFee">
+		{field : 'couponFee',title : '代金券或立减优惠金额',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.couponCount">
+		{field : 'couponCount',title : '代金券或立减优惠使用数量',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.transactionId">
+		{field : 'transactionId',title : '微信支付订单号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.outTradeNo">
+		{field : 'outTradeNo',title : '商户订单号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.attach">
+		{field : 'attach',title : '商家数据包',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.WaGeneralNoticeRet.timeEnd">
+		{field : 'timeEnd',title : '支付完成时间',width : 100   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[微信支付回调通用结果]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.WaGeneralNoticeRet.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/WaGeneralNoticeRet/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/WaGeneralNoticeRet/new.html?&copyfrom=WaGeneralNoticeRet&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.WaGeneralNoticeRet.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/WaGeneralNoticeRet/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.WaGeneralNoticeRet.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('WaGeneralNoticeRet');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.WaGeneralNoticeRet.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/WaGeneralNoticeRet/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+</div>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">微信支付回调通用结果-<br/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

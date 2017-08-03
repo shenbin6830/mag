@@ -1,0 +1,35 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Signin.id">
+		<tr><th>序号ID</th><td>
+		${signin.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Signin.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${signin.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Signin.memberId">
+		<tr><th>签到者</th><td>
+		${signin.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Signin.sindex">
+		<tr><th>顺序号</th><td>
+		${signin.sindex}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,50 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.QuestionAdd.id">
+		<tr><th>序号</th><td>
+		${questionAdd.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${questionAdd.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.gmtModified">
+		<tr><th>修改时间</th><td>
+		${questionAdd.gmtModifiedString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.questionId">
+		<tr><th>一对一问题</th><td>
+		${questionAdd.questionIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.memberQu">
+		<tr><th>提问者</th><td>
+		${questionAdd.memberQuString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.memberAn">
+		<tr><th>回答者</th><td>
+		${questionAdd.memberAnString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuestionAdd.qa">
+		<tr><th>内容</th><td>
+		${questionAdd.qa}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

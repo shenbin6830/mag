@@ -1,0 +1,25 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Admin.id">
+		<tr><th>用户ID</th><td>
+		${admin.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Admin.nickname">
+		<tr><th>昵称</th><td>
+		${admin.nickname}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

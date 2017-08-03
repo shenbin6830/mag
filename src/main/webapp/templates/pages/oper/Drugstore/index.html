@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${base}/user/Drugstore/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	 	<@z.pmt key="52.Drugstore.id">
+		{field : 'id',title : '序号ID',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.areaid">
+		{field : 'areaidString',title : '地区',width : 100 }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.cname">
+		{field : 'cname',title : '药房名称',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.addr">
+		{field : 'addr',title : '药房地址',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.tele">
+		{field : 'tele',title : '药房电话',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.attr">
+		{field : 'attrString',title : '药房性质',width : 100 }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.docname">
+		{field : 'docname',title : '咨询药师姓名',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.doctele">
+		{field : 'doctele',title : '咨询药师电话',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.doccheck">
+		{field : 'doccheck',title : '复核药师',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.docmake">
+		{field : 'docmake',title : '配药药师',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.docqq">
+		{field : 'docqq',title : '药房咨询QQ',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.centerlng">
+		{field : 'centerlng',title : '经度lng',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Drugstore.centerlat">
+		{field : 'centerlat',title : '维度lat',width : 100  }, 
+	</@z.pmt>
+		<@z.pmt key="52.Drugstore.printspan">
+		{field : 'printspan',title : '打印宽度',width : 100  }, 
+	</@z.pmt>
+	 	 			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		queryByHql("("+searchlike+")");
+	}
+
+</script>
+<body class="easyui-layout">
+<br/>
+
+<@p.searchselect label="db.Drugstore.attr" nameid="attr"  list=drugstore.attrMap headerKey="" headerValue="全部" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.Drugstore.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Drugstore/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/Drugstore/new.html?&copyfrom=Drugstore&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.Drugstore.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Drugstore/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.Drugstore.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'arrow_accept'" onclick="delCn('Drugstore');" >删除</a>
+</@z.pmt>
+
+<@z.pmt key="0.Drugstore.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="javascript:openW2WithRow('${base}/user/Drugstore/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">
+1：如何登陆？<br />
+		 -->：每个药店有独自的账号，初始密码为“123456”。进入后台后，可以点击【用户管理】-【账号信息修改】-修改密码<br />
+		 <br />
+		2:如何修改用户信息？<br />
+		 -->：点击【用户管理】-【账号信息修改】-【修改】-修改密码<br />
+		 <br/>
+		3:如何完成订单交易？<br />
+	     -->：点击【操作员】-【订单】-上方搜索框中输入订单号-在请输入订单号里面输入“订单号”-如果是配货服务，先与客户确定订单（收货地址 联系电话 药品数量）--点击【修改】可以修改订单中的药品数量-点击【取药】即可完成取药操作
+		    -取药完后点击【打印】----配送客户订单（配送地址，订单数量）---完成订单交易-点击【操作员】-【订单】-【查看】可查看刚完成的订单详情<br/>
+		<br/>
+		4:如何修改订单数量？<br />
+		 -->：点击【操作员】-【订单】-上方搜索框中输入订单号-在请输入订单号里面输入“订单号”-点击【修改】可以修改订单中的药品数量<br/>
+		  <br />
+		5:如何查询订单？<br />
+		 -->：查询订单有3中方式<br/>
+		  方式1：【操作员】-【订单】-上方搜索框中输入订单号-在请输入订单号里面输入“订单号”<br/>
+		  方式2：【操作员】-【订单】-【查询】-自定义查询-填写“姓名”进行查询<br/>
+		  方式2：【操作员】-【订单】-【查询】-自定义查询-填写“手机号”进行查询<br/>
+		  
+		<br /> 
+		6:如何查看订单搜索历史？</br>
+		 -->：点击【操作员】-【订单搜索历史】查看订单搜索历史记录，防止未取药的情况<br/>
+		 <br/>
+		7:如何修改实体药店信息？</br>
+		 -->：点击【操作员】-【实体药店】-点击【修改】修改药店的基本信息<br/>
+		 <br/>
+		8:如何查看商品？
+		 -->点击【商品】-【商品】-上方搜索框中输入商品名-选中商品-【查看】查看药品基本信息-【查看0】查看药品的说明书<br/>	  
+		  <br/>
+		9：如何退出管理系统？<br/>
+		  -->：点击【注销】-【重新登录】/【退出系统】<br/>
+		  <br/>
+		10:有疑问找谁？<br/>
+		  -->：平台客服专员电话：18969108338		 
+		         平台邮箱：2797242776@qq.com
+
+<br/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

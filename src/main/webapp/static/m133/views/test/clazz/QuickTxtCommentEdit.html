@@ -1,0 +1,23 @@
+<!--QuickTxtCommentList，抢答的评价新建/编辑-->
+<ion-view view-title='抢答的评价' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>抢答回答ID</h2><p><input type="text" ng-model="obj.quickTxtId" /></p></li>
+		<li class="item"><h2>回答者</h2><p><input type="text" ng-model="obj.memberAn" /></p></li>
+		<li class="item"><h2>观看者</h2><p><input type="text" ng-model="obj.memberVi" /></p></li>
+			<li class="item"><h2>评论情况</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ctype"> 
+					<option ng-repeat="(key,value) in ao_QuickTxtComment_ctype" value="{{key}}" ng-selected="key==obj.ctype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

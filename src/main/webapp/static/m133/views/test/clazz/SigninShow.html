@@ -1,0 +1,16 @@
+<!--SigninShow，签到详细信息-->
+<ion-view view-title='签到' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/SigninEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>签到者</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item">顺序号:{{obj.sindex}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

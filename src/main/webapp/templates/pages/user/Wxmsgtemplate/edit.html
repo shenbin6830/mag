@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Wxmsgtemplate/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${wxmsgtemplate.id}" />
+	<@z.pmt key="42.Wxmsgtemplate.userId">
+				<@p.textnumber label="db.Wxmsgtemplate.userId" nameid="userId"  value="${wxmsgtemplate.userId}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Wxmsgtemplate.ckey">
+				<@p.text label="db.Wxmsgtemplate.ckey" nameid="ckey"  value="${wxmsgtemplate.ckey}" help="这个代码会使用的，需要咨询开发人员" dataoptions="validType:['length[0,40]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxmsgtemplate.templateIdShort">
+				<@p.text label="db.Wxmsgtemplate.templateIdShort" nameid="templateIdShort"  value="${wxmsgtemplate.templateIdShort}" help="模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxmsgtemplate.templateId">
+				<@p.text label="db.Wxmsgtemplate.templateId" nameid="templateId"  value="${wxmsgtemplate.templateId}" help="从公众平台里复制过来" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxmsgtemplate.title">
+				<@p.text label="db.Wxmsgtemplate.title" nameid="title"  value="${wxmsgtemplate.title}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxmsgtemplate.content">
+				<@p.textarea label="db.Wxmsgtemplate.content" nameid="content" value="${wxmsgtemplate.content}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

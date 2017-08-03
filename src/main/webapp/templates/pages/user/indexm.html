@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<@z.title name="会员中心" />
+<#include "/pages/global/jscssm.html"/>
+</head>
+<body>
+	<div class="easyui-navpanel">
+		<header>
+			<div class="m-toolbar">
+				<span class="m-title">易健管理后台</span>
+			</div>
+		</header>
+		<div class="easyui-accordion" fit="true" border="false">
+<@z.pmt key="0.User">			
+			<div title="用户管理">
+				<ul class="m-list">
+	<@z.pmt key="0.User"><li><a href="${base}/user/User/index.html"><@s.m 'db.User.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Admin"><li><a href="${base}/user/Admin/index.html"><@s.m 'db.Admin.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Cadmin"><li><a href="${base}/user/Cadmin/index.html"><@s.m 'db.Cadmin.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Member"><li><a href="${base}/user/Member/index.html"><@s.m 'db.Member.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Doctor"><li><a href="${base}/user/Doctor/index.html"><@s.m 'db.Doctor.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Druggist"><li><a href="${base}/user/Druggist/index.html"><@s.m 'db.Druggist.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Seller"><li><a href="${base}/user/Seller/index.html"><@s.m 'db.Seller.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Oper"><li><a href="${base}/user/Oper/index.html"><@s.m 'db.Oper.tableAlias'/></a></li></@z.pmt>
+				</ul>
+			</div>
+</@z.pmt>			
+<@z.pmt key="0.User">				
+			<div title="订单管理">
+				<ul class="m-list">
+	<@z.pmt key="0.Orderr"><li><a href="${base}/user/Orderr/index.html"><@s.m 'db.Orderr.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.OrderrFinished"><li><a href="${base}/user/OrderrFinished/index.html"><@s.m 'db.OrderrFinished.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.OrderrDiscard"><li><a href="${base}/user/OrderrDiscard/index.html"><@s.m 'db.OrderrDiscard.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.Orderrdetail"><li><a href="${base}/user/Orderrdetail/index.html"><@s.m 'db.Orderrdetail.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.OrderrdetailFinished"><li><a href="${base}/user/OrderrdetailFinished/index.html"><@s.m 'db.OrderrdetailFinished.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.OrderrdetailDiscard"><li><a href="${base}/user/OrderrdetailDiscard/index.html"><@s.m 'db.OrderrdetailDiscard.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.OrderrSnSearchhis"><li><a href="${base}/user/OrderrSnSearchhis/index.html"><@s.m 'db.OrderrSnSearchhis.tableAlias'/></a></li></@z.pmt>
+	<@z.pmt key="0.UserAddr"><li><a href="${base}/user/UserAddr/index.html"><@s.m 'db.UserAddr.tableAlias'/></a></li></@z.pmt>
+				</ul>
+			</div>
+</@z.pmt>
+		</div>
+	</div>
+</body>	
+</html>

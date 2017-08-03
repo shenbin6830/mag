@@ -1,0 +1,34 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/ArticleComment/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.ArticleComment.articleId">
+				<@p.searchforid label="db.ArticleComment.articleId" nameid="articleId" value="${articleComment.articleId}" stringvalue="${articleComment.articleIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Article/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ArticleComment.memberCo">
+				<@p.searchforid label="db.ArticleComment.memberCo" nameid="memberCo" value="${articleComment.memberCo}" stringvalue="${articleComment.memberCoString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ArticleComment.msg">
+				<@p.text label="db.ArticleComment.msg" nameid="msg"  value="${articleComment.msg}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

@@ -1,0 +1,50 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.ScoreHis.id">
+		<tr><th>序号ID</th><td>
+		${scoreHis.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${scoreHis.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.memberId">
+		<tr><th>会员</th><td>
+		${scoreHis.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.otype">
+		<tr><th>类型</th><td>
+		${scoreHis.otypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.num">
+		<tr><th>数量</th><td>
+		${scoreHis.num}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.oid">
+		<tr><th>订单的id</th><td>
+		${scoreHis.oid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScoreHis.cmemo">
+		<tr><th>备注说明</th><td>
+		${scoreHis.cmemo}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,95 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/WaRecvmsg/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${waRecvmsg.id}" />
+	<@z.pmt key="42.WaRecvmsg.tousername">
+				<@p.text label="db.WaRecvmsg.tousername" nameid="tousername"  value="${waRecvmsg.tousername}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.fromusername">
+				<@p.text label="db.WaRecvmsg.fromusername" nameid="fromusername"  value="${waRecvmsg.fromusername}" help="（一个OpenID）" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.createtime">
+				<@p.textnumber label="db.WaRecvmsg.createtime" nameid="createtime"  value="${waRecvmsg.createtime}" help=" （整型）" dataoptions="min:-9223372036854775807,max:9223372036854775807," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.msgtype">
+				<@p.radiolocal label="db.WaRecvmsg.msgtype" nameid="msgtype" value="${waRecvmsg.msgtype}" help="" mapname="selectmap_WaRecvmsg_msgtype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.content">
+				<@p.textarea label="db.WaRecvmsg.content" nameid="content" value="${waRecvmsg.content}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.msgid">
+				<@p.text label="db.WaRecvmsg.msgid" nameid="msgid"  value="${waRecvmsg.msgid}" help="，64位整型" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.picurl">
+				<@p.text label="db.WaRecvmsg.picurl" nameid="picurl"  value="${waRecvmsg.picurl}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.mediaid">
+				<@p.text label="db.WaRecvmsg.mediaid" nameid="mediaid"  value="${waRecvmsg.mediaid}" help="图片消息媒体id，可以调用多媒体文件下载接口拉取数据。" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.format">
+				<@p.text label="db.WaRecvmsg.format" nameid="format"  value="${waRecvmsg.format}" help="amr，speex等" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.thumbmediaid">
+				<@p.text label="db.WaRecvmsg.thumbmediaid" nameid="thumbmediaid"  value="${waRecvmsg.thumbmediaid}" help="可以调用多媒体文件下载接口拉取数据。" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.locationX">
+				<@p.textnumber label="db.WaRecvmsg.locationX" nameid="locationX"  value="${waRecvmsg.locationX}" help="" dataoptions="min:-999999999,max:999999999,precision:6," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.locationY">
+				<@p.textnumber label="db.WaRecvmsg.locationY" nameid="locationY"  value="${waRecvmsg.locationY}" help="" dataoptions="min:-999999999,max:999999999,precision:6," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.scale">
+				<@p.textnumber label="db.WaRecvmsg.scale" nameid="scale"  value="${waRecvmsg.scale}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.label1">
+				<@p.text label="db.WaRecvmsg.label1" nameid="label1"  value="${waRecvmsg.label1}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.title">
+				<@p.text label="db.WaRecvmsg.title" nameid="title"  value="${waRecvmsg.title}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.description">
+				<@p.textarea label="db.WaRecvmsg.description" nameid="description" value="${waRecvmsg.description}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.url">
+				<@p.text label="db.WaRecvmsg.url" nameid="url"  value="${waRecvmsg.url}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.event">
+				<@p.radiolocal label="db.WaRecvmsg.event" nameid="event" value="${waRecvmsg.event}" help="" mapname="selectmap_WaRecvmsg_event" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.eventkey">
+				<@p.textarea label="db.WaRecvmsg.eventkey" nameid="eventkey" value="${waRecvmsg.eventkey}" help="不同event有不同定义" dataoptions="validType:['length[0,300]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.ticket">
+				<@p.text label="db.WaRecvmsg.ticket" nameid="ticket"  value="${waRecvmsg.ticket}" help="可用来换取二维码图片" dataoptions="validType:['length[0,150]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.latitude">
+				<@p.textnumber label="db.WaRecvmsg.latitude" nameid="latitude"  value="${waRecvmsg.latitude}" help="" dataoptions="min:-999999999,max:999999999,precision:6," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.longitude">
+				<@p.textnumber label="db.WaRecvmsg.longitude" nameid="longitude"  value="${waRecvmsg.longitude}" help="" dataoptions="min:-999999999,max:999999999,precision:6," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.precision1">
+				<@p.textnumber label="db.WaRecvmsg.precision1" nameid="precision1"  value="${waRecvmsg.precision1}" help="" dataoptions="min:-999999999,max:999999999,precision:6," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaRecvmsg.recognition">
+				<@p.textarea label="db.WaRecvmsg.recognition" nameid="recognition" value="${waRecvmsg.recognition}" help="，UTF8编码" dataoptions="validType:['length[0,400]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

@@ -1,0 +1,28 @@
+<!--ArticleList，文章新建/编辑-->
+<ion-view view-title='文章' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>排列顺序</h2><p><input type="text" ng-model="obj.priority" /></p></li>
+		<li class="item"><h2>文章频道内序号</h2><p><input type="text" ng-model="obj.articlechannelId" /></p></li>
+		<li class="item"><h2>作者内序号</h2><p><input type="text" ng-model="obj.memberId" /></p></li>
+		<li class="item"><h2>名称</h2><p><input type="text" ng-model="obj.title" /></p></li>
+		<li class="item"><h2>简介</h2><p><input type="text" ng-model="obj.intro" /></p></li>
+		<li class="item"><h2>作者</h2><p><input type="text" ng-model="obj.author" /></p></li>
+		<li class="item"><h2>直接链接到</h2><p><input type="text" ng-model="obj.linkto" /></p></li>
+		<li class="item">
+            <h2>图1</h2>
+            <p><input type="text" ng-model="obj.img1" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'img1')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.img1}}" style="width: 90%" /></p>
+        </li>
+		<li class="item"><h2>点击次数</h2><p><input type="text" ng-model="obj.hittimes" /></p></li>
+		<li class="item"><h2>生成相对地址</h2><p><input type="text" ng-model="obj.genurl" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

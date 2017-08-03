@@ -1,0 +1,48 @@
+<!--QuestionList，一对一问题新建/编辑-->
+<ion-view view-title='一对一问题' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>排列顺序</h2><p><input type="text" ng-model="obj.priority" /></p></li>
+			<li class="item"><h2>状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.status"> 
+					<option ng-repeat="(key,value) in ao_Question_status" value="{{key}}" ng-selected="key==obj.status">{{value}}</option>
+					</select>
+				</p>
+			</li>
+			<li class="item"><h2>公开状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ptype"> 
+					<option ng-repeat="(key,value) in ao_Question_ptype" value="{{key}}" ng-selected="key==obj.ptype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>频道内序号</h2><p><input type="text" ng-model="obj.articlechannelId" /></p></li>
+		<li class="item"><h2>提问者</h2><p><input type="text" ng-model="obj.memberQu" /></p></li>
+		<li class="item"><h2>回答者</h2><p><input type="text" ng-model="obj.memberAn" /></p></li>
+		<li class="item"><h2>咨询费</h2><p><input type="text" ng-model="obj.price" /></p></li>
+		<li class="item"><h2>观看费</h2><p><input type="text" ng-model="obj.viewprice" /></p></li>
+		<li class="item"><h2>回答字数</h2><p><input type="text" ng-model="obj.answerwords" /></p></li>
+		<li class="item"><h2>观看人数</h2><p><input type="text" ng-model="obj.viewnum" /></p></li>
+		<li class="item"><h2>好评人数</h2><p><input type="text" ng-model="obj.goodnum" /></p></li>
+		<li class="item"><h2>差评人数</h2><p><input type="text" ng-model="obj.badnum" /></p></li>
+		<li class="item"><h2>标题</h2><p><input type="text" ng-model="obj.title" /></p></li>
+		<li class="item"><h2>问题</h2><p><input type="text" ng-model="obj.quest" /></p></li>
+			<li class="item"><h2>评论情况</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ctype"> 
+					<option ng-repeat="(key,value) in ao_Question_ctype" value="{{key}}" ng-selected="key==obj.ctype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>能看不</h2><p><input type="text" ng-model="obj.canread" /></p></li>
+		<li class="item"><h2>答案</h2><p><input type="text" ng-model="obj.questionTxt" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

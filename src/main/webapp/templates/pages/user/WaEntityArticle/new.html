@@ -1,0 +1,52 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/WaEntityArticle/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.WaEntityArticle.status">
+				<@p.radiolocal label="db.WaEntityArticle.status" nameid="status" value="${waEntityArticle.status}" help="" mapname="selectmap_WaEntityArticle_status" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.keyw">
+				<@p.text label="db.WaEntityArticle.keyw" nameid="keyw"  value="${waEntityArticle.keyw}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.title">
+				<@p.text label="db.WaEntityArticle.title" nameid="title"  value="${waEntityArticle.title}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.description">
+				<@p.text label="db.WaEntityArticle.description" nameid="description"  value="${waEntityArticle.description}" help="如果是纯文本消息，取此项值" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.pic">
+					<@p.ckfimg label="db.WaEntityArticle.pic" nameid="pic"  value="${waEntityArticle.pic}" help="大图360*200,小图200*200"  moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.picurl">
+				<@p.text label="db.WaEntityArticle.picurl" nameid="picurl"  value="${waEntityArticle.picurl}" help="腾讯规定的完整路径，http://a.b.c/加上面的图片链接" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaEntityArticle.url">
+				<@p.textarea label="db.WaEntityArticle.url" nameid="url" value="${waEntityArticle.url}" help="" dataoptions="validType:['length[0,500]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+<!-- 资源管理器ckf start-->
+<script type="text/javascript">
+	var finder = new CKFinder();
+	finder.basePath = '${zres}/';
+</script>
+<!-- 资源管理器ckf end-->
+</div>
+

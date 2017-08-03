@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Articlechannel/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${articlechannel.id}" />
+	<@z.pmt key="42.Articlechannel.ckey">
+				<@p.text label="db.Articlechannel.ckey" nameid="ckey"  value="${articlechannel.ckey}" help="ID的补充" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Articlechannel.parentid">
+				<@p.selecttree  label="db.Articlechannel.parentid" nameid="parentid" url="${baserest}/user/Articlechannel/tree.html" multiple="" headerKey="${articlechannel.parentid}" headerValue="${articlechannel.parentidString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Articlechannel.priority">
+				<@p.textnumber label="db.Articlechannel.priority" nameid="priority"  value="${articlechannel.priority}" help="数字越小排名越前" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Articlechannel.childrennum">
+				<@p.textnumber label="db.Articlechannel.childrennum" nameid="childrennum"  value="${articlechannel.childrennum}" help="0表示最底" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Articlechannel.family">
+				<@p.label label="db.Articlechannel.family" nameid="family" value="${articlechannel.family}" help="逗号分开" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Articlechannel.title">
+				<@p.text label="db.Articlechannel.title" nameid="title"  value="${articlechannel.title}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

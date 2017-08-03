@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/User/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.User.id">
+		{field : 'id',title : '序号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.gmtCreate">
+		{field : 'gmtCreateString',title : '创建时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.gmtModified">
+		{field : 'gmtModifiedString',title : '修改时间',width : 150  }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.status">
+		{field : 'statusString',title : '状态',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.roleId">
+		{field : 'roleIdString',title : '角色',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.username">
+		{field : 'username',title : '账号',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.nickname">
+		{field : 'nickname',title : '昵称',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.userId">
+		{field : 'userId',title : '隶属于',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.User.openid">
+		{field : 'openid',title : '微信openid',width : 100   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or id like '%"+value+"%' ";
+		searchlike+="or username like '%"+value+"%' ";
+		searchlike+="or nickname like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[账号信息修改]搜索查询',split:true,iconCls:'book_bell'" style="height:100px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.User.status" nameid="status"  mapname="selectmap_User_status" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.User.roleId" nameid="roleId"  mapname="selectmap_User_roleId" headerKey="" headerValue="全部" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.User.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/User/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/User/new.html?&copyfrom=User&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.User.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/User/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.User.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('User');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.User.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/User/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+<@z.pmt key="0.Myisou.show"><div iconCls="shape_move_backwards" onclick="modalById('Myisou','userId');">用户参数设置_所属用户</div></@z.pmt>
+<@z.pmt key="0.Oplog.show"><div iconCls="shape_move_backwards" onclick="modalById('Oplog','userId');">操作日志_操作者</div></@z.pmt>
+<@z.pmt key="0.WaTemplateAdd.show"><div iconCls="shape_move_backwards" onclick="modalById('WaTemplateAdd','userId');">模板消息接口之获得模板ID_卖家</div></@z.pmt>
+<@z.pmt key="0.Wxmenu.show"><div iconCls="shape_move_backwards" onclick="modalById('Wxmenu','userId');">微信自定义菜单_卖家</div></@z.pmt>
+<@z.pmt key="0.WaCustomAudParam.show"><div iconCls="shape_move_backwards" onclick="modalById('WaCustomAudParam','userId');">客服管理之增删改参数_卖家</div></@z.pmt>
+<@z.pmt key="0.WxUsergroup.show"><div iconCls="shape_move_backwards" onclick="modalById('WxUsergroup','sellerId');">用户分组_所属卖家</div></@z.pmt>
+<@z.pmt key="0.Wxr.show"><div iconCls="shape_move_backwards" onclick="modalById('Wxr','userId');">微信用户关系_平台用户</div></@z.pmt>
+<@z.pmt key="0.Wxouser.show"><div iconCls="shape_move_backwards" onclick="modalById('Wxouser','sellerId');">微信用户_所属卖家</div></@z.pmt>
+<@z.pmt key="0.Wxouser.show"><div iconCls="shape_move_backwards" onclick="modalById('Wxouser','userId');">微信用户_平台用户</div></@z.pmt>
+<@z.pmt key="0.Wxousersubscribehis.show"><div iconCls="shape_move_backwards" onclick="modalById('Wxousersubscribehis','sellerId');">微信用户关注历史记录_所属卖家</div></@z.pmt>
+</div>
+</@z.pmt>
+<@z.pmt key="0.uo">
+<a href='#' class='easyui-menubutton' menu='#mmt1' iconCls='wand'>查询</a>
+<div id="mmt1" style="width:150px;">
+<div iconCls="shape_move_backwards" onclick="modalById('User/userObj','id','');">基本信息</div>
+</div>
+</@z.pmt>
+ <@z.pmt key="0.p1">
+  <a href='#' class='easyui-menubutton' menu='#mmt_p7' iconCls='wand'>管理员功能</a>
+  <div id="mmt_p7" style="width:150px;">  
+    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="javascript:selectedDo('${baserest}/user/reviewed.html',false);" >一键审核通过</a>
+    </div>
+ </@z.pmt>
+<@z.pmt key="0.p6">
+  <a href='#' class='easyui-menubutton' menu='#mmt_p6' iconCls='wand'>代理商功能</a>
+  <div id="mmt_p6" style="width:150px;">  
+ </div>
+</@z.pmt>
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">账号信息修改-<br/>帮助<hr/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

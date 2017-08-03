@@ -1,0 +1,18 @@
+<!--QuickTxtCommentShow，抢答的评价详细信息-->
+<ion-view view-title='抢答的评价' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/QuickTxtCommentEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>抢答回答ID</h2><p>{{obj.quickTxtIdString}}</p></li>
+		<li class="item"><h2>回答者</h2><p>{{obj.memberAnString}}</p></li>
+		<li class="item"><h2>观看者</h2><p>{{obj.memberViString}}</p></li>
+		<li class="item"><h2>评论情况</h2><p>{{obj.ctypeString}}</p></li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

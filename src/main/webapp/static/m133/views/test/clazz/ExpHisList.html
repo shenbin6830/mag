@@ -1,0 +1,24 @@
+<!--ExpHisList，经验流水列表-->
+<ion-view view-title="经验流水列表"  >
+	<ion-nav-buttons side="right">
+		<h4></h4><a class="button icon ion-plus-round" href="#/tab/ExpHisEdit/0"></a>
+	</ion-nav-buttons>
+	<ion-content class="has-tabs has-header">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list class="list">
+            <ion-item class="item-avatar" bindonce="" collection-repeat="obj in list" href="#/tab/ExpHisShow/{{obj.id}}" collection-item-width="'100%'" collection-item-height="65px">
+                <img ng-src="{{obj.img1}}" reset-img-tn="" />
+                <h2>{{obj.myname}}</h2>
+                <p>
+				<span>序号ID:{{obj.id}}</span>
+				<span class="item-note ago" am-time-ago="obj.gmtCreate"></span>
+				<span>会员:{{obj.memberIdString}}</span>
+				<span>类型:{{obj.otypeString}}</span>
+				<span>数量:{{obj.num}}</span>
+				</p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="more()" distance="1%" ng-if="page.hasNextPage"></ion-infinite-scroll>
+        <ion-spinner class="topic-spinner ng-hide" ng-show="!list" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,45 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaCustomAudParam.id">
+		<tr><th>序号ID</th><td>
+		${waCustomAudParam.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaCustomAudParam.userId">
+		<tr><th>卖家</th><td>
+		${waCustomAudParam.userIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaCustomAudParam.statusValidOrNot">
+		<tr><th>状态</th><td>
+		${waCustomAudParam.statusValidOrNotString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaCustomAudParam.kfAccount">
+		<tr><th>完整客服账号</th><td>
+		${waCustomAudParam.kfAccount}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaCustomAudParam.nickname">
+		<tr><th>客服昵称</th><td>
+		${waCustomAudParam.nickname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaCustomAudParam.password">
+		<tr><th>登录密码</th><td>
+		${waCustomAudParam.password}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,42 @@
+<div id="w3" class="easyui-window" data-options="title:'按条件查询',inline:true,closed:true" style="width:280px;height:420px;padding:10px" onkeydown="search()">
+<script type="text/javascript">
+	function searchFun2() {
+		var searchlike=" 1=1 ";
+		var dateBegin=$('#gmtCreatBegin').datebox('getValue');
+		var dateEnd=$('#gmtCreatEnd').datebox('getValue');		
+		if(dateBegin!=''&&dateEnd!=''){
+			if(dateBegin>dateEnd){
+				alert("您选择的日期不对，请重新选择！");
+				return;
+			}
+		}
+		if(dateBegin!=null&&dateBegin!=''){
+			searchlike+=" and  gmtCreate >= ' "+dateBegin+" 00:00:00' ";
+		}
+		if(dateEnd!=null&&dateEnd!=''){
+			searchlike+=" and gmtCreate <= '"+dateEnd+" 23:59:59'  ";
+		}
+		var mobile1=$('#mobile1').val();
+		if($.trim(mobile1)!=null&&$.trim(mobile1)!=''){
+			searchlike+=" and mobile="+$.trim(mobile1);
+		}
+		var manname2=$('#manname2').val();
+		if($.trim(manname2)!=null&&$.trim(manname2)!=''){
+			searchlike+=" and name='"+$.trim(manname2)+"'";
+		}
+		queryByHql("("+searchlike+")");
+	}
+	function search(event) {
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if (e&& e.keyCode == 13) {
+			document.getElementById("isearch1").click();
+		}
+	}
+</script>
+<div> 开始时间<input class="easyui-datebox" id="gmtCreatBegin" data-options="editable:false"></input> </div>
+<div> 结束时间<input class="easyui-datebox" id="gmtCreatEnd" data-options="editable:false"></input> </div>
+联系人：<input id="manname2" type="text"><br/>
+手机号：<input id="mobile1" type="text" ></br>
+<input id="isearch1" type="button" onclick="searchFun2()" value="确定">
+
+</div>

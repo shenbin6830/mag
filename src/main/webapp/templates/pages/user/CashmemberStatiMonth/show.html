@@ -1,0 +1,55 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.CashmemberStatiMonth.id">
+		<tr><th>序号ID</th><td>
+		${cashmemberStatiMonth.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${cashmemberStatiMonth.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.gmtStati">
+		<tr><th>被统计月</th><td>
+		${cashmemberStatiMonth.gmtStatiString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.memberId">
+		<tr><th>会员</th><td>
+		${cashmemberStatiMonth.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.num">
+		<tr><th>本月增减数量</th><td>
+		${cashmemberStatiMonth.num}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.nstart">
+		<tr><th>月初数</th><td>
+		${cashmemberStatiMonth.nstart}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.nend">
+		<tr><th>月末数</th><td>
+		${cashmemberStatiMonth.nend}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiMonth.cmemo">
+		<tr><th>备注说明</th><td>
+		${cashmemberStatiMonth.cmemo}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

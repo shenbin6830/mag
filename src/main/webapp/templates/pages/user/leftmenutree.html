@@ -1,0 +1,25 @@
+<#if user??>
+[
+{"text":"导航菜单","children":[
+	{"text":"首页","attributes":{"url":"${base}/user/indexright.html","price":100}},
+	{"text":"用户管理","state":"closed","children":[
+		{"text":"用户","attributes":{"url":"${base}/user/User/index.html","price":100}},
+		{"text":"管理员","attributes":{"url":"${base}/user/Admin/index.html","price":100}},
+		{"text":"会员","attributes":{"url":"${base}/user/Member/index.html","price":100}},
+		{"text":"商家","attributes":{"url":"${base}/user/Company/index.html","price":100}}
+	]},
+	{"text":"权限管理","state":"closed","children":[
+		{"text":"角色","attributes":{"url":"${base}/user/Role/index.html","price":100}},
+		{"text":"权限资源","attributes":{"url":"${base}/user/Permitres/index.html","price":100}},
+		{"text":"角色权限对应","attributes":{"url":"${base}/user/RoleLinkPermitres/index.html","price":100}}
+	]},
+	{"text":"系统设置","state":"closed","children":[
+		{"text":"<@s.m 'db.Tbfield.tableAlias'/>","attributes":{"url":"${base}/user/Tbfield/index.html"}},
+		{"text":"初始化数据库","attributes":{"url":"${base}/dbinit.html","price":100}}
+	]}
+	]
+}
+]
+<#else>
+[{"text":"导航菜单"}]
+</#if>

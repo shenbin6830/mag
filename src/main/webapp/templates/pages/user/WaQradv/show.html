@@ -1,0 +1,56 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaQradv.id">
+		<tr><th>序号ID</th><td>
+		${waQradv.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${waQradv.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.title">
+		<tr><th>标题</th><td>
+		${waQradv.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.imgqr">
+		<tr><th>二维码</th><td>
+		${waQradv.imgqr}
+		<br/><img src="${waQradv.imgqr}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.rettype">
+		<tr><th>关注后返回方式</th><td>
+		${waQradv.rettypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.num">
+		<tr><th>关注数量</th><td>
+		${waQradv.num}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.rettxt">
+		<tr><th>返回的纯文本</th><td>
+		${waQradv.rettxt}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQradv.waEntityArticleId">
+		<tr><th>返回的图文</th><td>
+		${waQradv.waEntityArticleIdString}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

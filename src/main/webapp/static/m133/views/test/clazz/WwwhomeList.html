@@ -1,0 +1,24 @@
+<!--WwwhomeList，手机页首页配置列表-->
+<ion-view view-title="手机页首页配置列表"  >
+	<ion-nav-buttons side="right">
+		<h4></h4><a class="button icon ion-plus-round" href="#/tab/WwwhomeEdit/0"></a>
+	</ion-nav-buttons>
+	<ion-content class="has-tabs has-header">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list class="list">
+            <ion-item class="item-avatar" bindonce="" collection-repeat="obj in list" href="#/tab/WwwhomeShow/{{obj.id}}" collection-item-width="'100%'" collection-item-height="65px">
+                <img ng-src="{{obj.img1}}" reset-img-tn="" />
+                <h2>{{obj.myname}}</h2>
+                <p>
+				<span>所属用户:{{obj.id}}</span>
+				<span>图标:{{obj.logo}}</span>
+				<span>分享转发说明:{{obj.sharetxt}}</span>
+				<span>图1:{{obj.headimg1}}</span>
+				<span>图说明1:{{obj.headimgtxt1}}</span>
+				</p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="more()" distance="1%" ng-if="page.hasNextPage"></ion-infinite-scroll>
+        <ion-spinner class="topic-spinner ng-hide" ng-show="!list" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+    </ion-content>
+</ion-view>

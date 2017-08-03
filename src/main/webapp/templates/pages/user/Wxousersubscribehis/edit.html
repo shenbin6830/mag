@@ -1,0 +1,30 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Wxousersubscribehis/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${wxousersubscribehis.id}" />
+	<@z.pmt key="42.Wxousersubscribehis.sellerId">
+				<@p.searchforid label="db.Wxousersubscribehis.sellerId" nameid="sellerId" value="${wxousersubscribehis.sellerId}" stringvalue="${wxousersubscribehis.sellerIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+				<input id="wxouserId" name="wxouserId" type="hidden" value="${wxousersubscribehis.wxouserId}" />
+	<@z.pmt key="42.Wxousersubscribehis.act">
+				<@p.radiolocal label="db.Wxousersubscribehis.act" nameid="act" value="${wxousersubscribehis.act}" help="" mapname="selectmap_Wxousersubscribehis_act" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

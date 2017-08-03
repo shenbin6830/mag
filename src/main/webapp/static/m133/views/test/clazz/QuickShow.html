@@ -1,0 +1,33 @@
+<!--QuickShow，抢答详细信息-->
+<ion-view view-title='抢答' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/QuickEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>修改时间</h2><p>{{obj.gmtModifiedString}}</p></li>
+		<li class="item"><h2>支付时间</h2><p>{{obj.gmtPayString}}</p></li>
+		<li class="item"><h2>开始时间</h2><p>{{obj.gmtStartString}}</p></li>
+		<li class="item"><h2>结束时间</h2><p>{{obj.gmtOverString}}</p></li>
+		<li class="item"><h2>状态</h2><p>{{obj.statusString}}</p></li>
+		<li class="item"><h2>公开状态</h2><p>{{obj.ptypeString}}</p></li>
+		<li class="item">排列顺序:{{obj.priority}}</li>
+		<li class="item"><h2>频道内序号</h2><p>{{obj.articlechannelIdString}}</p></li>
+		<li class="item"><h2>提问者</h2><p>{{obj.memberQuString}}</p></li>
+		<li class="item">每个奖金:{{obj.priceeach}}</li>
+		<li class="item">奖金数量:{{obj.pricenum}}</li>
+		<li class="item">总奖金:{{obj.price}}</li>
+		<li class="item">观看费:{{obj.viewprice}}</li>
+		<li class="item">回答人数:{{obj.answernum}}</li>
+		<li class="item">观看人数:{{obj.viewnum}}</li>
+		<li class="item">标题:{{obj.title}}</li>
+		<li class="item">问题:{{obj.question}}</li>
+		<li class="item">能看不:{{obj.canread}}</li>
+		<li class="item">答案列表:{{obj.listQuickTxt}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

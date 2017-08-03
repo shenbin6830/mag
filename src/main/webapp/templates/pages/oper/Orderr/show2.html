@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+
+<body>
+<script type="text/javascript">
+function printpage(){
+	$('#btn1').hide();
+	window.print();    
+	$('#btn1').show();
+};
+
+var orderrid1=${orderr.id};
+var sn1=${orderr.sn};
+	parent.$.messager.progress('close');
+	function selectedDo2(url,isalert,msg,params){
+		if(isalert){
+			if(!confirm('您是否要'+msg+'？')){
+			       return false;
+			}
+		}
+		var data={};
+		if(!isblanklist(params)){
+			$.each( params, function(index, value){
+				_.extend(data, value);
+			}); 
+		}
+		callPost2(msg,url,data);
+	}
+	function callPost2(msg,url,data){
+		parent.$.messager.progress({
+			title : '提示',
+			text : '数据'+msg+'处理中，请稍后....'
+		});
+		
+		$.post(url, data, function(result) {
+			if (result.success) {		
+				if(result.msg!="noalert"){
+					//parent.$.messager.alert('提示', result.msg, 'info');		
+					
+				//	loadData();
+				}else{
+					dataGrid.datagrid('clearChecked');					
+					//loadData();							
+				}					
+			}else{
+				if(result.msg!="noalert")
+					parent.$.messager.alert('出错了', result.msg, 'error');
+			}		
+			parent.$.messager.progress('close');
+		}, 'JSON');
+		alert("取药成功！");
+		var url3=base+"/user/Orderr/gotoOrderrdetail.html?sn="+sn1+"";					
+		window.open(url3);
+		window.close(); 
+	}
+	function openW3(url,title) {
+		url+=orderrid1;
+		if(title==null || title=='')title='窗口';
+		$('#w3').window({title:title});
+		$('#w3').window('open');
+		$('#w3').window('refresh', url);
+		$('#w3').window('maximize');
+	}
+</script>
+<div >
+	<div >
+		 <#if orderr.statusgoods == 0>			
+			<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW3('${base}/user/Orderr/operedit.html?id=','修改');" style="width:100px !important;margin-left:15px;"><span style="font-size:16px;">数量修改</span></a>
+			<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'money'" onclick="selectedDo2('${base}/user/Orderr/takedrug2.html',true,'为用户取药',[{id:orderrid1}]);" style="width:80px !important;margin-left:30px;"><span style="font-size:16px;">取药</span></a>
+		</#if>	
+	<div style="max-width:${orderr.obj4}px;">
+	<div style="float:right;">
+  	<input id="btn1" type="button" value="打印本页" onclick="printpage()" />  	
+  </div>
+		 <h2 style="text-align:center;">订单</h2>
+		<!--  <h4 style="text-align:center;">${orderr.drugstoreIdStringid}</h4> -->
+  <p>单号：<span style="color:red;">${orderr.sn}</span></p>
+  <p>订单来源：医药一键通</p>
+  <p>支付方式：${orderr.itypePayString}</p>
+   <div>
+	<p style="float:left;width:32%;">姓名：${orderr.obj1.name}</p>
+	<p style="float:left;width:32%;">性别：${orderr.obj1.usersexString}</p>
+	<p style="float:left;width:32%;">年龄：${orderr.obj1.age}</p>
+  </div>
+   <div style="clear:both;"><p>联系电话：${orderr.obj3.mobile}</p></div>
+  <p>收货地址：${orderr.obj3.address}</p>
+  <p>下单时间：${orderr.gmtCreateString}</p>
+  <p>送货单位：${orderr.drugstoreIdString}</p>
+   <table border="1px" cellspacing="0" style="width:100%;">
+  <tr>
+	<th>序号</th>
+	<th>药品品名</th>
+	<th>规格</th>
+	<th>产地</th>
+	<th>单价</th>
+	<th>数量</th>
+	<th>小计</th>
+  </tr>
+  <#list orderr.listorderrdetail as orderrdetail>
+	<tr>
+	<td>${orderrdetail_index+1}</td>
+	<td>${orderrdetail.title}</td>
+	<td>${orderrdetail.productstyle}</td>
+	<td>${orderrdetail.manufacturerIdString}</td>
+	<td>${orderrdetail.price}</td>
+	<td>${orderrdetail.num}</td>
+	<td style="color:red;">${orderrdetail.sumprice}</td>
+  </tr>
+	</#list>
+  <tr>
+	<td colspan="4" style="text-align:center">合计</td>
+	<td colspan="3" style="color:red;text-align:center">RMB：${orderr.sumprice}元</td>
+  </tr>
+  </table>
+  
+  <div>
+	<p style="float:left;width:20%;text-align:center">医师：${doctorWrStringid}</p>
+	<p style="float:left;width:30%;text-align:center">复核药师：${orderr.doccheck}</p>
+	<p style="float:left;width:30%;text-align:center">配药药师：${orderr.docmake}</p>
+	<p style="float:left;width:20%;text-align:center">签收人：</p>
+  </div>
+
+	</div>	
+	<div id="w3" name="w3" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:30px;height:10px;"></div>
+	</div>
+</div>
+</body>
+</html>

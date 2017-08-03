@@ -1,0 +1,51 @@
+<!--MemberList，会员新建/编辑-->
+<ion-view view-title='会员' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+			<li class="item"><h2>用户类型</h2>
+				<p>
+					<select class="form-control" ng-model="obj.mtype"> 
+					<option ng-repeat="(key,value) in ao_Member_mtype" value="{{key}}" ng-selected="key==obj.mtype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>咨询费</h2><p><input type="text" ng-model="obj.price" /></p></li>
+		<li class="item"><h2>姓名或名称</h2><p><input type="text" ng-model="obj.name" /></p></li>
+		<li class="item"><h2>简介</h2><p><input type="text" ng-model="obj.intro" /></p></li>
+		<li class="item">
+            <h2>头像图</h2>
+            <p><input type="text" ng-model="obj.img1" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'img1')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.img1}}" style="width: 90%" /></p>
+        </li>
+		<li class="item">
+            <h2>二维码图</h2>
+            <p><input type="text" ng-model="obj.imgqr" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'imgqr')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.imgqr}}" style="width: 90%" /></p>
+        </li>
+			<li class="item"><h2>类型之个人企业</h2>
+				<p>
+					<select class="form-control" ng-model="obj.idtype"> 
+					<option ng-repeat="(key,value) in ao_Member_idtype" value="{{key}}" ng-selected="key==obj.idtype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>证件号码</h2><p><input type="text" ng-model="obj.idnum" /></p></li>
+		<li class="item"><h2>地址</h2><p><input type="text" ng-model="obj.addr" /></p></li>
+		<li class="item"><h2>邮编</h2><p><input type="text" ng-model="obj.zip" /></p></li>
+		<li class="item"><h2>手机</h2><p><input type="text" ng-model="obj.mobile" /></p></li>
+		<li class="item"><h2>电子邮件</h2><p><input type="text" ng-model="obj.email" /></p></li>
+		<li class="item"><h2>积分</h2><p><input type="text" ng-model="obj.score" /></p></li>
+		<li class="item"><h2>余额</h2><p><input type="text" ng-model="obj.cash" /></p></li>
+		<li class="item"><h2>经验</h2><p><input type="text" ng-model="obj.exp" /></p></li>
+		<li class="item"><h2>等级</h2><p><input type="text" ng-model="obj.mlevel" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

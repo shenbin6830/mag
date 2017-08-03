@@ -1,0 +1,50 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Wxmsgtemplate.id">
+		<tr><th>序号ID</th><td>
+		${wxmsgtemplate.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.userId">
+		<tr><th>卖家</th><td>
+		${wxmsgtemplate.userId}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.ckey">
+		<tr><th>关键字</th><td>
+		${wxmsgtemplate.ckey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.templateIdShort">
+		<tr><th>模板短编号</th><td>
+		${wxmsgtemplate.templateIdShort}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.templateId">
+		<tr><th>模板id</th><td>
+		${wxmsgtemplate.templateId}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.title">
+		<tr><th>说明</th><td>
+		${wxmsgtemplate.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmsgtemplate.content">
+		<tr><th>模板内容</th><td>
+		${wxmsgtemplate.content}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

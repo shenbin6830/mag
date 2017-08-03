@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${base}/user/Orderrdetail/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'id',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	 	<@z.pmt key="52.Orderrdetail.orderrId">
+		{field : 'orderrIdStringid',title : '订单号',width : 100 }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.memberId">
+		{field : 'memberIdStringid',title : '会员',width : 100 }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.productId">
+		{field : 'productIdStringid',title : '产品',width : 100 }, 
+	</@z.pmt>
+		<@z.pmt key="52.Orderrdetail.title">
+		{field : 'title',title : '商品名',width : 200  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.manufacturerId">
+		{field : 'manufacturerIdStringid',title : '厂商产地',width : 100 }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.productstyle">
+		{field : 'productstyle',title : '规格型号',width : 100  }, 
+	</@z.pmt>
+	 	 	<@z.pmt key="52.Orderrdetail.price">
+		{field : 'price',title : '单价',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.num">
+		{field : 'num',title : '数量',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.sumprice">
+		{field : 'sumprice',title : '总价',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.usemethord">
+		{field : 'usemethord',title : '用药方法',width : 100  }, 
+	</@z.pmt>
+	 	<@z.pmt key="52.Orderrdetail.usemount">
+		{field : 'usemount',title : '用法用量',width : 100  }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or title like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',split:true,iconCls:'icon-search'" style="height:100px;">
+<br/>
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.Orderrdetail.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/Orderrdetail/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+<@z.pmt key="0.Orderrdetail.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="javascript:openW2WithRow('${base}/user/Orderrdetail/show.html?id=','查看');" >查看</a>
+</@z.pmt>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">请查看【导航菜单】-【欢迎页】<br/></div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+
+</body>
+</html>

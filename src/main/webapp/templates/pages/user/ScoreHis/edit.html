@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/ScoreHis/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${scoreHis.id}" />
+	<@z.pmt key="42.ScoreHis.memberId">
+				<@p.searchforid label="db.ScoreHis.memberId" nameid="memberId" value="${scoreHis.memberId}" stringvalue="${scoreHis.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScoreHis.otype">
+				<@p.radiolocal label="db.ScoreHis.otype" nameid="otype" value="${scoreHis.otype}" help="对会员来说正是得积分，负是失积分" mapname="selectmap_ScoreHis_otype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScoreHis.num">
+				<@p.textnumber label="db.ScoreHis.num" nameid="num"  value="${scoreHis.num}" help="1积分=0.1元，有正负，正是得，负是失" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScoreHis.oid">
+				<@p.textnumber label="db.ScoreHis.oid" nameid="oid"  value="${scoreHis.oid}" help="根据类型，指向不同的订单表" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScoreHis.cmemo">
+				<@p.text label="db.ScoreHis.cmemo" nameid="cmemo"  value="${scoreHis.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

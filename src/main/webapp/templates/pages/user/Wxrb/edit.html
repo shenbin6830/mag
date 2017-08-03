@@ -1,0 +1,32 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Wxrb/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${wxrb.id}" />
+	<@z.pmt key="42.Wxrb.openid">
+				<@p.text label="db.Wxrb.openid" nameid="openid"  value="${wxrb.openid}" help="" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxrb.popenid">
+				<@p.text label="db.Wxrb.popenid" nameid="popenid"  value="${wxrb.popenid}" help="" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Wxrb.status">
+				<@p.radiolocal label="db.Wxrb.status" nameid="status" value="${wxrb.status}" help="" mapname="selectmap_Wxrb_status" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

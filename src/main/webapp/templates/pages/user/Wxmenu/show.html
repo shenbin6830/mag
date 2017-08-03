@@ -1,0 +1,65 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Wxmenu.id">
+		<tr><th>序号ID</th><td>
+		${wxmenu.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.userId">
+		<tr><th>卖家</th><td>
+		${wxmenu.userIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.mtype">
+		<tr><th>菜单类型</th><td>
+		${wxmenu.mtypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.type">
+		<tr><th>响应动作类型</th><td>
+		${wxmenu.typeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.name">
+		<tr><th>菜单标题</th><td>
+		${wxmenu.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.key1">
+		<tr><th>菜单KEY值</th><td>
+		${wxmenu.key1}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.url">
+		<tr><th>网页链接</th><td>
+		${wxmenu.url}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.mediaId">
+		<tr><th>合法media_id</th><td>
+		${wxmenu.mediaId}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.parentid">
+		<tr><th>父ID</th><td>
+		${wxmenu.parentidStringid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxmenu.childrennum">
+		<tr><th>孩子数量</th><td>
+		${wxmenu.childrennum}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

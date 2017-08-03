@@ -1,0 +1,228 @@
+prop:
+#每个项目/模式都要变的
+  sys:
+    #/**项目名*/
+    sysname: mag
+    #/**根目录名，通常是项目名，偶尔有意外 ex./bbb or "" 根目录用空格不要用/ */
+    base: /mag    
+    #/**域名 ex.http://aaa.com */
+    website: http://mag1.dian-jin.com
+    #/**开发模式，0/-1表示非开发，大于0表示为开发者userId*/
+    devmode: 0
+    #/**是否是大御医*/
+    isYjtcm: false  
+    #/**是否运行微信监听服务端，开发测试环境下不监听微信 true/false/test/dbdb */  
+    isRunWxServer: false
+    #/**是否运行定时任务，多应用中，只有一台运行定时任务*/
+    task: true
+    #/**网站域名 ex.http://www.xxx.com */
+    domain: http://mag.banjingquan.com
+    #/**网站英文名  */
+    webnamee: mag  
+#通用配置，不太会变的
+  my:  
+    name: zmaxdEFAULT
+    title: GoodMan
+    value: ${random.value}
+    number: ${random.int}
+    bignumber: ${random.long}
+    test1: ${random.int(10)}
+    test2: ${random.int[10,20]}
+    #/**一些静态图的图床 ex.http://aaa.com */
+    imgbase: ${prop.sys.website}       
+    #/**静态资源站点  ex.http://aaa.com or "" 根目录用空格不要用/ */
+    resbase: ${prop.sys.base}/res  
+    #/**登录地址 */
+    loginurl: ${prop.sys.base}/login.html
+    #/**user路径下不需要登录的地址 */
+    loginignor: 
+      - /test1
+      - /test2
+      - /dbinit.html    
+    #/**默认的管理员密码*/
+    adminpwd: admin123
+    #硬盘上的运行目录，file:///d:/opt/mag file:///opt/mag
+    hddir: file:///d:/opt/mag
+#配置之prop.alipay
+  alipay: 
+  #/**开放平台应用的APPID，详见创建应用并获取APPID*/
+    appid: 123456
+  #/**开发者应用私钥，详见配置密钥*/
+    appprivatekey: aaa
+  #/**支付宝卖家id,2088开头的16位数 */
+    sellerid: aaa
+  #/**同步回跳地址*/
+    returnurl: http://domain.com/CallBack/return_url.jsp
+  #/**异步回调地址*/
+    notifyurl: http://domain.com/CallBack/notify_url.jsp
+  #/**沙箱模式？true false*/
+    sandbox: false
+server:
+  port: 80
+  context-path: ${prop.sys.base}
+# tomcat最大线程数，默认为200
+  tomcat:
+    max-threads: 800
+# tomcat的URI编码
+    uri-encoding: UTF-8
+# 存放Tomcat的日志、Dump等文件的临时文件夹，默认为系统的tmp文件夹（如：C:\Users\Shanhy\AppData\Local\Temp）
+    basedir: /tomcat_mag
+# 最大POST数量无限制    
+    max-post-size: 0
+# 打开Tomcat的Access日志，并可以设置日志格式的方法：
+#server.tomcat.access-log-enabled=true
+#server.tomcat.access-log-pattern=
+# accesslog目录，默认在basedir/logs
+#server.tomcat.accesslog.directory=
+
+spring:
+  profiles:
+    active: deveclipse
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mag?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    password: root123
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    max-active: 20
+    initial-size: 1
+    min-idle: 3
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    validation-query: select 1
+    filters: 
+      - stat
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        show_sql: false
+        cache:
+        
+          use_second_level_cache: false        
+  resources:
+    #${prop.my.hddir}/static/, file:///D:/z_java/bjq/mag/trunk/src/main/webapp/static/   
+    static-locations: ${prop.my.hddir}/static/
+  freemarker:
+    allow-request-override: false
+    allow-session-override: false
+    cache: true
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: false
+    suffix: .html
+    #${prop.my.hddir}/templates/,file:///D:/z_java/bjq/mag/trunk/src/main/webapp/templates/
+    template-loader-path: ${prop.my.hddir}/templates/
+    order: 1
+    settings:
+      default_encoding: UTF-8
+      classic_compatible: true
+      tag_syntax: auto_detect
+      template_update_delay: 0
+      url_escaping_charset: UTF-8
+      locale: zh_CN
+      boolean_format: true,false
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      number_format: 0.######
+      whitespace_stripping: true
+      auto_import: /ftl/pony/index.ftl as p,/ftl/spring.ftl as s,/pages/global/ztitle.html as z
+            
+logging:
+  path: /opt/mag
+  file: log.log
+  level:
+    root: WARN
+    org:
+      hibernate: INFO
+      springframework: 
+        web:
+          servlet: 
+            mvc: 
+              method:
+                annotation: WARN
+    com:
+      zmax: DEBUG
+debug: false
+#以下是各模式:dev
+---
+spring:
+  profiles: dev
+  resources:
+     static-locations: file:///D:/opt/mag/static/  
+  freemarker:
+    template-loader-path: file:///D:/opt/mag/templates/  
+prop:
+  my:
+    name: zmaxdev
+logging:
+  level:
+    com:
+      zmax:
+        mag: 
+          service: 
+            utils:
+              PermitCheckUtils: INFO
+---
+#以下是各模式:prodwin 
+spring:
+  profiles: prodwin
+  resources:
+     static-locations: file:///opt/mag/static/  
+  freemarker:
+    template-loader-path: file:///opt/mag/templates/  
+  datasource:
+    url: jdbc:mysql://PROD_MYSQL_HOST:PROD_MYSQL_PORT/PROD_MYSQL_DBNAME?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: PROD_MYSQL_USERNAME
+    password: PROD_MYSQL_PWD
+prop:
+  my:
+    name: zmax_PROD_WIN
+    #硬盘上的运行目录，file:///d:/opt/mag file:///opt/mag
+    hddir: /d:/opt/mag
+logging:
+  level:
+    com:
+      zmax:
+        mag: 
+          service: 
+            utils:
+              PermitCheckUtils: INFO
+---
+#以下是各模式:prodlinux    
+spring:
+  profiles: prodlinux
+  resources:
+     static-locations: file:///opt/mag/static/  
+  freemarker:
+    template-loader-path: file:///opt/mag/templates/  
+  datasource:
+    url: jdbc:mysql://PROD_MYSQL_HOST:PROD_MYSQL_PORT/PROD_MYSQL_DBNAME?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: PROD_MYSQL_USERNAME
+    password: PROD_MYSQL_PWD
+prop:
+  my:
+    name: zmax_PROD_LINUX
+    #硬盘上的运行目录，file:///d:/opt/mag 
+    hddir: /opt/mag
+logging:
+  level:
+    com:
+      zmax:
+        mag: 
+          service: 
+            utils:
+              PermitCheckUtils: INFO
+              

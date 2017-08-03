@@ -1,0 +1,19 @@
+<!--ArticlechannelList，频道新建/编辑-->
+<ion-view view-title='频道' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>关键字</h2><p><input type="text" ng-model="obj.ckey" /></p></li>
+		<li class="item"><h2>父ID</h2><p><input type="text" ng-model="obj.parentid" /></p></li>
+		<li class="item"><h2>排列顺序</h2><p><input type="text" ng-model="obj.priority" /></p></li>
+		<li class="item"><h2>孩子数量</h2><p><input type="text" ng-model="obj.childrennum" /></p></li>
+		<li class="item"><h2>祖先</h2><p><input type="text" ng-model="obj.family" /></p></li>
+		<li class="item"><h2>名称</h2><p><input type="text" ng-model="obj.title" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

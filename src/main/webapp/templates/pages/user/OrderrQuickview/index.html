@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript">
+	searchMap=new Map();
+	var thiswin=this;
+	var dataGrid;
+	$(function() {
+		dataGrid = $('#dataGrid').datagrid({
+			url : '${baserest}/user/OrderrQuickview/grid',
+			methord: "get",
+			queryParams : {queryhq:$.trim($('#queryhq').val())},
+			fit : true,
+			fitColumns : true,
+			border : false,
+			pagination : true,
+			idField : 'id',
+			pageSize : 30,
+			pageList : [ 10, 20, 30, 50,100],
+			sortName : 'gmt_create',
+			sortOrder : 'desc',
+			checkOnSelect : false,
+			selectOnCheck : false,
+			nowrap : false,
+			striped : true,
+			rownumbers : true,
+			singleSelect : true,
+ 			
+           frozenColumns:[[   
+                    {field:'ck',checkbox:true}   
+            ]],	
+			columns : [ [
+	<@z.pmt key="52.OrderrQuickview.id">
+		{field : 'id',title : '序号ID',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.gmtCreate">
+		{field : 'gmtCreateString',title : '创建时间',width : 100  ,sortable : true}, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.gmtPay">
+		{field : 'gmtPayString',title : '支付时间',width : 100  ,sortable : true}, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.status">
+		{field : 'statusString',title : '支付状态',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.itypePay">
+		{field : 'itypePayString',title : '支付方式',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.memberId">
+		{field : 'memberIdString',title : '会员',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.name">
+		{field : 'name',title : '姓名',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.mobile">
+		{field : 'mobile',title : '手机',width : 100   }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.quickId">
+		{field : 'quickIdString',title : '抢答问题ID',width : 100  }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.title">
+		{field : 'title',title : '问题',width : 200   }, 
+	</@z.pmt>
+	<@z.pmt key="52.OrderrQuickview.price">
+		{field : 'price',title : '总价',width : 100   }, 
+	</@z.pmt>
+			{
+				field : 'action',
+				title : '',
+				width : 0
+			} ] ],
+			toolbar : '#toolbar',
+			onLoadSuccess : function() {
+				$('#searchForm table').show();
+				parent.$.messager.progress('close');
+				$(this).datagrid('tooltip');
+				var retData=$(this).datagrid('getData');
+				if(retData && retData['obj1'])
+					$('#queryhq').val(retData['obj1']);
+			},
+			onRowContextMenu : function(e, rowIndex, rowData) {
+				e.preventDefault();
+				$(this).datagrid('unselectAll');
+				$(this).datagrid('selectRow', rowIndex);
+			}
+		});
+	});
+	function loadData(){
+		dataGrid.datagrid('reload');
+	}
+
+	function searchFun(value,name) {
+		var searchlike=" 0=1 ";
+		searchlike+="or title like '%"+value+"%' ";
+		queryByHql("("+searchlike+")");
+	}
+</script>
+<body class="easyui-layout">
+<div data-options="region:'north',title:'[订单之抢答问题观看]搜索查询',split:true,iconCls:'book_bell'" style="height:120px;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'book_delete',plain:true" onclick="cleanSearchFun();">清空查询</a>
+<input id="isearch" class="easyui-searchbox" style="width:300px" data-options="searcher:searchFun,prompt:'请输入搜索值'"></input>
+<br/>
+<@p.searchselectlocal label="db.OrderrQuickview.status" nameid="status"  mapname="selectmap_OrderrQuickview_status" headerKey="" headerValue="全部" />
+<@p.searchselectlocal label="db.OrderrQuickview.itypePay" nameid="itypePay"  mapname="selectmap_OrderrQuickview_itypePay" headerKey="" headerValue="全部" />
+<br/><@p.datebetween label="db.OrderrQuickview.gmtCreate" nameid="gmtCreate" />
+<@p.datebetween label="db.OrderrQuickview.gmtPay" nameid="gmtPay" />
+</div>
+<div data-options="region:'center'" style="padding:10px; text-align:left;">
+	<table id="dataGrid" data-options="border:false,fit:true,fitColumns:true,singleSelect:true"></table>
+</div>
+<div id="toolbar" style="display: none;">
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_help'" onclick="$('#wHelp').window('open');" >帮助</a>
+<@z.pmt key="0.OrderrQuickview.new">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/OrderrQuickview/new.html?&'+$.trim($('#newobj').val()),'添加');" >添加</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="javascript:openW2('${base}/user/OrderrQuickview/new.html?&copyfrom=OrderrQuickview&copyfromwhere=id='+selectRow(),'添加');" >复制添加</a>
+</@z.pmt>
+
+<@z.pmt key="0.OrderrQuickview.edit">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW2WithRow('${base}/user/OrderrQuickview/edit.html?id=','修改');" >修改</a>
+</@z.pmt>
+
+<@z.pmt key="0.OrderrQuickview.del">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_ok'" onclick="delCn('OrderrQuickview');" >删除</a>
+</@z.pmt>
+
+
+
+<@z.pmt key="0.OrderrQuickview.show">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="javascript:openW2WithRow('${base}/user/OrderrQuickview/show.html?id=','查看');" >查看</a>
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_tip'" onclick="window.open('${base}/user/OrderrQuickview/excelexport.html?queryhq='+$.trim($('#queryhq').val()));" >导出EXCEL</a>
+</@z.pmt>
+<@z.pmt key="0.p1">
+<a href='#' class='easyui-menubutton' menu='#mmt_gl' iconCls='wand'>打开关联</a>
+<div id="mmt_gl" style="width:150px;">
+</div>
+</@z.pmt>
+<@z.pmt key="0.Orderr.show">  
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="modalById('Orderrdetail','orderrId')">订单详细</a> 
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'money'" onclick="selectedDo('${base}/user/Orderr/takedrug.html',true,'为用户取药');" >取药</a>
+</@z.pmt>  
+<@z.pmt key="0.Orderr.show">
+  <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_add'" onclick="queryOrderr()" >查看订单</a>
+  <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_link'" onclick="modalByField('UserAddr','userAddrId','id')">查看收货地址</a> 
+</@z.pmt>
+<@z.pmt key="0.Orderr.show">
+  <a href='#' class='easyui-menubutton' menu='#mmt2' iconCls='wand'>查询</a>
+  <div id="mmt2" style="width:150px;">  
+     <div iconCls="shape_move_backwards" onclick="$('#w3').window('open');">自定义查找</div>
+ </div>
+</@z.pmt>
+<script type="text/javascript">
+function queryOrderr() {   
+ jQuery.messager.prompt('查看订单','请输入订单号', function(snString){   
+  if(isblank(snString))
+  return;
+  if(!/^[0-9]*$/.test(snString)){  
+      alert("请输入数字!"); 
+      return;
+  }  
+ var url=base+"/user/Orderr/gotoOrderrdetail.html?sn="+snString+"";
+ openW1(url); 
+ });
+}
+</script>
+
+</div>
+<input id="queryhq" name="queryhq" type="hidden" value="${queryhq}"/>
+<input id="newobj" name="newobj" type="hidden" value="${newobj}"/>
+<div id="wHelp" name="wHelp" class="easyui-window" data-options="closed:true,modal:true,title:'帮助'" style="width:600px;height:400px;">订单之抢答问题观看-<br/>订单完成的标识是支付状态=2支付成功</div>
+<div id="w2" name="w2" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:600px;height:400px;"></div>
+<div id="w1" name="w1" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:700px;height:500px;">
+	<iframe id="show_w1" name="show_w1" frameborder="0" style="border: 0; width: 100%; height: 98%;"></iframe>
+</div>
+<#include "/pages/user/OrderrQuickview/indexadd.html"/>
+</body>
+</html>

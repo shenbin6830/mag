@@ -1,0 +1,110 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Wxcfg.id">
+		<tr><th>所属用户</th><td>
+		${wxcfg.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.gmtModified">
+		<tr><th>修改时间</th><td>
+		${wxcfg.gmtModifiedString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.statusApplyPassRefuse">
+		<tr><th>状态</th><td>
+		${wxcfg.statusApplyPassRefuseString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.cname">
+		<tr><th>名称</th><td>
+		${wxcfg.cname}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.wxnum">
+		<tr><th>微信号</th><td>
+		${wxcfg.wxnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.itype">
+		<tr><th>类型</th><td>
+		${wxcfg.itypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.appid">
+		<tr><th>appid</th><td>
+		${wxcfg.appid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.appsecret">
+		<tr><th>appsecret</th><td>
+		${wxcfg.appsecret}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.token">
+		<tr><th>token</th><td>
+		${wxcfg.token}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.encodingaeskey">
+		<tr><th>encodingaeskey</th><td>
+		${wxcfg.encodingaeskey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.mchid">
+		<tr><th>微信支付商户号</th><td>
+		${wxcfg.mchid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.partnerid">
+		<tr><th>商户平台登录帐号</th><td>
+		${wxcfg.partnerid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.partnerkey">
+		<tr><th>商户平台登录密码</th><td>
+		${wxcfg.partnerkey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.paykey">
+		<tr><th>商户支付密钥</th><td>
+		${wxcfg.paykey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.appAppid">
+		<tr><th>app的appid</th><td>
+		${wxcfg.appAppid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.appMchid">
+		<tr><th>app的微信支付商户号</th><td>
+		${wxcfg.appMchid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.appPaykey">
+		<tr><th>app的商户支付密钥</th><td>
+		${wxcfg.appPaykey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.accesstoken">
+		<tr><th>accesstoken</th><td>
+		${wxcfg.accesstoken}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Wxcfg.ticket">
+		<tr><th>ticket</th><td>
+		${wxcfg.ticket}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

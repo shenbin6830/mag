@@ -1,0 +1,2 @@
+当前版：插入图片时，富文本的源码是<img alt="" src="/bo/userfiles/users/27/images/goods_bg1.jpg" style="width: 100%;" />
+20150414：插入图片时，富文本的源码是<img alt="" src="/bo/userfiles/users/27/images/goods_bg1.jpg" style="width: 111px; height: 222px;" />

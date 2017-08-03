@@ -1,0 +1,44 @@
+<!--WwwhomeList，手机页首页配置新建/编辑-->
+<ion-view view-title='手机页首页配置' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item">
+            <h2>图标</h2>
+            <p><input type="text" ng-model="obj.logo" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'logo')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.logo}}" style="width: 90%" /></p>
+        </li>
+		<li class="item"><h2>分享转发说明</h2><p><input type="text" ng-model="obj.sharetxt" /></p></li>
+		<li class="item">
+            <h2>图1</h2>
+            <p><input type="text" ng-model="obj.headimg1" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'headimg1')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.headimg1}}" style="width: 90%" /></p>
+        </li>
+		<li class="item"><h2>图说明1</h2><p><input type="text" ng-model="obj.headimgtxt1" /></p></li>
+		<li class="item"><h2>图链接1</h2><p><input type="text" ng-model="obj.headimglink1" /></p></li>
+		<li class="item">
+            <h2>图2</h2>
+            <p><input type="text" ng-model="obj.headimg2" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'headimg2')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.headimg2}}" style="width: 90%" /></p>
+        </li>
+		<li class="item"><h2>图说明2</h2><p><input type="text" ng-model="obj.headimgtxt2" /></p></li>
+		<li class="item"><h2>图链接2</h2><p><input type="text" ng-model="obj.headimglink2" /></p></li>
+		<li class="item">
+            <h2>图3</h2>
+            <p><input type="text" ng-model="obj.headimg3" /></p>
+            <p><button ngf-select="uploadImg($files,obj,'headimg3')" accept="image/*" ngf-multiple="false" style="width: 90%">上传</button></p>
+            <p><img reset-img ng-src="{{obj.headimg3}}" style="width: 90%" /></p>
+        </li>
+		<li class="item"><h2>图说明3</h2><p><input type="text" ng-model="obj.headimgtxt3" /></p></li>
+		<li class="item"><h2>图链接3</h2><p><input type="text" ng-model="obj.headimglink3" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

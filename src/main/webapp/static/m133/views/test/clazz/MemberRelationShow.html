@@ -1,0 +1,16 @@
+<!--MemberRelationShow，会员父子关系详细信息-->
+<ion-view view-title='会员父子关系' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/MemberRelationEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>父亲</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item"><h2>孩子</h2><p>{{obj.memberChString}}</p></li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

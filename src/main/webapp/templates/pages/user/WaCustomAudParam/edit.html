@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/WaCustomAudParam/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${waCustomAudParam.id}" />
+	<@z.pmt key="42.WaCustomAudParam.userId">
+				<@p.searchforid label="db.WaCustomAudParam.userId" nameid="userId" value="${waCustomAudParam.userId}" stringvalue="${waCustomAudParam.userIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaCustomAudParam.statusValidOrNot">
+				<@p.radiolocal label="db.WaCustomAudParam.statusValidOrNot" nameid="statusValidOrNot" value="${waCustomAudParam.statusValidOrNot}" help="有效的不超过10个" mapname="selectmap_all_statusValidOrNot" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaCustomAudParam.kfAccount">
+				<@p.text label="db.WaCustomAudParam.kfAccount" nameid="kfAccount"  value="${waCustomAudParam.kfAccount}" help="完整客服账号，格式为：账号前缀@公众号微信号，工号不能重复，一旦输入不能修改，由字母、数字组成(店家只需要填写账号前缀即可，@公众号微信号会由系统添加)。" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaCustomAudParam.nickname">
+				<@p.text label="db.WaCustomAudParam.nickname" nameid="nickname"  value="${waCustomAudParam.nickname}" help="客服昵称，最长6个汉字或12个英文字符" dataoptions="validType:['length[0,12]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaCustomAudParam.password">
+				<@p.text label="db.WaCustomAudParam.password" nameid="password"  value="${waCustomAudParam.password}" help="客服账号登录密码，格式为密码明文的32位加密MD5值。该密码仅用于在公众平台官网的多客服功能中使用，若不使用多客服功能，则不必设置密码" dataoptions="validType:['length[0,40]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

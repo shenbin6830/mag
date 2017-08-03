@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/CashHis/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${cashHis.id}" />
+	<@z.pmt key="42.CashHis.memberId">
+				<@p.searchforid label="db.CashHis.memberId" nameid="memberId" value="${cashHis.memberId}" stringvalue="${cashHis.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.CashHis.otype">
+				<@p.radiolocal label="db.CashHis.otype" nameid="otype" value="${cashHis.otype}" help="对会员来说正是得现金，负是失现金" mapname="selectmap_CashHis_otype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.CashHis.num">
+				<@p.textnumber label="db.CashHis.num" nameid="num"  value="${cashHis.num}" help="单位分，有正负，正是得，负是失" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.CashHis.oid">
+				<@p.textnumber label="db.CashHis.oid" nameid="oid"  value="${cashHis.oid}" help="根据类型，指向不同的订单表" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.CashHis.cmemo">
+				<@p.text label="db.CashHis.cmemo" nameid="cmemo"  value="${cashHis.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

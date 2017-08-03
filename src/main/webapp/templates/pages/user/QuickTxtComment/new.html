@@ -1,0 +1,34 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/QuickTxtComment/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.QuickTxtComment.quickTxtId">
+				<@p.searchforid label="db.QuickTxtComment.quickTxtId" nameid="quickTxtId" value="${quickTxtComment.quickTxtId}" stringvalue="${quickTxtComment.quickTxtIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/QuickTxt/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxtComment.memberVi">
+				<@p.searchforid label="db.QuickTxtComment.memberVi" nameid="memberVi" value="${quickTxtComment.memberVi}" stringvalue="${quickTxtComment.memberViString}" help="也就是评论者" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxtComment.ctype">
+				<@p.radiolocal label="db.QuickTxtComment.ctype" nameid="ctype" value="${quickTxtComment.ctype}" help="" mapname="selectmap_QuickTxtComment_ctype" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

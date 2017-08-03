@@ -1,0 +1,31 @@
+<!--MemberShow，会员详细信息-->
+<ion-view view-title='会员' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/MemberEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">用户ID:{{obj.id}}</li>
+		<li class="item"><h2>用户类型</h2><p>{{obj.mtypeString}}</p></li>
+		<li class="item">咨询费:{{obj.price}}</li>
+		<li class="item">姓名或名称:{{obj.name}}</li>
+		<li class="item">简介:{{obj.intro}}</li>
+		<li class="item">头像图</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.img1}}' style="height:120px" /></li>
+		<li class="item">二维码图</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.imgqr}}' style="height:120px" /></li>
+		<li class="item"><h2>类型之个人企业</h2><p>{{obj.idtypeString}}</p></li>
+		<li class="item">证件号码:{{obj.idnum}}</li>
+		<li class="item">地址:{{obj.addr}}</li>
+		<li class="item">邮编:{{obj.zip}}</li>
+		<li class="item">手机:{{obj.mobile}}</li>
+		<li class="item">电子邮件:{{obj.email}}</li>
+		<li class="item">积分:{{obj.score}}</li>
+		<li class="item">余额:{{obj.cash}}</li>
+		<li class="item">经验:{{obj.exp}}</li>
+		<li class="item">等级:{{obj.mlevel}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

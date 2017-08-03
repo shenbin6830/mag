@@ -1,0 +1,40 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/ExpHis/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.ExpHis.memberId">
+				<@p.searchforid label="db.ExpHis.memberId" nameid="memberId" value="${expHis.memberId}" stringvalue="${expHis.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ExpHis.otype">
+				<@p.radiolocal label="db.ExpHis.otype" nameid="otype" value="${expHis.otype}" help="对会员来说正是得经验，负是失经验，基本上没负" mapname="selectmap_ExpHis_otype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ExpHis.num">
+				<@p.textnumber label="db.ExpHis.num" nameid="num"  value="${expHis.num}" help="1经验=0.1元，有正负，正是得，负是失" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ExpHis.oid">
+				<@p.textnumber label="db.ExpHis.oid" nameid="oid"  value="${expHis.oid}" help="根据类型，指向不同的订单表" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.ExpHis.cmemo">
+				<@p.text label="db.ExpHis.cmemo" nameid="cmemo"  value="${expHis.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

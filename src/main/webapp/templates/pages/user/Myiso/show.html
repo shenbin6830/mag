@@ -1,0 +1,45 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Myiso.id">
+		<tr><th>序号ID</th><td>
+		${myiso.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Myiso.ctype">
+		<tr><th>类型</th><td>
+		${myiso.ctype}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Myiso.priority">
+		<tr><th>排列顺序</th><td>
+		${myiso.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Myiso.cmemo">
+		<tr><th>备注说明</th><td>
+		${myiso.cmemo}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Myiso.ckey">
+		<tr><th>关键字</th><td>
+		${myiso.ckey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Myiso.cvalue">
+		<tr><th>值</th><td>
+		${myiso.cvalue}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,24 @@
+<!--OrderrQuickDiscardShow，订单之抢答问题提问放弃详细信息-->
+<ion-view view-title='订单之抢答问题提问放弃' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/OrderrQuickDiscardEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>支付时间</h2><p>{{obj.gmtPayString}}</p></li>
+		<li class="item"><h2>支付状态</h2><p>{{obj.statusString}}</p></li>
+		<li class="item"><h2>支付方式</h2><p>{{obj.itypePayString}}</p></li>
+		<li class="item"><h2>会员</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item">姓名:{{obj.name}}</li>
+		<li class="item">手机:{{obj.mobile}}</li>
+		<li class="item"><h2>抢答问题ID</h2><p>{{obj.quickIdString}}</p></li>
+		<li class="item">问题:{{obj.title}}</li>
+		<li class="item">总价:{{obj.price}}</li>
+		<li class="item">微信支付H5对象:{{obj.paywxh5}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

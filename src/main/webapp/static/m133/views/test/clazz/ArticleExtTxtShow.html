@@ -1,0 +1,15 @@
+<!--ArticleExtTxtShow，文章内容详细信息-->
+<ion-view view-title='文章内容' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/ArticleExtTxtEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item"><h2>商品ID</h2><p>{{obj.idString}}</p></li>
+		<li class="item">详细介绍</li>
+		<li class="item"><div dynamic="obj.txt"></div></li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

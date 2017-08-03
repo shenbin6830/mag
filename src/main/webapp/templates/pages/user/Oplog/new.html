@@ -1,0 +1,46 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Oplog/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Oplog.ip">
+				<@p.text label="db.Oplog.ip" nameid="ip"  value="${oplog.ip}" help="" dataoptions="validType:['length[0,15]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.userId">
+				<@p.searchforid label="db.Oplog.userId" nameid="userId" value="${oplog.userId}" stringvalue="${oplog.userIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.itype">
+				<@p.radiolocal label="db.Oplog.itype" nameid="itype" value="${oplog.itype}" help="" mapname="selectmap_Oplog_itype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.tbname">
+				<@p.text label="db.Oplog.tbname" nameid="tbname"  value="${oplog.tbname}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.tbid">
+				<@p.text label="db.Oplog.tbid" nameid="tbid"  value="${oplog.tbid}" help="" dataoptions="validType:['length[0,64]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.uri">
+				<@p.text label="db.Oplog.uri" nameid="uri"  value="${oplog.uri}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Oplog.cmemo">
+				<@p.textarea label="db.Oplog.cmemo" nameid="cmemo" value="${oplog.cmemo}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

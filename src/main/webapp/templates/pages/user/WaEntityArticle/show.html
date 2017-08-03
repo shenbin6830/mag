@@ -1,0 +1,61 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaEntityArticle.id">
+		<tr><th>序号ID</th><td>
+		${waEntityArticle.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${waEntityArticle.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.status">
+		<tr><th>状态</th><td>
+		${waEntityArticle.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.keyw">
+		<tr><th>关键字</th><td>
+		${waEntityArticle.keyw}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.title">
+		<tr><th>图文消息标题</th><td>
+		${waEntityArticle.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.description">
+		<tr><th>图文消息描述</th><td>
+		${waEntityArticle.description}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.pic">
+		<tr><th>图片链接</th><td>
+		${waEntityArticle.pic}
+		<br/><img src="${waEntityArticle.pic}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.picurl">
+		<tr><th>图片完整链接</th><td>
+		${waEntityArticle.picurl}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaEntityArticle.url">
+		<tr><th>点击图文消息跳转链接</th><td>
+		${waEntityArticle.url}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

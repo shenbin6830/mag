@@ -1,0 +1,50 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Articlechannel.id">
+		<tr><th>序号ID</th><td>
+		${articlechannel.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.ckey">
+		<tr><th>关键字</th><td>
+		${articlechannel.ckey}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.parentid">
+		<tr><th>父ID</th><td>
+		${articlechannel.parentidStringid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.priority">
+		<tr><th>排列顺序</th><td>
+		${articlechannel.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.childrennum">
+		<tr><th>孩子数量</th><td>
+		${articlechannel.childrennum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.family">
+		<tr><th>祖先</th><td>
+		${articlechannel.family}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Articlechannel.title">
+		<tr><th>名称</th><td>
+		${articlechannel.title}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

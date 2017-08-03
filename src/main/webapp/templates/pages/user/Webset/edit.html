@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/Webset/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${webset.id}" />
+	<@z.pmt key="42.Webset.cname">
+				<@p.text label="db.Webset.cname" nameid="cname"  value="${webset.cname}" help="" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Webset.ckey">
+				<@p.text label="db.Webset.ckey" nameid="ckey"  value="${webset.ckey}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Webset.enumFieldType">
+				<@p.radiolocal label="db.Webset.enumFieldType" nameid="enumFieldType" value="${webset.enumFieldType}" help="" mapname="selectmap_all_enumFieldType" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.Webset.cmemo">
+				<@p.text label="db.Webset.cmemo" nameid="cmemo"  value="${webset.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.Webset.cvalue">
+				<@p.textarea label="db.Webset.cvalue" nameid="cvalue" value="${webset.cvalue}" help="如果要分隔，建议两级：a1,b1;a2,b2" dataoptions="validType:['length[0,2147483647]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

@@ -1,0 +1,55 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.ScorememberStatiDay.id">
+		<tr><th>序号ID</th><td>
+		${scorememberStatiDay.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${scorememberStatiDay.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.gmtStati">
+		<tr><th>被统计日</th><td>
+		${scorememberStatiDay.gmtStatiString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.memberId">
+		<tr><th>会员</th><td>
+		${scorememberStatiDay.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.num">
+		<tr><th>本日增减数量</th><td>
+		${scorememberStatiDay.num}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.nstart">
+		<tr><th>日初数</th><td>
+		${scorememberStatiDay.nstart}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.nend">
+		<tr><th>日末数</th><td>
+		${scorememberStatiDay.nend}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.ScorememberStatiDay.cmemo">
+		<tr><th>备注说明</th><td>
+		${scorememberStatiDay.cmemo}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

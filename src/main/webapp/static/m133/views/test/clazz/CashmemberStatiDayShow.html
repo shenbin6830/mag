@@ -1,0 +1,20 @@
+<!--CashmemberStatiDayShow，会员现金日统计详细信息-->
+<ion-view view-title='会员现金日统计' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/CashmemberStatiDayEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>被统计日</h2><p>{{obj.gmtStatiString}}</p></li>
+		<li class="item"><h2>会员</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item">本日增减数量:{{obj.num}}</li>
+		<li class="item">日初数:{{obj.nstart}}</li>
+		<li class="item">日末数:{{obj.nend}}</li>
+		<li class="item">备注说明:{{obj.cmemo}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

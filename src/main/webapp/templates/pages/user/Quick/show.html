@@ -1,0 +1,110 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Quick.id">
+		<tr><th>序号</th><td>
+		${quick.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${quick.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.gmtModified">
+		<tr><th>修改时间</th><td>
+		${quick.gmtModifiedString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.gmtPay">
+		<tr><th>支付时间</th><td>
+		${quick.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.gmtStart">
+		<tr><th>开始时间</th><td>
+		${quick.gmtStartString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.gmtOver">
+		<tr><th>结束时间</th><td>
+		${quick.gmtOverString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.status">
+		<tr><th>状态</th><td>
+		${quick.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.ptype">
+		<tr><th>公开状态</th><td>
+		${quick.ptypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.priority">
+		<tr><th>排列顺序</th><td>
+		${quick.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.articlechannelId">
+		<tr><th>频道内序号</th><td>
+		${quick.articlechannelIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.memberQu">
+		<tr><th>提问者</th><td>
+		${quick.memberQuString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.priceeach">
+		<tr><th>每个奖金</th><td>
+		${quick.priceeach}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.pricenum">
+		<tr><th>奖金数量</th><td>
+		${quick.pricenum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.price">
+		<tr><th>总奖金</th><td>
+		${quick.price}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.viewprice">
+		<tr><th>观看费</th><td>
+		${quick.viewprice}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.answernum">
+		<tr><th>回答人数</th><td>
+		${quick.answernum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.viewnum">
+		<tr><th>观看人数</th><td>
+		${quick.viewnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.title">
+		<tr><th>标题</th><td>
+		${quick.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Quick.question">
+		<tr><th>问题</th><td>
+		${quick.question}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

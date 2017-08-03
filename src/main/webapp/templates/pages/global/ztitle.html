@@ -1,0 +1,123 @@
+<#--标题-->
+<#macro title name="" keywords="${sys.webname}" description="${sys.webname}">
+<title>${sys.webname} - ${name}</title>
+<meta charset="UTF-8">
+<meta http-equiv="keywords" content="${keywords}"/>
+<meta http-equiv="description" content="${description}"/>
+</#macro>
+
+<#--权限 key，允许列表中如果有此key,可以显示-->
+<#macro pmt key="">
+<#if !key?? || key=="">
+	<#nested>
+	<#return>
+</#if>
+<#if !uuser??>
+	<#return>
+</#if>
+<#if uuser.pmtmap['0.u0']=='9'>
+	<#nested>
+	<#return>
+</#if>
+<#if !uuser.pmtmap??>
+	<#return>
+</#if>
+
+<#--41 41.Class.field看下0.Class.new?10-->
+<#--42 42.Class.field看下0.Class.edit?10-->
+<#--51,52 51.Class.field看下0.Class.show?10-->
+<#assign ap45=key?split(".")>
+<#assign bp45=false>
+<#assign fatherkey="0."+ap45[1]> <#--00.Class?91整表权限-->
+<#if uuser.pmtmap[fatherkey]?? && uuser.pmtmap[fatherkey]?number == 91 >
+	<#assign bp45=true>
+<#elseif ap45[0]=="41">
+	<#assign fatherkey="0."+ap45[1]+".new">
+	<#if uuser.pmtmap[fatherkey]?? && uuser.pmtmap[fatherkey]?number == 91 ><#assign bp45=true></#if>
+<#elseif  ap45[0]=="42">
+	<#assign fatherkey="0."+ap45[1]+".edit">
+	<#if uuser.pmtmap[fatherkey]?? && uuser.pmtmap[fatherkey]?number == 91 ><#assign bp45=true></#if>
+<#elseif  ap45[0]=="51" || ap45[0]=="52">
+	<#assign fatherkey="0."+ap45[1]+".show">
+	<#if uuser.pmtmap[fatherkey]?? && uuser.pmtmap[fatherkey]?number == 91 ><#assign bp45=true></#if>
+<#else>
+</#if>
+<#if bp45>
+	<#nested>
+	<#return>
+</#if>
+
+
+<#if uuser.pmtmap[key]?? && uuser.pmtmap[key]?substring(0,1)?number gt 5>
+	<#nested>
+	<#return>
+</#if>
+<#return>
+</#macro>
+
+<#--和上面相反，如果用户权限出现在禁止列表中，包括的内容显示，否则不显示-->
+<#macro pmtNo key="">
+<#if !key?? || key=="">
+	<#return>
+</#if>
+<#if !uuser??>
+	<#nested>
+	<#return>
+</#if>
+<#if uuser.usertype==0>
+	<#return>
+</#if>
+
+<#if !uuser.pmtmap??>
+	<#return>
+</#if>
+<#if uuser.pmtmap[key]??>
+	<#nested>
+	<#return>
+</#if>
+<#return>
+</#macro>
+
+
+<#--form token-->
+<#macro formtoken bind>
+<input type="hidden" value="${_form_token_id_}" name="_form_token_id_" />
+<@s.bind bind/>   
+<#list s.status.errorMessages as error><#if error=="sm.error.duplicateSubmit"><b><font color="red"><@s.m error/></font></b></#if></#list> 
+</#macro>
+
+<#--限制字符串长度，超长截取后加...-->
+<#macro limitstring str="" len=20>
+<#if !str?? || str?length lt 1>
+<#elseif  str?length lt len>
+${str}
+<#else>
+${str?substring(0,len-1)}...
+</#if>
+</#macro>
+
+<#--显示文章或内容的href 如果文章本身是链接，转到链接；否则转到自带genurl字段。直链字段名：linkto ex.showref(objl)-->
+<#function showhref content>
+<#if !content??>
+	<#return "#">
+</#if>
+<#if (content.linkto)?? && content.linkto?length gt 1>
+	<#return content.linkto>
+<#elseif (content.genurl)?? && content.genurl?length gt 1>
+	<#return content.genurl>
+<#else>
+	<#return "#("+(content.linkto)!"11"+"),("+(content.genurl)!"22"+")">
+</#if>
+</#function>
+
+<#--显示图片的href，如果图以http://或https://开头，直接返回，表示为外域图片；如果/开头，为本地图片，加上hbase返回。 ex.showimghref(objl.img)-->
+<#function showimghref imgurl>
+<#if !imgurl?? || imgurl="">
+	<#return "${res}/img/wx/person_tou.jpg">
+</#if>
+<#if imgurl?index_of("http://")==0 || imgurl?index_of("https://")==0>
+	<#return imgurl>
+<#else>
+	<#return hbase+imgurl>
+</#if>
+</#function>

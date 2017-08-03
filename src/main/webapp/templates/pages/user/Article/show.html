@@ -1,0 +1,81 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Article.id">
+		<tr><th>序号</th><td>
+		${article.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${article.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.gmtModified">
+		<tr><th>修改时间</th><td>
+		${article.gmtModifiedString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.priority">
+		<tr><th>排列顺序</th><td>
+		${article.priority}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.articlechannelId">
+		<tr><th>文章频道内序号</th><td>
+		${article.articlechannelIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.memberId">
+		<tr><th>作者内序号</th><td>
+		${article.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.title">
+		<tr><th>名称</th><td>
+		${article.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.intro">
+		<tr><th>简介</th><td>
+		${article.intro}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.author">
+		<tr><th>作者</th><td>
+		${article.author}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.linkto">
+		<tr><th>直接链接到</th><td>
+		<a href="${article.linkto}" target="_blank">${article.linkto}</a>
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.img1">
+		<tr><th>图1</th><td>
+		${article.img1}
+		<br/><img src="${article.img1}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.hittimes">
+		<tr><th>点击次数</th><td>
+		${article.hittimes}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Article.genurl">
+		<tr><th>生成相对地址</th><td>
+		<a href="${article.genurl}" target="_blank">${article.genurl}</a>
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

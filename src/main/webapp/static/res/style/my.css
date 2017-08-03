@@ -1,0 +1,4 @@
+.table-condensed th, .table-condensed td {
+    padding: 4px 5px;
+    white-space:nowrap;
+}

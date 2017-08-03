@@ -1,0 +1,56 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.WaQrcodeticketScene.id">
+		<tr><th>序号ID</th><td>
+		${waQrcodeticketScene.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.sceneStr">
+		<tr><th>场景值ID字符串形式</th><td>
+		${waQrcodeticketScene.sceneStr}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.actType">
+		<tr><th>操作类型</th><td>
+		${waQrcodeticketScene.actType}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.actDetailSplit">
+		<tr><th>操作参数分隔符</th><td>
+		${waQrcodeticketScene.actDetailSplit}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.actDetail">
+		<tr><th>操作详情或参数</th><td>
+		${waQrcodeticketScene.actDetail}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.statusTemporary">
+		<tr><th>是否为临时二维码</th><td>
+		${waQrcodeticketScene.statusTemporaryString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.statusValid">
+		<tr><th>是否有效</th><td>
+		${waQrcodeticketScene.statusValidString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.WaQrcodeticketScene.img1">
+		<tr><th>图1</th><td>
+		${waQrcodeticketScene.img1}
+		<br/><img src="${waQrcodeticketScene.img1}" />
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

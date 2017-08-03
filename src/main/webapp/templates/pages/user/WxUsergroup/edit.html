@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/WxUsergroup/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="42.WxUsergroup.id">
+				<@p.textnumber label="db.WxUsergroup.id" nameid="id"  value="${wxUsergroup.id}" help="分组id，由微信分配" dataoptions="min:-9223372036854775807,max:9223372036854775807," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WxUsergroup.sellerId">
+				<@p.searchforid label="db.WxUsergroup.sellerId" nameid="sellerId" value="${wxUsergroup.sellerId}" stringvalue="${wxUsergroup.sellerIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WxUsergroup.name">
+				<@p.text label="db.WxUsergroup.name" nameid="name"  value="${wxUsergroup.name}" help="分组名字，UTF8编码" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WxUsergroup.count">
+				<@p.textnumber label="db.WxUsergroup.count" nameid="count"  value="${wxUsergroup.count}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

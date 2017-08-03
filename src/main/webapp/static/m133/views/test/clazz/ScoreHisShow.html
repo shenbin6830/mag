@@ -1,0 +1,19 @@
+<!--ScoreHisShow，积分流水详细信息-->
+<ion-view view-title='积分流水' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/ScoreHisEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号ID:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>会员</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item"><h2>类型</h2><p>{{obj.otypeString}}</p></li>
+		<li class="item">数量:{{obj.num}}</li>
+		<li class="item">订单的id:{{obj.oid}}</li>
+		<li class="item">备注说明:{{obj.cmemo}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

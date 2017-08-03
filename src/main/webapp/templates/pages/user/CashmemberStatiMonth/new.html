@@ -1,0 +1,43 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/CashmemberStatiMonth/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.CashmemberStatiMonth.gmtStati">
+				<@p.text label="db.CashmemberStatiMonth.gmtStati" nameid="gmtStati"  value="${cashmemberStatiMonth.gmtStati}" help=">=每月1日0:0，<下月1日0:0" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.CashmemberStatiMonth.memberId">
+				<@p.searchforid label="db.CashmemberStatiMonth.memberId" nameid="memberId" value="${cashmemberStatiMonth.memberId}" stringvalue="${cashmemberStatiMonth.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.CashmemberStatiMonth.num">
+				<@p.textnumber label="db.CashmemberStatiMonth.num" nameid="num"  value="${cashmemberStatiMonth.num}" help="正负，正是增加，负是减少，零也创建记录" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.CashmemberStatiMonth.nstart">
+				<@p.textnumber label="db.CashmemberStatiMonth.nstart" nameid="nstart"  value="${cashmemberStatiMonth.nstart}" help="1日0:0时的分数，月初数+本月增减分数=月末数" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.CashmemberStatiMonth.nend">
+				<@p.textnumber label="db.CashmemberStatiMonth.nend" nameid="nend"  value="${cashmemberStatiMonth.nend}" help="下月1日0:0时的分数" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.CashmemberStatiMonth.cmemo">
+				<@p.text label="db.CashmemberStatiMonth.cmemo" nameid="cmemo"  value="${cashmemberStatiMonth.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

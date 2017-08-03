@@ -1,0 +1,97 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/WaGeneralNoticeRet/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.WaGeneralNoticeRet.returnCode">
+				<@p.text label="db.WaGeneralNoticeRet.returnCode" nameid="returnCode"  value="${waGeneralNoticeRet.returnCode}" help="SUCCESS/FAIL" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.returnMsg">
+				<@p.text label="db.WaGeneralNoticeRet.returnMsg" nameid="returnMsg"  value="${waGeneralNoticeRet.returnMsg}" help="返回信息，如非空，为错误原因 签名失败 参数格式校验错误" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.appid">
+				<@p.text label="db.WaGeneralNoticeRet.appid" nameid="appid"  value="${waGeneralNoticeRet.appid}" help="微信分配的公众账号ID" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.mchId">
+				<@p.text label="db.WaGeneralNoticeRet.mchId" nameid="mchId"  value="${waGeneralNoticeRet.mchId}" help="微信支付分配的商户号" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.deviceInfo">
+				<@p.text label="db.WaGeneralNoticeRet.deviceInfo" nameid="deviceInfo"  value="${waGeneralNoticeRet.deviceInfo}" help="终端设备号(门店号或收银设备ID)，注意：PC网页或公众号内支付请传"WEB"" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.nonceStr">
+				<@p.text label="db.WaGeneralNoticeRet.nonceStr" nameid="nonceStr"  value="${waGeneralNoticeRet.nonceStr}" help="随机字符串，不长于32位" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.sign">
+				<@p.text label="db.WaGeneralNoticeRet.sign" nameid="sign"  value="${waGeneralNoticeRet.sign}" help="签名" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.resultCode">
+				<@p.text label="db.WaGeneralNoticeRet.resultCode" nameid="resultCode"  value="${waGeneralNoticeRet.resultCode}" help="SUCCESS/FAIL" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.errCode">
+				<@p.text label="db.WaGeneralNoticeRet.errCode" nameid="errCode"  value="${waGeneralNoticeRet.errCode}" help="详细参见第6节错误列表" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.errCodeDes">
+				<@p.text label="db.WaGeneralNoticeRet.errCodeDes" nameid="errCodeDes"  value="${waGeneralNoticeRet.errCodeDes}" help="错误返回的信息描述" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.openid">
+				<@p.text label="db.WaGeneralNoticeRet.openid" nameid="openid"  value="${waGeneralNoticeRet.openid}" help="用户在商户appid下的唯一标识" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.isSubscribe">
+				<@p.text label="db.WaGeneralNoticeRet.isSubscribe" nameid="isSubscribe"  value="${waGeneralNoticeRet.isSubscribe}" help="用户是否关注公众账号，Y-关注，N-未关注，仅在公众账号类型支付有效" dataoptions="validType:['length[0,1]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.tradeType">
+				<@p.text label="db.WaGeneralNoticeRet.tradeType" nameid="tradeType"  value="${waGeneralNoticeRet.tradeType}" help="JSAPI、NATIVE、APP" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.bankType">
+				<@p.text label="db.WaGeneralNoticeRet.bankType" nameid="bankType"  value="${waGeneralNoticeRet.bankType}" help="银行类型，采用字符串类型的银行标识，银行类型见附表" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.totalFee">
+				<@p.textnumber label="db.WaGeneralNoticeRet.totalFee" nameid="totalFee"  value="${waGeneralNoticeRet.totalFee}" help="订单总金额，单位为分" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.feeType">
+				<@p.text label="db.WaGeneralNoticeRet.feeType" nameid="feeType"  value="${waGeneralNoticeRet.feeType}" help="货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，" dataoptions="validType:['length[0,8]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.cashFee">
+				<@p.textnumber label="db.WaGeneralNoticeRet.cashFee" nameid="cashFee"  value="${waGeneralNoticeRet.cashFee}" help="现金支付金额订单现金支付金额" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.cashFeeType">
+				<@p.text label="db.WaGeneralNoticeRet.cashFeeType" nameid="cashFeeType"  value="${waGeneralNoticeRet.cashFeeType}" help="货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY" dataoptions="validType:['length[0,16]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.couponFee">
+				<@p.textnumber label="db.WaGeneralNoticeRet.couponFee" nameid="couponFee"  value="${waGeneralNoticeRet.couponFee}" help="代金券或立减优惠金额<=订单总金额，订单总金额-代金券或立减优惠金额=现金支付金额" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.couponCount">
+				<@p.textnumber label="db.WaGeneralNoticeRet.couponCount" nameid="couponCount"  value="${waGeneralNoticeRet.couponCount}" help="代金券或立减优惠使用数量" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.transactionId">
+				<@p.text label="db.WaGeneralNoticeRet.transactionId" nameid="transactionId"  value="${waGeneralNoticeRet.transactionId}" help="微信支付订单号" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.outTradeNo">
+				<@p.text label="db.WaGeneralNoticeRet.outTradeNo" nameid="outTradeNo"  value="${waGeneralNoticeRet.outTradeNo}" help="商户系统的订单号，与请求一致。" dataoptions="validType:['length[0,32]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.attach">
+				<@p.text label="db.WaGeneralNoticeRet.attach" nameid="attach"  value="${waGeneralNoticeRet.attach}" help="商家数据包，原样返回" dataoptions="validType:['length[0,128]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.WaGeneralNoticeRet.timeEnd">
+				<@p.text label="db.WaGeneralNoticeRet.timeEnd" nameid="timeEnd"  value="${waGeneralNoticeRet.timeEnd}" help="支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。" dataoptions="validType:['length[0,14]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

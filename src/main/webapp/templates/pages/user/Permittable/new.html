@@ -1,0 +1,55 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Permittable/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Permittable.roleId">
+				<@p.radiolocal label="db.Permittable.roleId" nameid="roleId" value="${permittable.roleId}" help="参看user" mapname="selectmap_Permittable_roleId" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.tbname">
+				<@p.text label="db.Permittable.tbname" nameid="tbname"  value="${permittable.tbname}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.tbalias">
+				<@p.text label="db.Permittable.tbalias" nameid="tbalias"  value="${permittable.tbalias}" help="" dataoptions="validType:['length[0,50]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.pall">
+				<@p.radiolocal label="db.Permittable.pall" nameid="pall" value="${permittable.pall}" help="如果设置成为“无”，后面不用设置了，全部无权；如果设成为“全部”，后面也基本不用设置，角色对此表有着和管理员差不多的权限，除了增HQL和修改检查脚本" mapname="selectmap_Permittable_pall" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.btnnew">
+				<@p.radiolocal label="db.Permittable.btnnew" nameid="btnnew" value="${permittable.btnnew}" help="如果设成为“全部”，此操作所有字段全部可见" mapname="selectmap_Permittable_btnnew" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.btnedit">
+				<@p.radiolocal label="db.Permittable.btnedit" nameid="btnedit" value="${permittable.btnedit}" help="如果设成为“全部”，此操作所有字段全部可见" mapname="selectmap_Permittable_btnedit" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.btndel">
+				<@p.radiolocal label="db.Permittable.btndel" nameid="btndel" value="${permittable.btndel}" help="“部分”与“全部”没有区别" mapname="selectmap_Permittable_btndel" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.btnshow">
+				<@p.radiolocal label="db.Permittable.btnshow" nameid="btnshow" value="${permittable.btnshow}" help="如果设成为“全部”，此列表和查询操作所有字段全部可见" mapname="selectmap_Permittable_btnshow" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.queryaddhql">
+				<@p.text label="db.Permittable.queryaddhql" nameid="queryaddhql"  value="${permittable.queryaddhql}" help="例：\"userId=\"+sessionobj.id" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Permittable.modigvy">
+				<@p.text label="db.Permittable.modigvy" nameid="modigvy"  value="${permittable.modigvy}" help="例：dbobj.userId==sessionobj.id" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<@z.title name="会员中心" />
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript" charset="utf-8">
+	var loginDialog;
+	var loginTabs;
+	var userLoginCombobox;
+	var userLoginCombogrid;
+	$(function() {
+		loginDialog = $('#loginDialog').show().dialog({
+			modal : true,
+			closable : false,
+			buttons : [ {
+				text : '注册',
+				handler : function() {
+					window.location.href='reg.html';
+				}
+			}, {
+				text : '登录',
+				handler : function() {
+					loginFun();
+				}
+			} ]
+		});
+
+		$('#loginDialog input').keyup(function(event) {
+			if (event.keyCode == '13') {
+				loginFun();
+			}
+		});
+
+	});
+	function loginFun() {
+			loginTabs = $('#loginTabs').tabs('getSelected');//当前选中的tab
+			var form = loginTabs.find('form');//选中的tab里面的form
+
+			if (form.form('validate')) {
+				parent.$.messager.progress({
+					title : '提示',
+					text : '登录数据处理中，请稍后....'
+				});
+				$.post('${base}/restpage/pub/login.html', form.serialize(), function(result) {
+					if (result.success) {
+						window.location.href="${base}/user/index.html";
+					} else {
+						$.messager.alert('错误', result.msg, 'error');
+						$("#imgcaptcha").attr("src",'${base}/captcha.html?d='+new Date()*1);
+					}
+					parent.$.messager.progress('close');
+				}, "JSON");
+			}
+	}
+</script>
+<body>
+<div id="loginDialog" title="用户登录" style="width: 330px; height: 320px; overflow: hidden;">
+	<div id="loginTabs" class="easyui-tabs" data-options="fit:true,border:false">
+		<div title="请输入登录名密码" style="overflow: hidden; padding: 10px;">
+			<form method="post" action="login">
+				<table class="table table-hover table-condensed">
+					<tr>
+						<th>登录名</th>
+						<td><input name="username" type="text" placeholder="请输入登录名" class="easyui-validatebox" data-options="required:true" value="${user.username}"></td>
+					</tr>
+					<tr>
+						<th>密码</th>
+						<td><input name="password" type="password" placeholder="请输入密码" class="easyui-validatebox" data-options="required:true" value=""></td>
+					</tr>
+					<tr>
+						<th>验证码</th>
+						<td><input name="captcha" type="text"  placeholder="验证码" class="easyui-validatebox" data-options="required:true"  size="4"/>
+						<br/><img id="imgcaptcha" name="imgcaptcha" src="${base}/captcha.html" onclick="this.src='${base}/captcha.html?d='+new Date()*1" width="100" height="35"/>点击图换一个</td>
+					</tr>	
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

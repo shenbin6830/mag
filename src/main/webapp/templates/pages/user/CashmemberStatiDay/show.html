@@ -1,0 +1,55 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.CashmemberStatiDay.id">
+		<tr><th>序号ID</th><td>
+		${cashmemberStatiDay.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${cashmemberStatiDay.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.gmtStati">
+		<tr><th>被统计日</th><td>
+		${cashmemberStatiDay.gmtStatiString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.memberId">
+		<tr><th>会员</th><td>
+		${cashmemberStatiDay.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.num">
+		<tr><th>本日增减数量</th><td>
+		${cashmemberStatiDay.num}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.nstart">
+		<tr><th>日初数</th><td>
+		${cashmemberStatiDay.nstart}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.nend">
+		<tr><th>日末数</th><td>
+		${cashmemberStatiDay.nend}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.CashmemberStatiDay.cmemo">
+		<tr><th>备注说明</th><td>
+		${cashmemberStatiDay.cmemo}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

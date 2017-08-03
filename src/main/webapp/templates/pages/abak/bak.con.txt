@@ -1,0 +1,673 @@
+//精简构造 手机页首页配置
+Wwwhome wwwhome = new Wwwhome(
+	logo , //String 图标  160x160 
+	sharetxt , //String 分享转发说明   
+	headimg1 , //String 图1  640x380 
+	headimgtxt1 , //String 图说明1   
+	headimglink1 , //String 图链接1  #开头的表示本地地址 
+	headimg2 , //String 图2  640x380 
+	headimgtxt2 , //String 图说明2   
+	headimglink2 , //String 图链接2   
+	headimg3 , //String 图3  640x380 
+	headimgtxt3 , //String 图说明3   
+	headimglink3 , //String 图链接3   
+	null
+);
+//精简构造 表字段
+Tbfield tbfield = new Tbfield(
+	parentid , //Integer 父ID default=0  
+	priority , //Integer 排列顺序 default=0  
+	childrennum , //Integer 孩子数量 default=0  
+	cname , //String 名称简介   
+	ckey , //String 表名字段名   
+	cvalue , //String 值   
+	null
+);
+//精简构造 网站设置
+Webset webset = new Webset(
+	cname , //String 名称简介   
+	ckey , //String 关键字   
+	enumFieldType , //Integer 字段类型 default=0  
+	cmemo , //String 备注说明   
+	cvalue , //String 值  如果要分隔，建议两级：a1,b1;a2,b2 
+	null
+);
+//精简构造 参数设置
+Myiso myiso = new Myiso(
+	ctype , //String 类型 default=json  
+	priority , //Integer 排列顺序 default=0  
+	cmemo , //String 备注说明   
+	ckey , //String 关键字   
+	cvalue , //String 值   
+	null
+);
+//精简构造 用户参数设置
+Myisou myisou = new Myisou(
+	userId , //Integer 所属用户   
+	priority , //Integer 排列顺序 default=0  
+	cmemo , //String 备注说明   
+	ckey , //String 关键字  all.字段名或[表名].字段名 
+	cckey , //String 保存值  数据库保存这个 
+	ccvalue , //String 显示  页面显示这个 
+	null
+);
+//精简构造 操作日志
+Oplog oplog = new Oplog(
+	ip , //String ip   
+	userId , //Integer 操作者   
+	itype , //Integer 操作类型 default=0  {'0':'其它','1':'增加','2':'删除','3':'修改','4':'查询','5':'列表','6':'其它查询','7':'其它修改','8':'批量修改'}
+	tbname , //String 操作表   
+	tbid , //String 操作表id   
+	uri , //String 原始操作   
+	cmemo , //String 备注   
+	null
+);
+//精简构造 模板消息接口之获得模板ID
+WaTemplateAdd waTemplateAdd = new WaTemplateAdd(
+	userId , //Integer 卖家   
+	statusValidOrNot , //Integer 状态 default=1 有效的不超过15个 
+	templateIdShort , //String 模板短编号  模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式 
+	templateId , //String 模板id   
+	null
+);
+//精简构造 共用对象之图文
+WaEntityArticle waEntityArticle = new WaEntityArticle(
+	status , //Integer 状态 default=1  {'0':'无效','1':'上线'}
+	keyw , //String 关键字   
+	title , //String 图文消息标题   
+	description , //String 图文消息描述  如果是纯文本消息，取此项值 
+	pic , //String 图片链接  大图360*200,小图200*200 
+	picurl , //String 图片完整链接  腾讯规定的完整路径，http://a.b.c/加上面的图片链接 
+	url , //String 点击图文消息跳转链接   
+	null
+);
+//精简构造 微信自定义菜单
+Wxmenu wxmenu = new Wxmenu(
+	userId , //Integer 卖家   
+	mtype , //String 菜单类型   {'menu':'菜单','button':'一级菜单','sub_button':'二级菜单'}
+	type , //String 响应动作类型  菜单的响应动作类型 {'click':'点击推时间','view':'跳转URL','scancode_push':'扫码推事件','scancode_waitmsg':'扫码推事件且弹出消息接收中提示框','pic_sysphoto':'弹出系统拍照发图','pic_photo_or_album':'弹出拍照或者相册发图','pic_weixin':'弹出微信相册发图器','location_select':'弹出地理位置选择器','media_id':'下发消息（除文本消息）','view_limited':'跳转图文消息URL'}
+	name , //String 菜单标题  菜单标题，不超过16个字节，子菜单不超过40个字节 
+	key1 , //String 菜单KEY值  click等点击类型必须 菜单KEY值，用于消息接口推送，不超过128字节 
+	url , //String 网页链接  view类型必须 网页链接，用户点击菜单可打开链接，不超过256字节 
+	mediaId , //String 合法media_id  调用新增永久素材接口返回的合法media_id 
+	parentid , //Integer 父ID default=0  
+	childrennum , //Integer 孩子数量 default=0  
+	null
+);
+//精简构造 接收到的消息
+WaRecvmsg waRecvmsg = new WaRecvmsg(
+	tousername , //String 服务者微信号   
+	fromusername , //String 发送方帐号  （一个OpenID） 
+	createtime , //Long 消息创建时间   （整型） 
+	msgtype , //String 消息类型   {'text':'文本','image':'图片','voice':'音频','video':'视频','location':'地理位置','link':'链接','event':'事件'}
+	content , //String 文本消息内容   
+	msgid , //String 消息id  ，64位整型 
+	picurl , //String 图片链接   
+	mediaid , //String 消息媒体id  图片消息媒体id，可以调用多媒体文件下载接口拉取数据。 
+	format , //String 语音格式  amr，speex等 
+	thumbmediaid , //String 缩略图的媒体id  可以调用多媒体文件下载接口拉取数据。 
+	locationX , //Double 地理位置维度 default=0.0  
+	locationY , //Double 地理位置经度 default=0.0  
+	scale , //Integer 地图缩放大小   
+	label1 , //String 地理位置信息   
+	title , //String 消息标题   
+	description , //String 消息描述   
+	url , //String 消息链接   
+	event , //String 事件类型   {'subscribe':'订阅','unsubscribe':'取消订阅','SCAN':'扫描二维码','LOCATION':'上报地理','CLICK':'点击菜单','VIEW':'菜单跳转'}
+	eventkey , //String 事件KEY值  不同event有不同定义 
+	ticket , //String 二维码的ticket  可用来换取二维码图片 
+	latitude , //Double 地理位置纬度 default=0.0  
+	longitude , //Double 地理位置经度 default=0.0  
+	precision1 , //Double 地理位置精度 default=0.0  
+	recognition , //String 语音识别结果  ，UTF8编码 
+	null
+);
+//精简构造 客服管理之增删改参数
+WaCustomAudParam waCustomAudParam = new WaCustomAudParam(
+	userId , //Integer 卖家   
+	statusValidOrNot , //Integer 状态 default=1 有效的不超过10个 
+	kfAccount , //String 完整客服账号  完整客服账号，格式为：账号前缀@公众号微信号，工号不能重复，一旦输入不能修改，由字母、数字组成(店家只需要填写账号前缀即可，@公众号微信号会由系统添加)。 
+	nickname , //String 客服昵称  客服昵称，最长6个汉字或12个英文字符 
+	password , //String 登录密码  客服账号登录密码，格式为密码明文的32位加密MD5值。该密码仅用于在公众平台官网的多客服功能中使用，若不使用多客服功能，则不必设置密码 
+	null
+);
+//精简构造 微信自定义模板
+Wxmsgtemplate wxmsgtemplate = new Wxmsgtemplate(
+	userId , //Integer 卖家 default=1  
+	ckey , //String 关键字  这个代码会使用的，需要咨询开发人员 
+	templateIdShort , //String 模板短编号  模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式 
+	templateId , //String 模板id  从公众平台里复制过来 
+	title , //String 说明   
+	content , //String 模板内容   
+	null
+);
+//精简构造 用户分组
+WxUsergroup wxUsergroup = new WxUsergroup(
+	sellerId , //Integer 所属卖家   
+	name , //String 分组名字  分组名字，UTF8编码 
+	count , //Integer 分组内用户数量   
+	null
+);
+//精简构造 微信支付回调通用结果
+WaGeneralNoticeRet waGeneralNoticeRet = new WaGeneralNoticeRet(
+	returnCode , //String 返回状态码  SUCCESS/FAIL 
+	returnMsg , //String 返回信息  返回信息，如非空，为错误原因 签名失败 参数格式校验错误 
+	appid , //String 公众账号ID  微信分配的公众账号ID 
+	mchId , //String 商户号  微信支付分配的商户号 
+	deviceInfo , //String 设备号  终端设备号(门店号或收银设备ID)，注意：PC网页或公众号内支付请传"WEB" 
+	nonceStr , //String 随机字符串  随机字符串，不长于32位 
+	sign , //String 签名  签名 
+	resultCode , //String 业务结果  SUCCESS/FAIL 
+	errCode , //String 错误代码  详细参见第6节错误列表 
+	errCodeDes , //String 错误代码描述  错误返回的信息描述 
+	openid , //String 用户标识  用户在商户appid下的唯一标识 
+	isSubscribe , //String 是否关注公众账号  用户是否关注公众账号，Y-关注，N-未关注，仅在公众账号类型支付有效 
+	tradeType , //String 交易类型  JSAPI、NATIVE、APP 
+	bankType , //String 付款银行  银行类型，采用字符串类型的银行标识，银行类型见附表 
+	totalFee , //Integer 总金额  订单总金额，单位为分 
+	feeType , //String 货币种类  货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY， 
+	cashFee , //Integer 现金支付金额  现金支付金额订单现金支付金额 
+	cashFeeType , //String 现金支付货币类型  货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY 
+	couponFee , //Integer 代金券或立减优惠金额  代金券或立减优惠金额<=订单总金额，订单总金额-代金券或立减优惠金额=现金支付金额 
+	couponCount , //Integer 代金券或立减优惠使用数量  代金券或立减优惠使用数量 
+	transactionId , //String 微信支付订单号  微信支付订单号 
+	outTradeNo , //String 商户订单号  商户系统的订单号，与请求一致。 
+	attach , //String 商家数据包  商家数据包，原样返回 
+	timeEnd , //String 支付完成时间  支付完成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。 
+	null
+);
+//精简构造 微信配置
+Wxcfg wxcfg = new Wxcfg(
+	statusApplyPassRefuse , //Integer 状态 default=0  
+	cname , //String 名称   
+	wxnum , //String 微信号   
+	itype , //Integer 类型 default=1  {'1':'服务号','2':'企业号','3':'订阅号'}
+	appid , //String appid  从微信后台复制，关键字段 
+	appsecret , //String appsecret  从微信后台复制 
+	token , //String token  从微信后台复制(php产生) 
+	encodingaeskey , //String encodingaeskey  从微信后台复制(php产生) 
+	mchid , //String 微信支付商户号  支付相关从微信后台复制(支付关键字段) 
+	partnerid , //String 商户平台登录帐号  支付相关从微信后台复制 
+	partnerkey , //String 商户平台登录密码  支付相关从微信后台复制 
+	paykey , //String 商户支付密钥  支付相关从微信后台复制(支付关键字段) 
+	appAppid , //String app的appid  从微信后台复制，关键字段 
+	appMchid , //String app的微信支付商户号  支付相关从微信后台复制(支付关键字段) 
+	appPaykey , //String app的商户支付密钥  支付相关从微信后台复制(支付关键字段) 
+	accesstoken , //String accesstoken   
+	ticket , //String ticket   
+	null
+);
+//精简构造 微信用户关系
+Wxr wxr = new Wxr(
+	parentid , //String 父openid   
+	childrennum , //Integer 孩子数量 default=0  
+	imgqr , //String 二维码  600x600 
+	null
+);
+//精简构造 微信用户非首推关系
+Wxrb wxrb = new Wxrb(
+	openid , //String openid   
+	popenid , //String 父openid   
+	status , //Integer 状态 default=0  {'0':'初创','1':'业务已处理'}
+	null
+);
+//精简构造 微信用户
+Wxouser wxouser = new Wxouser(
+	sellerId , //Integer 所属卖家  实际上是bizId 
+	userId , //Integer 平台用户   
+	statusuf , //Integer 用户信息类型 default=1  {'0':'只有openid','1':'完全版'}
+	nickname , //String 用户昵称   
+	sex , //Integer 性别 default=0  {'1':'男','2':'女','0':'未知'}
+	province , //String 省份  160x160 
+	city , //String 城市 default=0  
+	country , //String 国家 default=0  
+	headimgurl , //String 用户头像   
+	privilege , //String 用户特权信息   
+	unionid , //String 微信标识   
+	realname , //String 真实姓名   
+	mobile , //String 手机号   
+	email , //String 电子邮件   
+	orderZip , //String 收货邮编   
+	orderAddress , //String 收货地址   
+	subscribe , //Integer 是否订阅 default=0 用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。 {'0':'没有关注该公众号','1':'关注过了该公众号'}
+	subscribeTime , //String 关注时间  用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间 
+	remark , //String 备注  公众号运营者对粉丝的备注，公众号运营者可在微信公众平台用户管理界面对粉丝添加备注 
+	groupid , //Integer 所在的分组ID  用户所在的分组ID 
+	null
+);
+//精简构造 微信用户关注历史记录
+Wxousersubscribehis wxousersubscribehis = new Wxousersubscribehis(
+	sellerId , //Integer 所属卖家   
+	wxouserId , //String 微信openid   
+	act , //Integer 操作 default=0  {'0':'取消关注','1':'关注'}
+	null
+);
+//精简构造 二维码场景及转换
+WaQrcodeticketScene waQrcodeticketScene = new WaQrcodeticketScene(
+	sceneStr , //String 场景值ID字符串形式  字符串类型，长度限制为1到64，仅永久二维码支持此字段 
+	actType , //String 操作类型   
+	actDetailSplit , //String 操作参数分隔符 default=, 默认逗号 
+	actDetail , //String 操作详情或参数  主要用于唯一性查询 
+	statusTemporary , //Integer 是否为临时二维码 default=0  {'0':'是临时二维码','1':'是永久二维码'}
+	statusValid , //Integer 是否有效 default=1 是否有效主要针对于永久二维码，临时二维码直接设置为有效即可 {'0':'无效','1':'有效'}
+	null
+);
+//精简构造 广告使用的关注二维码
+WaQradv waQradv = new WaQradv(
+	title , //String 标题   
+	imgqr , //String 二维码  600x600 
+	rettype , //Integer 关注后返回方式 default=0  {'0':'无返回','1':'返回一个纯文本','2':'返回一个图文'}
+	num , //Integer 关注数量 default=0  
+	rettxt , //String 返回的纯文本   
+	waEntityArticleId , //Integer 返回的图文 default=0  
+	null
+);
+//精简构造 会员父子关系
+MemberRelation memberRelation = new MemberRelation(
+	memberId , //Integer 父亲 default=0  
+	memberCh , //Integer 孩子 default=0  
+	null
+);
+//精简构造 签到
+Signin signin = new Signin(
+	memberId , //Integer 签到者 default=0  
+	sindex , //Integer 顺序号 default=1 1到7，循环 
+	null
+);
+//精简构造 文章
+Article article = new Article(
+	priority , //Integer 排列顺序 default=99 数字越小排名越前 
+	articlechannelId , //Integer 文章频道内序号   
+	memberId , //Integer 作者内序号 default=0  
+	title , //String 名称   
+	intro , //String 简介   
+	author , //String 作者   
+	linkto , //String 直接链接到  记得前面加http://或https://,如果这个填写了，txt就不需要了 
+	img1 , //String 图1   
+	hittimes , //Integer 点击次数 default=0  
+	genurl , //String 生成相对地址   
+	null
+);
+//精简构造 文章内容
+ArticleExtTxt articleExtTxt = new ArticleExtTxt(
+	txt , //String 详细介绍  如果要在这里放图的话，如果不是全屏，请点源码，图片的style属性从style=‘width: 111px; height: 222px;’改为：style=‘width: 100%;’ 
+	null
+);
+//精简构造 频道
+Articlechannel articlechannel = new Articlechannel(
+	ckey , //String 关键字  ID的补充 
+	parentid , //Integer 父ID default=0 0表示顶级 
+	priority , //Integer 排列顺序 default=99 数字越小排名越前 
+	childrennum , //Integer 孩子数量 default=0 0表示最底 
+	family , //String 祖先  逗号分开 
+	title , //String 名称   
+	null
+);
+//精简构造 文章的评论
+ArticleComment articleComment = new ArticleComment(
+	articleId , //Integer 文章内序号   
+	memberCo , //Integer 评论者内序 default=0  
+	msg , //String 评论   
+	null
+);
+//精简构造 短消息
+Message message = new Message(
+	memberFr , //Integer 发送者 default=0  
+	memberTo , //Integer 接收者 default=0  
+	msg , //String 内容   
+	null
+);
+//精简构造 现金流水
+CashHis cashHis = new CashHis(
+	memberId , //Integer 会员   
+	otype , //Integer 类型 default=0 对会员来说正是得现金，负是失现金 {'-2':'购买积分','-1':'提现','1':'现金充值','2':'积分变现','3':'支付宝充值','4':'微信充值'}
+	num , //Integer 数量 default=0 单位分，有正负，正是得，负是失 
+	oid , //Integer 订单的id default=0 根据类型，指向不同的订单表 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员现金日统计
+CashmemberStatiDay cashmemberStatiDay = new CashmemberStatiDay(
+	gmtStati , //Date 被统计日  >=每天0:0，<第二天0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本日增减数量 default=0 正负，正是增加，负是减少，零不会创建数据记录 
+	nstart , //Integer 日初数 default=0 0:0时的数值，初数+增减分数=末数 
+	nend , //Integer 日末数 default=0 明天0:0时的数值 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员现金月统计
+CashmemberStatiMonth cashmemberStatiMonth = new CashmemberStatiMonth(
+	gmtStati , //Date 被统计月  >=每月1日0:0，<下月1日0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本月增减数量 default=0 正负，正是增加，负是减少，零也创建记录 
+	nstart , //Integer 月初数 default=0 1日0:0时的分数，月初数+本月增减分数=月末数 
+	nend , //Integer 月末数 default=0 下月1日0:0时的分数 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 账号信息修改
+User user = new User(
+	status , //Integer 状态 default=0  {'0':'正在申请','1':'有效','-1':'申请被拒','-2':'删除'}
+	roleId , //Integer 角色 default=0 这里如果改变，要变的包括：权限表，wxr {'0':'超管','1':'一般管理员','5':'会员'}
+	username , //String 账号  唯一值 
+	password , //String 密码   
+	nickname , //String 昵称   
+	userId , //Integer 隶属于   
+	openid , //String 微信openid  以微信用户表为主，此字段是冗余字段 
+	null
+);
+//精简构造 超级管理员
+Admin admin = new Admin(
+	nickname , //String 昵称   
+	null
+);
+//精简构造 一般管理员
+Cadmin cadmin = new Cadmin(
+	nickname , //String 昵称   
+	null
+);
+//精简构造 会员
+Member member = new Member(
+	mtype , //Integer 用户类型 default=0 专家/大师可以回答，会员不行 {'0':'会员','1':'大师'}
+	price , //Double 咨询费 default=0.0 别人问我问题需要付的钱 
+	name , //String 姓名或名称   
+	intro , //String 简介   
+	img1 , //String 头像图  200x200 
+	imgqr , //String 二维码图  200x200,大师才有 
+	idtype , //Integer 类型之个人企业 default=0 用这个区分是企业还是个人 {'0':'个人','1':'企业'}
+	idnum , //String 证件号码  企业是营业执照，个人是身份证 
+	addr , //String 地址   
+	zip , //String 邮编   
+	mobile , //String 手机   
+	email , //String 电子邮件   
+	score , //Integer 积分 default=0 积分余额，是通过流水和统计算出来的 
+	cash , //Integer 余额 default=0 单位分，现金余额，是通过流水和统计算出来的 
+	exp , //Integer 经验 default=0 单位分，是通过流水和统计算出来的 
+	mlevel , //Integer 等级 default=0 通过经验计算出 
+	null
+);
+//精简构造 权限之表设定
+Permittable permittable = new Permittable(
+	roleId , //Integer 角色 default=0 参看user {'0':'超管','1':'一般管理员','5':'会员'}
+	tbname , //String 表名   
+	tbalias , //String 表说明   
+	pall , //Integer 表权限 default=0 如果设置成为“无”，后面不用设置了，全部无权；如果设成为“全部”，后面也基本不用设置，角色对此表有着和管理员差不多的权限，除了增HQL和修改检查脚本 {'0':'无','9':'部分','91':'全部'}
+	btnnew , //Integer 按钮增 default=0 如果设成为“全部”，此操作所有字段全部可见 {'0':'无','9':'部分','91':'全部'}
+	btnedit , //Integer 按钮改 default=0 如果设成为“全部”，此操作所有字段全部可见 {'0':'无','9':'部分','91':'全部'}
+	btndel , //Integer 按钮删 default=0 “部分”与“全部”没有区别 {'0':'无','9':'部分','91':'全部'}
+	btnshow , //Integer 按钮查 default=0 如果设成为“全部”，此列表和查询操作所有字段全部可见 {'0':'无','9':'部分','91':'全部'}
+	queryaddhql , //String 查询增加的hql  例：\"userId=\"+sessionobj.id 
+	modigvy , //String 修改检查脚本  例：dbobj.userId==sessionobj.id 
+	null
+);
+//精简构造 权限之字段设定
+Permitfield permitfield = new Permitfield(
+	roleId , //Integer 角色 default=0 参看user {'0':'超管','1':'一般管理员','5':'会员'}
+	tbname , //String 表名   
+	fieldname , //String 字段名   
+	fieldalias , //String 字段说明   
+	pf41 , //String 增可写字段41 default=0  {'0':'无','9':'有','1！sessionobj.id':'1！sessionobj.id'}
+	pf42 , //String 改可写字段42 default=0  {'0':'无','9':'有'}
+	pf51 , //String 查可看字段51 default=0  {'0':'无','9':'有'}
+	pf52 , //String 列表显示字段52 default=0  {'0':'无','9':'有'}
+	null
+);
+//精简构造 积分流水
+ScoreHis scoreHis = new ScoreHis(
+	memberId , //Integer 会员   
+	otype , //Integer 类型 default=0 对会员来说正是得积分，负是失积分 {'-5':'抢答看','-4':'一对一看','-3':'抢答提问','-2':'一对一提问','-1':'提现','1':'充值','2':'回答一对一','3':'回答抢答'}
+	num , //Integer 数量 default=0 1积分=0.1元，有正负，正是得，负是失 
+	oid , //Integer 订单的id default=0 根据类型，指向不同的订单表 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员积分日统计
+ScorememberStatiDay scorememberStatiDay = new ScorememberStatiDay(
+	gmtStati , //Date 被统计日  >=每天0:0，<第二天0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本日增减数量 default=0 正负，正是增加，负是减少，零不会创建数据记录 
+	nstart , //Integer 日初数 default=0 0:0时的数值，初数+增减分数=末数 
+	nend , //Integer 日末数 default=0 明天0:0时的数值 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员积分月统计
+ScorememberStatiMonth scorememberStatiMonth = new ScorememberStatiMonth(
+	gmtStati , //Date 被统计月  >=每月1日0:0，<下月1日0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本月增减数量 default=0 正负，正是增加，负是减少，零也创建记录 
+	nstart , //Integer 月初数 default=0 1日0:0时的分数，月初数+本月增减分数=月末数 
+	nend , //Integer 月末数 default=0 下月1日0:0时的分数 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 经验流水
+ExpHis expHis = new ExpHis(
+	memberId , //Integer 会员   
+	otype , //Integer 类型 default=0 对会员来说正是得经验，负是失经验，基本上没负 {'1':'充值','2':'回答一对一','3':'回答抢答'}
+	num , //Integer 数量 default=0 1经验=0.1元，有正负，正是得，负是失 
+	oid , //Integer 订单的id default=0 根据类型，指向不同的订单表 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员经验日统计
+ExpmemberStatiDay expmemberStatiDay = new ExpmemberStatiDay(
+	gmtStati , //Date 被统计日  >=每天0:0，<第二天0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本日增减数量 default=0 正负，正是增加，负是减少，零不会创建数据记录 
+	nstart , //Integer 日初数 default=0 0:0时的数值，初数+增减分数=末数 
+	nend , //Integer 日末数 default=0 明天0:0时的数值 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 会员经验月统计
+ExpmemberStatiMonth expmemberStatiMonth = new ExpmemberStatiMonth(
+	gmtStati , //Date 被统计月  >=每月1日0:0，<下月1日0:0 
+	memberId , //Integer 会员   
+	num , //Integer 本月增减数量 default=0 正负，正是增加，负是减少，零也创建记录 
+	nstart , //Integer 月初数 default=0 1日0:0时的分数，月初数+本月增减分数=月末数 
+	nend , //Integer 月末数 default=0 下月1日0:0时的分数 
+	cmemo , //String 备注说明   
+	null
+);
+//精简构造 订单之一对一问题提问
+OrderrQuestion orderrQuestion = new OrderrQuestion(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之一对一问题提问归档
+OrderrQuestionFinished orderrQuestionFinished = new OrderrQuestionFinished(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之一对一问题提问放弃
+OrderrQuestionDiscard orderrQuestionDiscard = new OrderrQuestionDiscard(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之抢答问题提问
+OrderrQuick orderrQuick = new OrderrQuick(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 订单之抢答问题提问归档
+OrderrQuickFinished orderrQuickFinished = new OrderrQuickFinished(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 订单之抢答问题提问放弃
+OrderrQuickDiscard orderrQuickDiscard = new OrderrQuickDiscard(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 订单之一对一问题观看
+OrderrQuestionview orderrQuestionview = new OrderrQuestionview(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之一对一问题观看归档
+OrderrQuestionviewFinished orderrQuestionviewFinished = new OrderrQuestionviewFinished(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之一对一问题观看放弃
+OrderrQuestionviewDiscard orderrQuestionviewDiscard = new OrderrQuestionviewDiscard(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	questionId , //Integer 一对一问题ID   
+	null
+);
+//精简构造 订单之抢答问题观看
+OrderrQuickview orderrQuickview = new OrderrQuickview(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 订单之抢答问题观看归档
+OrderrQuickviewFinished orderrQuickviewFinished = new OrderrQuickviewFinished(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 订单之抢答问题观看放弃
+OrderrQuickviewDiscard orderrQuickviewDiscard = new OrderrQuickviewDiscard(
+	gmtPay , //Date 支付时间   
+	status , //Integer 支付状态 default=0  {'0':'未支付','1':'已发起支付申请','2':'支付成功','-1':'放弃支付'}
+	itypePay , //Integer 支付方式 default=0  {'0':'余额支付','2':'微信支付','3':'支付宝支付'}
+	memberId , //Integer 会员   
+	quickId , //Integer 抢答问题ID   
+	null
+);
+//精简构造 一对一问题
+Question question = new Question(
+	gmtPay , //Date 支付时间   
+	gmtAnswer , //Date 回答时间   
+	priority , //Integer 排列顺序 default=99 数字越小排名越前 
+	status , //Integer 状态 default=0  {'0':'未支付','1':'已支付','2':'已回答'}
+	ptype , //Integer 公开状态 default=0  {'0':'收费公开','1':'不公开'}
+	articlechannelId , //Integer 频道内序号   
+	memberQu , //Integer 提问者 default=0  
+	memberAn , //Integer 回答者 default=0  
+	price , //Double 咨询费 default=0.0 取决于回答者 
+	viewprice , //Double 观看费 default=0.0  
+	answerwords , //Integer 回答字数 default=0 计算产生 
+	viewnum , //Integer 观看人数 default=0 计算产生 
+	goodnum , //Integer 好评人数 default=0 计算产生 
+	badnum , //Integer 差评人数 default=0 计算产生 
+	title , //String 标题   
+	quest , //String 问题   
+	ctype , //Integer 评论情况   {'0':'以后再评','1':'好评','-1':'差评'}
+	null
+);
+//精简构造 一对一问题回答
+QuestionTxt questionTxt = new QuestionTxt(
+	answer , //String 回答  限2000汉字 
+	null
+);
+//精简构造 一对一问题之追加
+QuestionAdd questionAdd = new QuestionAdd(
+	questionId , //Integer 一对一问题   
+	memberQu , //Integer 提问者 default=0  
+	memberAn , //Integer 回答者 default=0  
+	qa , //String 内容   
+	null
+);
+//精简构造 观看问题的会员
+QuestionLinkMemberView questionLinkMemberView = new QuestionLinkMemberView(
+	questionId , //Integer 问题内序号   
+	memberVi , //Integer 观看者   
+	ctype , //Integer 评论情况   {'0':'以后再评','1':'好评','-1':'差评'}
+	null
+);
+//精简构造 抢答
+Quick quick = new Quick(
+	gmtPay , //Date 支付时间   
+	gmtStart , //Date 开始时间   
+	gmtOver , //Date 结束时间   
+	status , //Integer 状态 default=0  {'0':'未支付','1':'已支付','2':'开始抢答','3':'抢答结束'}
+	ptype , //Integer 公开状态 default=0  {'0':'收费公开','1':'不公开'}
+	priority , //Integer 排列顺序 default=99 数字越小排名越前 
+	articlechannelId , //Integer 频道内序号   
+	memberQu , //Integer 提问者 default=0  
+	priceeach , //Double 每个奖金 default=0.0  
+	pricenum , //Integer 奖金数量 default=0  
+	viewprice , //Double 观看费 default=0.0  
+	answernum , //Integer 回答人数 default=0 计算产生 
+	viewnum , //Integer 观看人数 default=0 计算产生 
+	title , //String 标题   
+	question , //String 问题   
+	null
+);
+//精简构造 抢答回答
+QuickTxt quickTxt = new QuickTxt(
+	quickId , //Integer 问题内序号   
+	statusWin , //Integer 中奖状态 default=0  {'0':'没中奖','1':'中奖'}
+	memberAn , //Integer 回答者 default=0  
+	goodnum , //Integer 好评人数 default=0 计算产生 
+	badnum , //Integer 差评人数 default=0 计算产生 
+	ctype , //Integer 提问者评价   {'0':'以后再评','1':'好评','-1':'差评'}
+	answer , //String 回答  限2000汉字 
+	null
+);
+//精简构造 抢答之追加
+QuickAdd quickAdd = new QuickAdd(
+	quickId , //Integer 抢答   
+	memberQu , //Integer 提问者 default=0  
+	memberAn , //Integer 回答者 default=0  
+	qa , //String 内容   
+	null
+);
+//精简构造 观看抢答的会员
+QuickLinkMemberView quickLinkMemberView = new QuickLinkMemberView(
+	quickId , //Integer 抢答ID   
+	memberVi , //Integer 观看者   
+	null
+);
+//精简构造 抢答的评价
+QuickTxtComment quickTxtComment = new QuickTxtComment(
+	quickTxtId , //Integer 抢答回答ID   
+	memberVi , //Integer 观看者  也就是评论者 
+	ctype , //Integer 评论情况   {'0':'以后再评','1':'好评','-1':'差评'}
+	null
+);

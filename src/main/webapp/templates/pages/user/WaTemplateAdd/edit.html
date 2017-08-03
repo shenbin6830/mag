@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/WaTemplateAdd/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${waTemplateAdd.id}" />
+	<@z.pmt key="42.WaTemplateAdd.userId">
+				<@p.searchforid label="db.WaTemplateAdd.userId" nameid="userId" value="${waTemplateAdd.userId}" stringvalue="${waTemplateAdd.userIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/User/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaTemplateAdd.statusValidOrNot">
+				<@p.radiolocal label="db.WaTemplateAdd.statusValidOrNot" nameid="statusValidOrNot" value="${waTemplateAdd.statusValidOrNot}" help="有效的不超过15个" mapname="selectmap_all_statusValidOrNot" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.WaTemplateAdd.templateIdShort">
+				<@p.text label="db.WaTemplateAdd.templateIdShort" nameid="templateIdShort"  value="${waTemplateAdd.templateIdShort}" help="模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式" dataoptions="validType:['length[0,30]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.WaTemplateAdd.templateId">
+				<@p.text label="db.WaTemplateAdd.templateId" nameid="templateId"  value="${waTemplateAdd.templateId}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

@@ -1,0 +1,43 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Tbfield/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Tbfield.parentid">
+				<@p.selecttree  label="db.Tbfield.parentid" nameid="parentid" url="${baserest}/user/Tbfield/tree.html" multiple="" headerKey="${tbfield.parentid}" headerValue="${tbfield.parentidString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Tbfield.priority">
+				<@p.textnumber label="db.Tbfield.priority" nameid="priority"  value="${tbfield.priority}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Tbfield.childrennum">
+				<@p.textnumber label="db.Tbfield.childrennum" nameid="childrennum"  value="${tbfield.childrennum}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Tbfield.cname">
+				<@p.text label="db.Tbfield.cname" nameid="cname"  value="${tbfield.cname}" help="" dataoptions="validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Tbfield.ckey">
+				<@p.text label="db.Tbfield.ckey" nameid="ckey"  value="${tbfield.ckey}" help="" dataoptions="required:true,validType:['length[0,100]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Tbfield.cvalue">
+				<@p.textarea label="db.Tbfield.cvalue" nameid="cvalue" value="${tbfield.cvalue}" help="" dataoptions="validType:['length[0,2147483647]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

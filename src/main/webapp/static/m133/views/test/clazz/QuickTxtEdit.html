@@ -1,0 +1,33 @@
+<!--QuickTxtList，抢答回答新建/编辑-->
+<ion-view view-title='抢答回答' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+		<li class="item"><h2>问题内序号</h2><p><input type="text" ng-model="obj.quickId" /></p></li>
+			<li class="item"><h2>中奖状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.statusWin"> 
+					<option ng-repeat="(key,value) in ao_QuickTxt_statusWin" value="{{key}}" ng-selected="key==obj.statusWin">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>提问者</h2><p><input type="text" ng-model="obj.memberQu" /></p></li>
+		<li class="item"><h2>回答者</h2><p><input type="text" ng-model="obj.memberAn" /></p></li>
+		<li class="item"><h2>好评人数</h2><p><input type="text" ng-model="obj.goodnum" /></p></li>
+		<li class="item"><h2>差评人数</h2><p><input type="text" ng-model="obj.badnum" /></p></li>
+			<li class="item"><h2>提问者评价</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ctype"> 
+					<option ng-repeat="(key,value) in ao_QuickTxt_ctype" value="{{key}}" ng-selected="key==obj.ctype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>回答</h2><p><input type="text" ng-model="obj.answer" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

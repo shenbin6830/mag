@@ -1,0 +1,134 @@
+<style>
+	table tr th{
+		width:13%;
+	}
+	table tr td{
+		
+	}
+</style>
+<script type="text/javascript">
+var orderrid1=${orderr.id};
+	parent.$.messager.progress('close');
+	function selectedDo2(url,isalert,msg,params){
+		if(isalert){
+			if(!confirm('您是否要'+msg+'选中数据？')){
+			       return false;
+			}
+		}
+		var data={};
+		if(!isblanklist(params)){
+			$.each( params, function(index, value){
+				_.extend(data, value);
+			}); 
+		}
+		
+		callPost2(msg,url,data);
+	}
+	function callPost2(msg,url,data){
+		parent.$.messager.progress({
+			title : '提示',
+			text : '数据'+msg+'处理中，请稍后....'
+		});
+		
+		$.post(url, data, function(result) {
+			if (result.success) {
+				if(result.msg!="noalert"){
+					parent.$.messager.alert('提示', result.msg, 'info');
+					$('#w2').window('close');
+					loadData();
+				}else{
+					dataGrid.datagrid('clearChecked');
+					loadData();
+				}					
+			}else{
+				if(result.msg!="noalert")
+					parent.$.messager.alert('出错了', result.msg, 'error');
+			}
+			parent.$.messager.progress('close');
+		}, 'JSON');
+	}
+	function openW3(url,title) {
+		url+=orderrid1;
+		if(title==null || title=='')title='窗口';
+		$('#w3').window({title:title});
+		$('#w3').window('open');
+		$('#w3').window('refresh', url);
+		$('#w3').window('maximize');
+	}
+	 
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>		
+		 <#if orderr.statusgoods == 0>
+			<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'money'" onclick="selectedDo2('${base}/user/Orderr/takedrug2.html',true,'为用户取药',[{id:orderrid1}]);" >取药</a>
+			<a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'book_edit'" onclick="javascript:openW3('${base}/user/Orderr/operedit.html?id=','修改');" >修改</a>
+		</#if>
+		<br/>
+		<table class="table table-hover table-condensed" border="1">
+		<@z.pmt key="51.Orderr.sn">
+			<tr>
+				<th>订单号</th>
+				<td >${orderr.sn}</td>
+				<th>创建时间</th>
+				<td >${orderr.gmtCreateString}</td>
+				<th>支付状态</th>
+				<td >${orderr.statusString}</td>
+			</tr>
+		</@z.pmt>
+		
+		<@z.pmt key="51.Orderr.statusgoods">
+			<tr> 
+				<th>收发货状态</th>
+				<td >${orderr.statusgoodsString}</td>
+				<th>提货方式</th>
+				<td >${orderr.statusCarriageTypeString}</td>
+				<th>总价</th>
+				<td>${orderr.sumprice}</td>
+			</tr>
+		</@z.pmt>
+		<@z.pmt key="51.Orderr.memberId">
+			<tr>
+				<th>姓名</th>
+				<td>${orderr.obj1.name}</td>
+				<th>性别</th>
+				<td>${orderr.obj1.usersexString}</td>
+				<th>电话</th>
+				<td>${orderr.obj1.mobile}</td>
+			</tr>
+		</@z.pmt>
+		
+
+		<@z.pmt key="51.Orderr.drugstoreId">
+			<tr>
+				<th>取药点</th>
+				<td>${orderr.drugstoreIdStringid}</td>
+				<th>取药操作员</th>
+				<td>${orderr.operIdStringid}</td>
+				<th>复核药师</th>
+				<td>${orderr.doccheck}</td>
+			</tr>
+		</@z.pmt>
+		<#list orderr.listorderrdetail as orderrdetail>
+			<tr>        
+				<th>${orderrdetail.title}</th>
+				<td  style="color:#F00;">${orderrdetail.num}</td>
+				<th>规格</th>
+				<td  style="color:#F00;">${orderrdetail.productstyle}</td>
+				<th>其他</th>
+				<td  style="color:#F00;">${orderrdetail.productstyle}</td>
+			</tr>
+		</#list>
+		<@z.pmt key="51.Orderr.diagnose">
+			<tr>
+				<th>诊断</th>
+				<td colspan="6">${orderr.diagnose}</td>
+			</tr>
+		</@z.pmt>
+		</table>
+	</div>
+	<div id="w3" name="w3" class="easyui-window" data-options="closed:true,modal:true,title:'窗口'" style="width:30px;height:10px;"></div>
+</div>
+
+

@@ -1,0 +1,67 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/Question/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.Question.priority">
+				<@p.textnumber label="db.Question.priority" nameid="priority"  value="${question.priority}" help="数字越小排名越前" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.status">
+				<@p.radiolocal label="db.Question.status" nameid="status" value="${question.status}" help="" mapname="selectmap_Question_status" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.ptype">
+				<@p.radiolocal label="db.Question.ptype" nameid="ptype" value="${question.ptype}" help="" mapname="selectmap_Question_ptype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.articlechannelId">
+				<@p.selecttree  label="db.Question.articlechannelId" nameid="articlechannelId" url="${baserest}/user/Articlechannel/tree.html" multiple="" headerKey="${question.articlechannelId}" headerValue="${question.articlechannelIdString}" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Question.memberQu">
+				<@p.searchforid label="db.Question.memberQu" nameid="memberQu" value="${question.memberQu}" stringvalue="${question.memberQuString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.memberAn">
+				<@p.searchforid label="db.Question.memberAn" nameid="memberAn" value="${question.memberAn}" stringvalue="${question.memberAnString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.viewprice">
+				<@p.textnumber label="db.Question.viewprice" nameid="viewprice"  value="${question.viewprice}" help="" dataoptions="min:-999999999,max:999999999,precision:3," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.answerwords">
+				<@p.textnumber label="db.Question.answerwords" nameid="answerwords"  value="${question.answerwords}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.viewnum">
+				<@p.textnumber label="db.Question.viewnum" nameid="viewnum"  value="${question.viewnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.goodnum">
+				<@p.textnumber label="db.Question.goodnum" nameid="goodnum"  value="${question.goodnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.badnum">
+				<@p.textnumber label="db.Question.badnum" nameid="badnum"  value="${question.badnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.title">
+				<@p.text label="db.Question.title" nameid="title"  value="${question.title}" help="" dataoptions="validType:['length[0,40]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="41.Question.quest">
+				<@p.textarea label="db.Question.quest" nameid="quest" value="${question.quest}" help="" dataoptions="validType:['length[0,1000]',]" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.Question.ctype">
+				<@p.radiolocal label="db.Question.ctype" nameid="ctype" value="${question.ctype}" help="" mapname="selectmap_Question_ctype" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

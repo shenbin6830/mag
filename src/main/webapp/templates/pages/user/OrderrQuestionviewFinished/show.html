@@ -1,0 +1,70 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.OrderrQuestionviewFinished.id">
+		<tr><th>序号ID</th><td>
+		${orderrQuestionviewFinished.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${orderrQuestionviewFinished.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.gmtPay">
+		<tr><th>支付时间</th><td>
+		${orderrQuestionviewFinished.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.status">
+		<tr><th>支付状态</th><td>
+		${orderrQuestionviewFinished.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.itypePay">
+		<tr><th>支付方式</th><td>
+		${orderrQuestionviewFinished.itypePayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.memberId">
+		<tr><th>会员</th><td>
+		${orderrQuestionviewFinished.memberIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.name">
+		<tr><th>姓名</th><td>
+		${orderrQuestionviewFinished.name}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.mobile">
+		<tr><th>手机</th><td>
+		${orderrQuestionviewFinished.mobile}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.questionId">
+		<tr><th>一对一问题ID</th><td>
+		${orderrQuestionviewFinished.questionIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.title">
+		<tr><th>问题</th><td>
+		${orderrQuestionviewFinished.title}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.OrderrQuestionviewFinished.price">
+		<tr><th>总价</th><td>
+		${orderrQuestionviewFinished.price}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

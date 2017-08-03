@@ -1,0 +1,61 @@
+
+2016/11/25-15:32:51 TrustPayClient Java V2.0 交易开始==========================
+2016/11/25-15:32:51 检查交易请求是否合法：
+2016/11/25-15:32:51 正确
+2016/11/25-15:32:51 交易报文：
+2016/11/25-15:32:51 完整交易报文：
+2016/11/25-15:32:51 签名后的报文：
+2016/11/25-15:32:51 发送交易报文至网上支付平台：
+2016/11/25-15:32:51 提交网上支付平台的报文：
+                    <MSG><Message><Merchant><ECMerchantType>B2C</ECMerchantType><MerchantID>103881960110060</MerchantID></Merchant><TrxRequest><TrxType>KPayReq</TrxType><Order><OrderNo>abc1447</OrderNo><ExpiredDate>30</ExpiredDate><OrderAmount>266.79</OrderAmount><OrderDesc>abcpayTest</OrderDesc><OrderDate>2016/11/14</OrderDate><OrderTime>10:45:33</OrderTime><OrderURL></OrderURL><BuyIP></BuyIP><OrderItems></OrderItems></Order><AccName></AccName><CertificateType>I</CertificateType><CertificateID></CertificateID><ExpDate>0715</ExpDate><CVV2>123</CVV2><VerifyCode></VerifyCode><PaymentType>1</PaymentType><PaymentLinkType>1</PaymentLinkType><MerchantRemarks></MerchantRemarks></TrxRequest></Message><Signature-Algorithm>SHA1withRSA</Signature-Algorithm><Signature>Db4mfi8i638tOtJQ8Z+MhLt+WK495xOydd8iJMSll57jhKuw8N6hIjEBMiBcv61WXQVEiAzKn6qhwFORaTgk/7u3OT/v82GsbXuR+Z7JYhe6gZ4nzy33DNCD1XqbOVLBYfXW00gw9mZIeyhgc6eQ1lbuAU4Pe6fYvOD8w+mBj8w=</Signature></MSG>
+2016/11/25-15:32:51 报文长度：937
+2016/11/25-15:32:51 连线网上支付平台：成功
+2016/11/25-15:32:51 提交交易报文：成功
+2016/11/25-15:32:51 等待网上支付平台返回交易结果：
+2016/11/25-15:37:52 错误代码：[1202]    错误信息：[提交交易时发生网络错误 - 连线中断！]
+2016/11/25-15:37:52 交易结束==================================================
+2016/11/25-15:40:35 TrustPayClient Java V2.0 交易开始==========================
+2016/11/25-15:40:35 检查交易请求是否合法：
+2016/11/25-15:40:35 正确
+2016/11/25-15:40:35 交易报文：
+2016/11/25-15:40:35 完整交易报文：
+2016/11/25-15:40:35 签名后的报文：
+2016/11/25-15:40:35 发送交易报文至网上支付平台：
+2016/11/25-15:40:35 提交网上支付平台的报文：
+                    <MSG><Message><Merchant><ECMerchantType>B2C</ECMerchantType><MerchantID>103881960110060</MerchantID></Merchant><TrxRequest><TrxType>KPayReq</TrxType><Order><OrderNo>abc1447</OrderNo><ExpiredDate>30</ExpiredDate><OrderAmount>266.79</OrderAmount><OrderDesc>abcpayTest</OrderDesc><OrderDate>2016/11/14</OrderDate><OrderTime>10:45:33</OrderTime><OrderURL></OrderURL><BuyIP></BuyIP><OrderItems></OrderItems></Order><AccName></AccName><CertificateType>I</CertificateType><CertificateID></CertificateID><ExpDate>0715</ExpDate><CVV2>123</CVV2><VerifyCode></VerifyCode><PaymentType>1</PaymentType><PaymentLinkType>1</PaymentLinkType><MerchantRemarks></MerchantRemarks></TrxRequest></Message><Signature-Algorithm>SHA1withRSA</Signature-Algorithm><Signature>Db4mfi8i638tOtJQ8Z+MhLt+WK495xOydd8iJMSll57jhKuw8N6hIjEBMiBcv61WXQVEiAzKn6qhwFORaTgk/7u3OT/v82GsbXuR+Z7JYhe6gZ4nzy33DNCD1XqbOVLBYfXW00gw9mZIeyhgc6eQ1lbuAU4Pe6fYvOD8w+mBj8w=</Signature></MSG>
+2016/11/25-15:40:35 报文长度：937
+2016/11/25-15:40:35 连线网上支付平台：成功
+2016/11/25-15:40:35 提交交易报文：成功
+2016/11/25-15:40:35 等待网上支付平台返回交易结果：
+2016/11/25-15:45:35 错误代码：[1202]    错误信息：[提交交易时发生网络错误 - 连线中断！]
+2016/11/25-15:45:35 交易结束==================================================
+2016/11/25-15:50:12 TrustPayClient Java V2.0 交易开始==========================
+2016/11/25-15:50:12 检查交易请求是否合法：
+2016/11/25-15:50:12 正确
+2016/11/25-15:50:12 交易报文：
+2016/11/25-15:50:12 完整交易报文：
+2016/11/25-15:50:12 签名后的报文：
+2016/11/25-15:50:12 发送交易报文至网上支付平台：
+2016/11/25-15:50:12 提交网上支付平台的报文：
+                    <MSG><Message><Merchant><ECMerchantType>B2C</ECMerchantType><MerchantID>103881960110060</MerchantID></Merchant><TrxRequest><TrxType>KPayReq</TrxType><Order><OrderNo>abc1447</OrderNo><ExpiredDate>30</ExpiredDate><OrderAmount>266.79</OrderAmount><OrderDesc>abcpayTest</OrderDesc><OrderDate>2016/11/14</OrderDate><OrderTime>10:45:33</OrderTime><OrderURL></OrderURL><BuyIP></BuyIP><OrderItems></OrderItems></Order><AccName></AccName><CertificateType>I</CertificateType><CertificateID></CertificateID><ExpDate>0715</ExpDate><CVV2>123</CVV2><VerifyCode></VerifyCode><PaymentType>1</PaymentType><PaymentLinkType>1</PaymentLinkType><MerchantRemarks></MerchantRemarks></TrxRequest></Message><Signature-Algorithm>SHA1withRSA</Signature-Algorithm><Signature>Db4mfi8i638tOtJQ8Z+MhLt+WK495xOydd8iJMSll57jhKuw8N6hIjEBMiBcv61WXQVEiAzKn6qhwFORaTgk/7u3OT/v82GsbXuR+Z7JYhe6gZ4nzy33DNCD1XqbOVLBYfXW00gw9mZIeyhgc6eQ1lbuAU4Pe6fYvOD8w+mBj8w=</Signature></MSG>
+2016/11/25-15:50:12 报文长度：937
+2016/11/25-15:50:12 连线网上支付平台：成功
+2016/11/25-15:50:12 提交交易报文：成功
+2016/11/25-15:50:12 等待网上支付平台返回交易结果：
+2016/11/25-15:55:14 错误代码：[1202]    错误信息：[提交交易时发生网络错误 - 连线中断！]
+2016/11/25-15:55:14 交易结束==================================================
+2016/11/25-16:36:09 TrustPayClient Java V2.0 交易开始==========================
+2016/11/25-16:36:09 检查交易请求是否合法：
+2016/11/25-16:36:09 正确
+2016/11/25-16:36:10 交易报文：
+2016/11/25-16:36:10 完整交易报文：
+2016/11/25-16:36:10 签名后的报文：
+2016/11/25-16:36:10 发送交易报文至网上支付平台：
+2016/11/25-16:36:10 提交网上支付平台的报文：
+                    <MSG><Message><Merchant><ECMerchantType>B2C</ECMerchantType><MerchantID>103881960110060</MerchantID></Merchant><TrxRequest><TrxType>KPayReq</TrxType><Order><OrderNo>abc1447</OrderNo><ExpiredDate>30</ExpiredDate><OrderAmount>266.79</OrderAmount><OrderDesc>abcpayTest</OrderDesc><OrderDate>2016/11/14</OrderDate><OrderTime>10:45:33</OrderTime><OrderURL></OrderURL><BuyIP></BuyIP><OrderItems></OrderItems></Order><AccName></AccName><CertificateType>I</CertificateType><CertificateID></CertificateID><ExpDate>0715</ExpDate><CVV2>123</CVV2><VerifyCode></VerifyCode><PaymentType>1</PaymentType><PaymentLinkType>1</PaymentLinkType><MerchantRemarks></MerchantRemarks></TrxRequest></Message><Signature-Algorithm>SHA1withRSA</Signature-Algorithm><Signature>Db4mfi8i638tOtJQ8Z+MhLt+WK495xOydd8iJMSll57jhKuw8N6hIjEBMiBcv61WXQVEiAzKn6qhwFORaTgk/7u3OT/v82GsbXuR+Z7JYhe6gZ4nzy33DNCD1XqbOVLBYfXW00gw9mZIeyhgc6eQ1lbuAU4Pe6fYvOD8w+mBj8w=</Signature></MSG>
+2016/11/25-16:36:10 报文长度：937
+2016/11/25-16:36:10 连线网上支付平台：成功
+2016/11/25-16:36:10 提交交易报文：成功
+2016/11/25-16:36:10 等待网上支付平台返回交易结果：
+2016/11/25-16:41:09 错误代码：[1202]    错误信息：[提交交易时发生网络错误 - 连线中断！]
+2016/11/25-16:41:09 交易结束==================================================

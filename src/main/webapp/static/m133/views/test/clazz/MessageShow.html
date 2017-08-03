@@ -1,0 +1,17 @@
+<!--MessageShow，短消息详细信息-->
+<ion-view view-title='短消息' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/MessageEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>发送者</h2><p>{{obj.memberFrString}}</p></li>
+		<li class="item"><h2>接收者</h2><p>{{obj.memberToString}}</p></li>
+		<li class="item">内容:{{obj.msg}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

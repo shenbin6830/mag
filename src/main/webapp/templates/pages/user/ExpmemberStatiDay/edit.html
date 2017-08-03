@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/ExpmemberStatiDay/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${expmemberStatiDay.id}" />
+	<@z.pmt key="42.ExpmemberStatiDay.gmtStati">
+				<@p.text label="db.ExpmemberStatiDay.gmtStati" nameid="gmtStati"  value="${expmemberStatiDay.gmtStati}" help=">=每天0:0，<第二天0:0" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.ExpmemberStatiDay.memberId">
+				<@p.searchforid label="db.ExpmemberStatiDay.memberId" nameid="memberId" value="${expmemberStatiDay.memberId}" stringvalue="${expmemberStatiDay.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ExpmemberStatiDay.num">
+				<@p.textnumber label="db.ExpmemberStatiDay.num" nameid="num"  value="${expmemberStatiDay.num}" help="正负，正是增加，负是减少，零不会创建数据记录" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ExpmemberStatiDay.nstart">
+				<@p.textnumber label="db.ExpmemberStatiDay.nstart" nameid="nstart"  value="${expmemberStatiDay.nstart}" help="0:0时的数值，初数+增减分数=末数" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ExpmemberStatiDay.nend">
+				<@p.textnumber label="db.ExpmemberStatiDay.nend" nameid="nend"  value="${expmemberStatiDay.nend}" help="明天0:0时的数值" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ExpmemberStatiDay.cmemo">
+				<@p.text label="db.ExpmemberStatiDay.cmemo" nameid="cmemo"  value="${expmemberStatiDay.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

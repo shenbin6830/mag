@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>提交个人信息</title>
+    <link rel="stylesheet" href="css/weui.css"/>
+</head>
+<body>
+<div class="weui_cells weui_cells_form">
+    <div class="weui_cell">
+        <div class="weui_cell_hd" style="width:20%;float:left;">
+            <label class="weui_label">姓名</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary" style="width:65%;float:left;">
+            <input ng-model="name" class="weui_input" type="text"  placeholder="请输入你的姓名" />
+        </div>
+    </div>
+    <div class="weui_cell weui_vcode" style="clear: both;padding-top: 5px;">
+        <div class="weui_cell_hd" style="width:20%;float:left;">
+            <label class="weui_label">年龄</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary" style="width:65%;float:left;">
+            <input ng-model="age" class="weui_input" type="text" pattern="[0-9]*" placeholder="请输入你的年龄" />
+        </div>
+    </div>
+    <div class="weui_cell weui_vcode" style="clear: both;padding-top: 5px;">
+        <div class="weui_cell_hd" style="width:20%;float:left;">
+            <label class="weui_label">性别</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary" style="width:65%;float:left;">
+            <select ng-model="sex" class="weui_select" name="select2">
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+        </div>
+    </div>
+    <div class="weui_btn_area" style="clear:both;text-align: center;padding-top: 5px;">
+        <a ng-click="reg3()" class="weui_btn weui_btn_primary">完成</a>
+    </div>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script>
+    angular.module('weuiapp',[]).controller('homeCtrl',function($scope, $http){
+		/**客户端信息*/
+		var uid="${user.id}";
+		$scope.reg3=function(){
+			var name=$scope.name;
+			var age=$scope.age;
+			var sex=$scope.sex;
+			if($scope.name==null){
+				return;
+			}
+			if($scope.age==null){
+				return;
+			}
+			url="pub/wx/memberreg/reg4";
+			$http({
+		   		method: 'POST',
+		  		url: url,
+				params: {name: name, age: age,sex:sex,uid:uid}
+		   	});
+		};
+</script>
+</body>
+</html>

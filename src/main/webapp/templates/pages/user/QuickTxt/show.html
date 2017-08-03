@@ -1,0 +1,65 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.QuickTxt.id">
+		<tr><th>序号</th><td>
+		${quickTxt.id}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${quickTxt.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.quickId">
+		<tr><th>问题内序号</th><td>
+		${quickTxt.quickIdString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.statusWin">
+		<tr><th>中奖状态</th><td>
+		${quickTxt.statusWinString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.memberQu">
+		<tr><th>提问者</th><td>
+		${quickTxt.memberQuString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.memberAn">
+		<tr><th>回答者</th><td>
+		${quickTxt.memberAnString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.goodnum">
+		<tr><th>好评人数</th><td>
+		${quickTxt.goodnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.badnum">
+		<tr><th>差评人数</th><td>
+		${quickTxt.badnum}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.ctype">
+		<tr><th>提问者评价</th><td>
+		${quickTxt.ctypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.QuickTxt.answer">
+		<tr><th>回答</th><td>
+		${quickTxt.answer}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,18 @@
+<!--ArticleCommentShow，文章的评论详细信息-->
+<ion-view view-title='文章的评论' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/ArticleCommentEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>文章内序号</h2><p>{{obj.articleIdString}}</p></li>
+		<li class="item"><h2>作者内序号</h2><p>{{obj.memberAuString}}</p></li>
+		<li class="item"><h2>评论者内序</h2><p>{{obj.memberCoString}}</p></li>
+		<li class="item">评论:{{obj.msg}}</li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

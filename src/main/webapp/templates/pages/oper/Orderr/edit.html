@@ -1,0 +1,107 @@
+
+<script type="text/javascript">
+var snString=${orderr.sn};
+var orderr={
+		
+};
+var listorderrdetail=[];
+function editHtmlInit3(url){
+	parent.$.messager.progress('close');
+	$('#form').form({
+		//url : url,
+		onSubmit : function() {		
+			var bb=0;
+			for(var i=0;i< $('#form tr').length;i++){
+	        	if($('#form').find('tr').eq(i).find('td:eq(2)>input').val()<0){
+	        		alert("输入的数量不能小于0");
+	        		bb=1;
+	        		break;
+	        	}
+	        	if(isblank($('#form').find('tr').eq(i).find('td:eq(2)>input').val())){
+	        		bb=1;
+	        		break;
+	        	}
+	          if(!/^[0-9]*$/.test($('#form').find('tr').eq(i).find('td:eq(2)>input').val())){  
+	              alert("请输入数字!"); 
+	              bb=1;
+	        	break;
+	          }  
+	        };
+	        if(bb==1){
+	        	return;
+	        }
+			orderr.id=${orderr.id};	
+			listorderrdetail=[];
+		         for(var i=0;i< $('#form tr').length;i++){
+		        	listorderrdetail.push({		        		
+		        		id:$('#form').find('tr').eq(i).find('td').eq(0).html(),
+						 num:$('#form').find('tr').eq(i).find('td:eq(2)>input').val()
+					 });
+		        }; 		 
+		        orderr.obj1=JSON.stringify(listorderrdetail);		
+			 $.ajax({
+				 	type : 'POST',
+			        url : url,
+			        data: orderr,
+			        dataType : 'json',
+			        //同步
+			        async : false,
+			        success : function(data) {
+			        	parent.$.messager.progress('close');
+						if (data.success) {
+							$('#w3').window('close');							
+							var url=base+"/user/Orderr/gotoOrderrdetail.html?sn="+snString+"";	
+							window.open(url);
+							window.close();
+							if(data.msg=="redirect")
+								window.parent.location.href=data.obj;
+						} else {
+							alert(data.msg);
+						}		
+			        },
+			        beforeSend:function(){
+						parent.$.messager.progress({
+							title : '提示',
+							text : '数据处理中，请稍后....'
+						});
+						var isValid = $(this).form('validate');
+						if (!isValid) {
+							parent.$.messager.progress('close');
+						}
+						return isValid;		        	
+			        },
+			        error : function() {
+			        	parent.$.messager.progress('close');
+				    }
+				});
+		},
+	});
+}
+
+$(function() {
+	editHtmlInit3('${base}/user/Orderr/operupdate.html');
+});
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w3').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'tick'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table >			
+		<#list orderr.listorderrdetail as orderrdetail>
+	<tr>  
+			<td type="display:none">${orderrdetail.id}</td>      		
+         <td>${orderrdetail.title}</td>
+        <!--  <td><@p.textnumber  nameid="num"  value="${orderrdetail.num}" help="" dataoptions="min:-999999999,max:999999999," moreopt="" /></td> -->
+          <td><input   nameid="num" value="${orderrdetail.num}" /></td>
+    </tr>
+	</#list>
+	
+			</table>
+			<br/>
+		</form>
+	</div>
+</div>
+

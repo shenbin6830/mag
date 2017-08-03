@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<@z.title name="会员中心" />
+<#include "/pages/global/jscss.html"/>
+</head>
+<script type="text/javascript" charset="utf-8">
+	$(function() {
+		$('#registerDialog').show().dialog({
+			modal : true,
+			closable : false,
+			buttons : [ {
+				text : '返回',
+				handler : function() {
+					window.location.href='login.html';
+				}
+				},
+			    {
+					text : '注册',
+					handler : function() {
+						register();
+					}
+				}
+				]
+		});
+	});
+	function register() {
+		if ($('#regForm').form('validate')) {
+			parent.$.messager.progress({
+				title : '提示',
+				text : '注册数据处理中，请稍后....'
+			});
+			$.post('${base}/reg', $('#regForm').serialize(), function(result) {
+				if (result.success) {
+					$('#registerDialog').dialog('close');
+					$.messager.show({
+						title : '提示',
+						msg : result.msg,
+						showType : 'slide'
+					});
+					location.replace('${base}/login.html?username='+result.obj.username);
+				} else {
+					$.messager.alert('错误', result.msg, 'error');
+				}
+				parent.$.messager.progress('close');
+			}, "JSON");
+		}
+	}
+</script>
+<body>
+
+<div id="registerDialog" title="用户注册" style="width: 300px; height: 320px; overflow: hidden; ">
+	<form id="regForm" method="post">
+		<table class="table table-hover table-condensed">
+			<tr>
+				<th>登录名</th>
+				<td><input name="username" type="text" placeholder="请输入登录名" class="easyui-validatebox" data-options="required:true"></td>
+			</tr>
+			<tr>
+				<th>密码</th>
+				<td><input name="password" type="password" placeholder="请输入密码" class="easyui-validatebox" data-options="required:true"></td>
+			</tr>
+			<tr>
+				<th>重复</th>
+				<td><input name="rePwd" type="password" placeholder="请再次输入密码" class="easyui-validatebox" data-options="required:true,validType:'eqPwd[\'#regForm input[name=password]\']'"></td>
+			</tr>
+			<tr><th>类型</th><td><input type="radio" name="usertype" id="usertype" value="2" checked="checked"/>企业会员&nbsp;&nbsp; 
+			<input type="radio" name="usertype" id="usertype" value="1" />个人会员&nbsp;&nbsp; </td></tr>			
+		</table>
+	</form>
+</div>
+</body>
+</html>

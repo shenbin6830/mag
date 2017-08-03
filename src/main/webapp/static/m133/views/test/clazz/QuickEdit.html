@@ -1,0 +1,40 @@
+<!--QuickList，抢答新建/编辑-->
+<ion-view view-title='抢答' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+			<li class="item"><h2>状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.status"> 
+					<option ng-repeat="(key,value) in ao_Quick_status" value="{{key}}" ng-selected="key==obj.status">{{value}}</option>
+					</select>
+				</p>
+			</li>
+			<li class="item"><h2>公开状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.ptype"> 
+					<option ng-repeat="(key,value) in ao_Quick_ptype" value="{{key}}" ng-selected="key==obj.ptype">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>排列顺序</h2><p><input type="text" ng-model="obj.priority" /></p></li>
+		<li class="item"><h2>频道内序号</h2><p><input type="text" ng-model="obj.articlechannelId" /></p></li>
+		<li class="item"><h2>提问者</h2><p><input type="text" ng-model="obj.memberQu" /></p></li>
+		<li class="item"><h2>每个奖金</h2><p><input type="text" ng-model="obj.priceeach" /></p></li>
+		<li class="item"><h2>奖金数量</h2><p><input type="text" ng-model="obj.pricenum" /></p></li>
+		<li class="item"><h2>总奖金</h2><p><input type="text" ng-model="obj.price" /></p></li>
+		<li class="item"><h2>观看费</h2><p><input type="text" ng-model="obj.viewprice" /></p></li>
+		<li class="item"><h2>回答人数</h2><p><input type="text" ng-model="obj.answernum" /></p></li>
+		<li class="item"><h2>观看人数</h2><p><input type="text" ng-model="obj.viewnum" /></p></li>
+		<li class="item"><h2>标题</h2><p><input type="text" ng-model="obj.title" /></p></li>
+		<li class="item"><h2>问题</h2><p><input type="text" ng-model="obj.question" /></p></li>
+		<li class="item"><h2>能看不</h2><p><input type="text" ng-model="obj.canread" /></p></li>
+		<li class="item"><h2>答案列表</h2><p><input type="text" ng-model="obj.listQuickTxt" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

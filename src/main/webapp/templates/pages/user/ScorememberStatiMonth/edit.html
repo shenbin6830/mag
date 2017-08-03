@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	$(function() {
+		editHtmlInit('${baserest}/user/ScorememberStatiMonth/update.html');
+	});
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+				<input id="id" name="id" type="hidden" value="${scorememberStatiMonth.id}" />
+	<@z.pmt key="42.ScorememberStatiMonth.gmtStati">
+				<@p.text label="db.ScorememberStatiMonth.gmtStati" nameid="gmtStati"  value="${scorememberStatiMonth.gmtStati}" help=">=每月1日0:0，<下月1日0:0" dataoptions="validType:['length[0,20]',]" moreopt=""/>
+	</@z.pmt>
+	<@z.pmt key="42.ScorememberStatiMonth.memberId">
+				<@p.searchforid label="db.ScorememberStatiMonth.memberId" nameid="memberId" value="${scorememberStatiMonth.memberId}" stringvalue="${scorememberStatiMonth.memberIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScorememberStatiMonth.num">
+				<@p.textnumber label="db.ScorememberStatiMonth.num" nameid="num"  value="${scorememberStatiMonth.num}" help="正负，正是增加，负是减少，零也创建记录" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScorememberStatiMonth.nstart">
+				<@p.textnumber label="db.ScorememberStatiMonth.nstart" nameid="nstart"  value="${scorememberStatiMonth.nstart}" help="1日0:0时的分数，月初数+本月增减分数=月末数" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScorememberStatiMonth.nend">
+				<@p.textnumber label="db.ScorememberStatiMonth.nend" nameid="nend"  value="${scorememberStatiMonth.nend}" help="下月1日0:0时的分数" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="42.ScorememberStatiMonth.cmemo">
+				<@p.text label="db.ScorememberStatiMonth.cmemo" nameid="cmemo"  value="${scorememberStatiMonth.cmemo}" help="" dataoptions="validType:['length[0,200]',]" moreopt=""/>
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+		</form>
+	</div>
+</div>
+

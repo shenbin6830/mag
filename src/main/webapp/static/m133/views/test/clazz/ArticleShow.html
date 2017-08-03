@@ -1,0 +1,30 @@
+<!--ArticleShow，文章详细信息-->
+<ion-view view-title='文章' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/ArticleEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>修改时间</h2><p>{{obj.gmtModifiedString}}</p></li>
+		<li class="item">排列顺序:{{obj.priority}}</li>
+		<li class="item"><h2>文章频道内序号</h2><p>{{obj.articlechannelIdString}}</p></li>
+		<li class="item"><h2>作者内序号</h2><p>{{obj.memberIdString}}</p></li>
+		<li class="item">名称:{{obj.title}}</li>
+		<li class="item">简介:{{obj.intro}}</li>
+		<li class="item">作者:{{obj.author}}</li>
+		<li class="item"><a href='\"+{{obj.linkto}}+\"' target='_blank'>查看</a></li>
+		<li class="item">图1</li>
+		<li class="item" style="height:120px"><img reset-img="" ng-src='{{obj.img1}}' style="height:120px" /></li>
+		<li class="item">点击次数:{{obj.hittimes}}</li>
+		<li class="item"><a href='\"+{{obj.genurl}}+\"' target='_blank'>查看</a></li>
+			<li class="item">#######文章内容##########</li>
+		<li class="item"><h2>商品ID</h2><p>{{obj.articleExtTxt.idString}}</p></li>
+		<li class="item">详细介绍</li>
+		<li class="item"><div dynamic="obj.articleExtTxt.txt"></div></li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

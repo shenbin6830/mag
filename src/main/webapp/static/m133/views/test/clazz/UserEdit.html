@@ -1,0 +1,37 @@
+<!--UserList，账号信息修改新建/编辑-->
+<ion-view view-title='账号信息修改' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<!--修改-->
+	<ul class="list">
+			<li class="item"><h2>状态</h2>
+				<p>
+					<select class="form-control" ng-model="obj.status"> 
+					<option ng-repeat="(key,value) in ao_User_status" value="{{key}}" ng-selected="key==obj.status">{{value}}</option>
+					</select>
+				</p>
+			</li>
+			<li class="item"><h2>角色</h2>
+				<p>
+					<select class="form-control" ng-model="obj.roleId"> 
+					<option ng-repeat="(key,value) in ao_User_roleId" value="{{key}}" ng-selected="key==obj.roleId">{{value}}</option>
+					</select>
+				</p>
+			</li>
+		<li class="item"><h2>账号</h2><p><input type="text" ng-model="obj.username" /></p></li>
+		<li class="item"><h2>密码</h2><p><input type="text" ng-model="obj.password" /></p></li>
+		<li class="item"><h2>昵称</h2><p><input type="text" ng-model="obj.nickname" /></p></li>
+		<li class="item"><h2>隶属于</h2><p><input type="text" ng-model="obj.userId" /></p></li>
+		<li class="item"><h2>微信openid</h2><p><input type="text" ng-model="obj.openid" /></p></li>
+		<li class="item"><h2>类型对象</h2><p><input type="text" ng-model="obj.userobj" /></p></li>
+		<li class="item"><h2>权限列表</h2><p><input type="text" ng-model="obj.pmtmap" /></p></li>
+		<li class="item"><h2>拥有的对象</h2><p><input type="text" ng-model="obj.objmap" /></p></li>
+		<li class="item"><h2>微信openidMd5</h2><p><input type="text" ng-model="obj.openidmd5" /></p></li>
+		<li class="item"><h2>token</h2><p><input type="text" ng-model="obj.token" /></p></li>
+		<li class="item"><a ng-click="save()" class="button button-full button-balanced"><i class="icon ion-checkmark"></i>保存</a></li>
+		<li class="item"><a ng-click="" class="button button-full button-dark"><i class="icon ion-close"></i>取消</a></li>
+	</ul>
+  </ion-content>
+</ion-view>

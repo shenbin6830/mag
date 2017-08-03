@@ -1,0 +1,46 @@
+
+
+<script type="text/javascript">
+$(function() {
+	newHtmlInit('${baserest}/user/QuickTxt/create.html');
+});
+
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<form id="form" method="post">
+			<#if copyfrom??><input name="copyfrom" type="hidden" value="${copyfrom}"></#if>
+			<#if copyfromwhere??><input name="copyfromwhere" type="hidden" value="${copyfromwhere}"></#if>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			<br/>
+			<table class="table table-hover table-condensed">
+	<@z.pmt key="41.QuickTxt.quickId">
+				<@p.searchforid label="db.QuickTxt.quickId" nameid="quickId" value="${quickTxt.quickId}" stringvalue="${quickTxt.quickIdString}" help="" dataoptions="searcher:searchOtherId" url="/user/Quick/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.statusWin">
+				<@p.radiolocal label="db.QuickTxt.statusWin" nameid="statusWin" value="${quickTxt.statusWin}" help="" mapname="selectmap_QuickTxt_statusWin" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.memberAn">
+				<@p.searchforid label="db.QuickTxt.memberAn" nameid="memberAn" value="${quickTxt.memberAn}" stringvalue="${quickTxt.memberAnString}" help="" dataoptions="searcher:searchOtherId" url="/user/Member/index.html?queryhq=&newobj=" needField="mynameid" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.goodnum">
+				<@p.textnumber label="db.QuickTxt.goodnum" nameid="goodnum"  value="${quickTxt.goodnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.badnum">
+				<@p.textnumber label="db.QuickTxt.badnum" nameid="badnum"  value="${quickTxt.badnum}" help="计算产生" dataoptions="min:-999999999,max:999999999," moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.ctype">
+				<@p.radiolocal label="db.QuickTxt.ctype" nameid="ctype" value="${quickTxt.ctype}" help="" mapname="selectmap_QuickTxt_ctype" moreopt="" />
+	</@z.pmt>
+	<@z.pmt key="41.QuickTxt.answer">
+				<@p.textarea label="db.QuickTxt.answer" nameid="answer" value="${quickTxt.answer}" help="限2000汉字" dataoptions="validType:['length[0,4000]',]" moreopt="" />
+	</@z.pmt>
+			</table>
+			<br/>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'book_save'" href="javascript:void(0)" onclick="javascript:$('#form').submit()">提交</a>
+			</form>
+	</div>
+</div>
+

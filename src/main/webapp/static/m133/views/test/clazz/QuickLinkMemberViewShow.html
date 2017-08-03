@@ -1,0 +1,18 @@
+<!--QuickLinkMemberViewShow，观看抢答的会员详细信息-->
+<ion-view view-title='观看抢答的会员' cache-view='false'>
+  <ion-nav-buttons side="right">
+		<h4></h4>
+	  <a class="button icon ion-edit" href="#/tab/QuickLinkMemberViewEdit/{{obj.id}}"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" >
+	<ul class="list">
+		<li class="item">序号:{{obj.id}}</li>
+		<li class="item"><h2>创建时间</h2><p>{{obj.gmtCreateString}}</p></li>
+		<li class="item"><h2>抢答ID</h2><p>{{obj.quickIdString}}</p></li>
+		<li class="item"><h2>提问者</h2><p>{{obj.memberQuString}}</p></li>
+		<li class="item">观看费:{{obj.viewprice}}</li>
+		<li class="item"><h2>观看者</h2><p>{{obj.memberViString}}</p></li>
+	</ul>
+    <ion-spinner class="topic-spinner ng-hide" ng-show="!obj" ng-style="{'top':getHalfHeight()+'px'}"></ion-spinner>
+  </ion-content>
+</ion-view>

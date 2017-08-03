@@ -1,0 +1,97 @@
+
+
+
+<script type="text/javascript">
+	parent.$.messager.progress('close');
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false">
+		<a class="easyui-linkbutton" data-options="iconCls:'cancel'" href="javascript:void(0)" onclick="javascript:$('#w2').window('close')">关闭</a>
+		<br/>
+		<table class="table table-hover table-condensed">
+	<@z.pmt key="51.Orderr.gmtCreate">
+		<tr><th>创建时间</th><td>
+		${orderr.gmtCreateString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.gmtPay">
+		<tr><th>支付时间</th><td>
+		${orderr.gmtPayString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.iotype">
+		<tr><th>开单类型</th><td>
+		${orderr.iotypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.status">
+		<tr><th>支付状态</th><td>
+		${orderr.statusString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.statusgoods">
+		<tr><th>收发货状态</th><td>
+		${orderr.statusgoodsString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.statusCarriageType">
+		<tr><th>提货方式</th><td>
+		${orderr.statusCarriageTypeString}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.sn">
+		<tr><th>订单号</th><td>
+		${orderr.sn}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.memberId">
+		<tr><th>会员</th><td>
+		${orderr.memberIdStringid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.sumprice">
+		<tr><th>总价</th><td>
+		${orderr.sumprice}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.img1">
+		<tr><th>图1</th><td>
+		${orderr.img1}
+		<br/><img src="${orderr.img1}" />
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.drugstoreId">
+		<tr><th>取药点</th><td>
+		${orderr.drugstoreIdStringid}
+		</td></tr>
+	</@z.pmt>
+
+	<@z.pmt key="51.Orderr.operId">
+		<tr><th>取药操作员</th><td>
+		${orderr.operIdStringid}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.docmake">
+		<tr><th>配药药师</th><td>
+		${orderr.docmake}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.doccheck">
+		<tr><th>复核药师</th><td>
+		${orderr.doccheck}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.productnums">
+		<tr><th>商品数量</th><td style="color:#F00;">
+		${orderr.productnums}
+		</td></tr>
+	</@z.pmt>
+	<@z.pmt key="51.Orderr.diagnose">
+		<tr><th>诊断</th><td>
+		${orderr.diagnose}
+		</td></tr>
+	</@z.pmt>
+		</table>
+	</div>
+</div>
+
